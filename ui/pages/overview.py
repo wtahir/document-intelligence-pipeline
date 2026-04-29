@@ -134,6 +134,37 @@ def render():
 
         st.markdown("<br>", unsafe_allow_html=True)
 
+        # ─── LLM Cost Tracking ───────────────────────────
+        query_log = load_json("query_log.json")
+
+        extraction_cost = (extraction.get("token_usage", {}) or {}).get("cost_usd", 0) if extraction else 0
+        retrieval_cost = sum(
+            (q.get("token_usage", {}) or {}).get("cost_usd", 0)
+            for q in (query_log or [])
+        )
+        eval_cost = (evaluation.get("eval_token_usage", evaluation.get("token_usage", {})) or {}).get("cost_usd", 0) if evaluation else 0
+        total_cost = extraction_cost + retrieval_cost + eval_cost
+
+        extraction_tokens = (extraction.get("token_usage", {}) or {}).get("total_tokens", 0) if extraction else 0
+        retrieval_tokens = sum(
+            (q.get("token_usage", {}) or {}).get("total_tokens", 0)
+            for q in (query_log or [])
+        )
+        eval_tokens = (evaluation.get("eval_token_usage", evaluation.get("token_usage", {})) or {}).get("total_tokens", 0) if evaluation else 0
+        total_tokens = extraction_tokens + retrieval_tokens + eval_tokens
+
+        if total_cost > 0 or total_tokens > 0:
+            st.markdown("### LLM Cost Tracking")
+            render_kpi_row([
+                {"label": "Total Cost", "value": f"${total_cost:.4f}", "icon": ""},
+                {"label": "Extraction", "value": f"${extraction_cost:.4f}", "icon": ""},
+                {"label": "Retrieval", "value": f"${retrieval_cost:.4f}", "icon": ""},
+                {"label": "Evaluation", "value": f"${eval_cost:.4f}", "icon": ""},
+                {"label": "Total Tokens", "value": f"{total_tokens:,}", "icon": ""},
+            ])
+
+            st.markdown("<br>", unsafe_allow_html=True)
+
     # ─── Pipeline Architecture ───────────────────────────
     st.markdown("### Pipeline Architecture")
     render_pipeline_flow()

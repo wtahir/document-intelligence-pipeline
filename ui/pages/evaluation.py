@@ -258,6 +258,7 @@ def render():
                     "Failure": q.get("failure_type", "—"),
                     "Avg Dist": f"{q.get('avg_distance', 0):.3f}" if q.get("avg_distance") else "—",
                     "Chunks": q.get("chunks_retrieved", 0),
+                    "Cost (USD)": f"${(q.get('token_usage', {}) or {}).get('cost_usd', 0):.4f}" if (q.get("token_usage", {}) or {}).get("cost_usd") else "—",
                 })
 
             df = pd.DataFrame(table_data)
@@ -339,6 +340,35 @@ def render():
                 st.success("🎉 All evaluated queries scored 4/5 or above. Nice work!")
         else:
             st.info("No evaluated queries found. Run Stage 6 (Evaluation) first.")
+
+    # ─── Cost Summary ─────────────────────────────────────
+    if query_log:
+        eval_cost = (evaluation.get("eval_token_usage", evaluation.get("token_usage", {})) or {}).get("cost_usd", 0) if evaluation else 0
+        retrieval_cost = sum(
+            (q.get("token_usage", {}) or {}).get("cost_usd", 0)
+            for q in query_log
+        )
+        total_eval_tokens = (
+            (evaluation.get("eval_token_usage", evaluation.get("token_usage", {})) or {}).get("total_tokens", 0)
+            if evaluation else 0
+        )
+        retrieval_tokens = sum(
+            (q.get("token_usage", {}) or {}).get("total_tokens", 0)
+            for q in query_log
+        )
+        combined_cost = eval_cost + retrieval_cost
+
+        if combined_cost > 0:
+            st.markdown("### LLM Costs (Retrieval + Evaluation)")
+            cost_cols = st.columns(4)
+            with cost_cols[0]:
+                st.metric("Total Cost", f"${combined_cost:.4f}")
+            with cost_cols[1]:
+                st.metric("Retrieval Cost", f"${retrieval_cost:.4f}")
+            with cost_cols[2]:
+                st.metric("Evaluation Cost", f"${eval_cost:.4f}")
+            with cost_cols[3]:
+                st.metric("Total Tokens", f"{retrieval_tokens + total_eval_tokens:,}")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
