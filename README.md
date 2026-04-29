@@ -20,8 +20,13 @@ Insurance companies process thousands of claim documents daily across multiple l
 - **Multi-document claims** — Each claim case bundles an email, invoice, and photo report linked by claim number
 - **Automated coverage checks** — Cross-references extracted data against policy metadata to flag uninsured claims
 - **Two-stage retrieval** — bi-encoder recall + cross-encoder precision (reranking)
-- **Automated quality measurement** — LLM-as-judge scoring with failure type diagnosis
-- **Production patterns** — idempotent stages, containerised deployment, async processing
+- **BM25 hybrid search** — Dense + keyword scoring for better recall on exact terms
+- **Automated quality measurement** — LLM-as-judge scoring with failure type diagnosis + ground truth metrics (MRR, Recall@K, Precision@K)
+- **PII redaction** — Regex-based redaction of emails, phone numbers, IBANs, and addresses before LLM calls
+- **Citation grounding** — LLM must cite `[Chunk N]` references; citations are verified post-generation
+- **Prompt injection protection** — Pattern-based detection blocks adversarial queries
+- **LLM cost tracking** — Model-aware token usage and cost estimation per stage
+- **Production patterns** — idempotent stages, hash-based dedup, stale vector GC, containerised deployment, async processing
 
 ---
 
@@ -53,12 +58,12 @@ Insurance companies process thousands of claim documents daily across multiple l
 
 | # | Stage | What happens | Key tech |
 |---|-------|-------------|----------|
-| 1 | **Ingestion** | Reads PDFs, extracts text page-by-page, tracks failures per page | pdfplumber |
-| 2 | **Extraction** | Classifies document type (email / invoice / photo), extracts structured fields, validates with Pydantic schemas | GPT-4o + Pydantic |
-| 3 | **Chunking** | Splits text into overlapping pieces respecting sentence & word boundaries | Custom logic |
-| 4 | **Embedding** | Converts chunks to vectors, stores with metadata for filtered search | Sentence Transformers + ChromaDB |
-| 5 | **Retrieval** | Bi-encoder recall → cross-encoder reranking → grounded LLM answer | ChromaDB + Cross-Encoder + GPT-4o |
-| 6 | **Evaluation** | Scores retrieval & answer quality separately, identifies failure types | LLM-as-Judge |
+| 1 | **Ingestion** | Reads PDFs, extracts text page-by-page, computes content hashes for dedup, tracks failures per page | pdfplumber |
+| 2 | **Extraction** | Classifies document type (email / invoice / photo), PII-redacts text before LLM, extracts structured fields, validates with Pydantic schemas, tracks token usage + cost | GPT-4o + Pydantic |
+| 3 | **Chunking** | Document-aware splitting by section headers (email/invoice/photo patterns), with overlap and word boundaries | Custom logic |
+| 4 | **Embedding** | Hash-based dedup (skips unchanged chunks), stores vectors with metadata, garbage-collects stale vectors | Sentence Transformers + ChromaDB |
+| 5 | **Retrieval** | BM25 hybrid search → cross-encoder reranking → PII redaction → prompt injection check → confidence thresholding → citation-grounded LLM answer | ChromaDB + BM25 + Cross-Encoder + GPT-4o |
+| 6 | **Evaluation** | LLM-as-judge scoring (retrieval + answer), ground truth metrics (MRR, Recall@5, Precision@5), token cost tracking | LLM-as-Judge + claim_registry |
 
 Each stage reads the previous stage's output and writes its own — you can rerun any single stage without starting over.
 
@@ -69,9 +74,16 @@ Each stage reads the previous stage's output and writes its own — you can reru
 | Decision | Rationale |
 |----------|-----------|
 | **Cross-encoder reranking** | Bi-encoders are fast but imprecise. A cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`) re-scores the top-15 candidates for much better top-5 precision. Standard in production RAG systems. |
+| **BM25 hybrid search** | Dense embeddings miss exact keyword matches. Combining BM25 keyword scoring (weight 0.3) with dense retrieval (weight 0.7) improves recall on specific terms like claim numbers and policy IDs. |
 | **Pydantic validation on LLM output** | LLMs return unpredictable JSON. Validating against typed schemas catches errors at extraction time, not downstream. |
 | **Separate retrieval vs answer scoring** | A bad answer could mean wrong chunks (retrieval failure) or good chunks but poor generation (generation failure). Distinguishing these tells you *where* to improve. |
 | **Multilingual embedding model** | `paraphrase-multilingual-MiniLM-L12-v2` maps German and English into the same vector space — query in English, match German documents. |
+| **Hash-based dedup** | SHA-256 content hashes computed at ingestion propagate through all stages. Stage 4 skips re-embedding unchanged chunks, and garbage-collects orphaned vectors. |
+| **PII redaction before LLM** | Emails, phone numbers, IBANs, and German addresses are regex-redacted before sending text to the LLM, then restored in the final answer. Minimises data exposure. |
+| **Citation grounding** | The LLM is prompted to cite `[Chunk N]` for every claim. Post-generation verification checks that all cited chunks actually exist, flagging hallucinated references. |
+| **Confidence thresholding** | If average retrieval distance exceeds the threshold (0.75), the system returns `INSUFFICIENT_CONTEXT` instead of guessing. Reduces hallucination on out-of-scope queries. |
+| **Prompt injection protection** | Incoming queries are scanned against regex patterns for common injection attacks ("ignore previous instructions", role overrides, etc.) and blocked before reaching the LLM. |
+| **Model-aware cost tracking** | Token usage (prompt + completion) and estimated USD cost are logged per LLM call. Pricing is looked up from a 14-model table keyed by the `AZURE_OPENAI_DEPLOYMENT` name. |
 | **Idempotent stages** | Every stage skips already-processed items. Safe to rerun after failures without duplication. |
 | **Centralised configuration** | All thresholds, model names, and paths in `config.py` with environment variable overrides. No magic numbers in stage files. |
 | **Lazy model loading** | ChromaDB client and embedding models load on first use, not at import time. Prevents side effects in tests and UI imports. |
@@ -154,6 +166,7 @@ Important for Streamlit Cloud: commit these synthetic demo artifacts to GitHub s
 - `data/pdfs/*.pdf`
 - `data/output/*.json`
 - `chroma_db/*`
+- `logs/*.log` (force-add with `git add -f logs/*.log` since logs/ is gitignored)
 
 You can keep your current local workflow for full processing (`DEMO_MODE=false` / unset).
 
@@ -195,7 +208,7 @@ docker-compose -f docker-compose-celery.yaml up
 python -m pytest tests/ -v
 ```
 
-Tests cover core logic (chunking, validation, metadata building, config) without requiring API keys.
+62 tests cover core logic (chunking, validation, metadata building, config) plus production features (PII redaction, hybrid search, prompt injection, confidence thresholding, citation verification, ground truth metrics, document-aware chunking) — all without requiring API keys.
 
 ---
 
@@ -215,7 +228,8 @@ insurance-pipeline/
 │
 ├── tasks.py                    # Celery task wrappers for parallel processing
 ├── celery_app.py               # Celery + Redis configuration
-├── generate_synthetic_data.py  # Generate 36 claim cases × 3 documents (108 PDFs)
+├── pii_redactor.py             # PII detection + redaction (IBAN, email, phone, address)
+├── generate_synthetic_data.py  # Generate 30 claim cases × 3 documents (90 PDFs)
 ├── streamlit_app.py            # Streamlit Cloud entrypoint
 │
 ├── ui/                         # Streamlit dashboard
@@ -306,6 +320,10 @@ All parameters are configurable via environment variables or `.env`:
 | `RERANK_TOP_K` | 5 | Chunks returned after reranking |
 | `RETRIEVAL_OVER_FETCH` | 15 | Bi-encoder candidates before reranking |
 | `DISTANCE_THRESHOLD` | 0.6 | Cosine distance cutoff for poor retrievals |
+| `CONFIDENCE_THRESHOLD` | 0.75 | Max avg distance before refusing to answer |
+| `HYBRID_SEARCH_ENABLED` | true | Enable BM25 + dense hybrid scoring |
+| `BM25_WEIGHT` | 0.3 | Weight for BM25 keyword score (dense = 1 − weight) |
+| `PII_REDACTION_ENABLED` | true | Redact PII before sending text to LLM |
 
 ---
 
