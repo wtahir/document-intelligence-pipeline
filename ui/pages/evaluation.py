@@ -25,8 +25,9 @@ def render():
 
     render_hero(
         title="Evaluation Dashboard",
-        subtitle="Analyse RAG pipeline quality with retrieval and answer scores, failure breakdowns, "
-                 "distance distributions, and actionable improvement suggestions from GPT-4o-as-judge.",
+        subtitle="Analyse RAG pipeline quality for water, storm, and glass damage claim queries. "
+                 "Review retrieval and answer scores, failure breakdowns, distance distributions, "
+                 "and actionable improvement suggestions from GPT-4o-as-judge.",
         badge="Quality Analytics",
     )
 
@@ -348,8 +349,8 @@ def render():
     with eval_cols[0]:
         if demo_mode:
             st.markdown("""
-            Demo mode is active. Evaluation execution is disabled on hosted deployments.
-            The charts above are rendered from precomputed evaluation artifacts.
+            Demo mode is active — evaluation execution is disabled on hosted deployments.
+            The charts above show precomputed evaluation results for water/storm/glass damage queries.
             """)
         else:
             st.markdown("""

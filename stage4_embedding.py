@@ -92,6 +92,10 @@ def build_metadata(chunk: dict) -> dict:
         "file_name": safe(chunk.get("file_name")),
         "document_type": safe(chunk.get("document_type")),
         "claim_number": safe(chunk.get("claim_number")),
+        "claimant_name": safe(chunk.get("claimant_name")),
+        "policy_number": safe(chunk.get("policy_number")),
+        "damage_type": safe(chunk.get("damage_type")),
+        "damaged_object": safe(chunk.get("damaged_object")),
         "date": safe(chunk.get("date")),
         "sender": safe(chunk.get("sender")),
         "urgency": safe(chunk.get("urgency")),
@@ -100,7 +104,9 @@ def build_metadata(chunk: dict) -> dict:
         "total_chunks": int(chunk.get("total_chunks", 1)),
         "is_single_chunk": bool(chunk.get("is_single_chunk", False)),
         "summary_en": safe(chunk.get("summary_en")),
-        "action_required": safe(chunk.get("action_required")),
+        "total_amount_eur": safe(chunk.get("total_amount_eur")),
+        "vendor": safe(chunk.get("vendor")),
+        "damage_severity": safe(chunk.get("damage_severity")),
     }
 
 

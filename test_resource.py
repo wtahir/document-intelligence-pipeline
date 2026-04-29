@@ -12,7 +12,7 @@ client = AzureOpenAI(
 )
 
 response = client.chat.completions.create(
-    model="gpt-4o",
+    model="gpt-5-mini",
     messages=[
         {"role": "user", "content": "Reply with: connection successful"}
     ]

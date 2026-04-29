@@ -49,7 +49,9 @@ DISTANCE_THRESHOLD_VAL = DISTANCE_THRESHOLD
 # 2. Answer quality — was the answer accurate, complete, grounded in context?
 # Scores are 1-5 with explicit criteria so the judge is consistent.
 
-EVALUATION_PROMPT = """You are evaluating a RAG (Retrieval Augmented Generation) pipeline for insurance claims.
+EVALUATION_PROMPT = """You are evaluating a RAG (Retrieval Augmented Generation) pipeline for insurance claims processing.
+The pipeline handles water damage, storm damage, and glass damage claims.
+Documents include claim notification emails, repair invoices, and damage photo documentation.
 
 You will receive:
 - A question asked by a user
@@ -59,16 +61,16 @@ You will receive:
 Score the following on a scale of 1-5:
 
 RETRIEVAL SCORE (were the right chunks retrieved?):
-5 - All chunks are highly relevant, directly address the question
+5 - All chunks are highly relevant, directly address the question with correct damage type/claim
 4 - Most chunks relevant, minor irrelevant content
-3 - Mixed relevance, some useful chunks but also noise
-2 - Mostly irrelevant chunks, little useful content retrieved
+3 - Mixed relevance, some useful chunks but also noise from wrong damage types
+2 - Mostly irrelevant chunks, wrong damage types or claims retrieved
 1 - Completely irrelevant chunks, wrong documents retrieved
 
 ANSWER SCORE (was the answer good?):
-5 - Complete, accurate, well-structured, directly answers the question
+5 - Complete, accurate, correctly identifies damage type, damaged object, and amounts
 4 - Mostly complete and accurate, minor gaps
-3 - Partially answers the question, some gaps or vagueness
+3 - Partially answers the question, some gaps in damage classification or object identification
 2 - Incomplete or partially incorrect based on the context
 1 - Wrong, hallucinated, or refuses to answer despite relevant context
 
@@ -79,14 +81,14 @@ FAILURE TYPE:
 - "both" if both scores are below 3
 
 RESPOND ONLY with valid JSON, no explanation, no markdown:
-{
+{{
   "retrieval_score": <1-5>,
   "answer_score": <1-5>,
   "failure_type": "<none|retrieval|generation|both>",
   "retrieval_notes": "<one sentence on retrieval quality>",
   "answer_notes": "<one sentence on answer quality>",
   "improvement_suggestion": "<one concrete suggestion to improve this specific query>"
-}
+}}
 
 Question: {query}
 
@@ -111,6 +113,8 @@ def format_chunks_for_evaluation(chunks: list[dict]) -> str:
         parts.append(
             f"[Chunk {i+1} | Distance: {distance} | "
             f"Claim: {meta.get('claim_number')} | "
+            f"Type: {meta.get('document_type')} | "
+            f"Damage: {meta.get('damage_type')} | "
             f"File: {meta.get('file_name')}]\n{text}"
         )
     return "\n\n".join(parts)

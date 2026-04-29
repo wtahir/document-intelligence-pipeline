@@ -108,19 +108,28 @@ def build_chunk_record(
         "is_single_chunk": total_chunks == 1,
 
         # Document-level metadata — attached to every chunk from this document
-        # This means a retrieved chunk always knows its full context
         "file_name": document.get("file_name"),
         "file_path": document.get("file_path"),
         "document_type": document.get("document_type", "unknown"),
         "language": document.get("language", "unknown"),
         "claim_number": document.get("claim_number"),
+        "claimant_name": document.get("claimant_name"),
+        "policy_number": document.get("policy_number"),
+        "damage_type": document.get("damage_type"),
+        "damaged_object": document.get("damaged_object"),
         "date": document.get("date"),
         "sender": document.get("sender"),
         "summary_en": document.get("summary_en"),
-        "action_required": document.get("action_required"),
         "urgency": document.get("urgency", "normal"),
         "confidence": document.get("confidence", 0.0),
         "failed_pages": document.get("failed_pages", []),
+
+        # Invoice-specific fields (null for non-invoices)
+        "total_amount_eur": document.get("total_amount_eur"),
+        "vendor": document.get("vendor"),
+
+        # Photo-specific fields (null for non-photos)
+        "damage_severity": document.get("damage_severity"),
 
         # Pipeline metadata
         "chunked_at": datetime.now().isoformat()

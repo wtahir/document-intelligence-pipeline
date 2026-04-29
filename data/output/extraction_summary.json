@@ -1,10 +1,17 @@
 {
-  "run_at": "2026-04-20T17:51:22.488692",
-  "total_documents": 90,
-  "successful": 90,
+  "run_at": "2026-04-29T16:42:10.716338",
+  "total_documents": 108,
+  "successful": 108,
   "failed": 0,
   "skipped": 0,
   "document_types_found": {
-    "claim_communication": 90
+    "claim_email": 36,
+    "photo_documentation": 36,
+    "invoice": 36
+  },
+  "damage_types_found": {
+    "storm": 36,
+    "glass": 36,
+    "water": 36
   }
 }

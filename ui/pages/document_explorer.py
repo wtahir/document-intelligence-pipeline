@@ -48,22 +48,23 @@ def render():
 
     doc_types = {}
     languages = {}
-    urgency_counts = {}
+    damage_type_counts = {}
     for d in docs:
         if d.get("status") == "success":
             dt = d.get("document_type", "unknown")
             doc_types[dt] = doc_types.get(dt, 0) + 1
             lang = d.get("language", "unknown")
             languages[lang] = languages.get(lang, 0) + 1
-            urg = d.get("urgency", "normal")
-            urgency_counts[urg] = urgency_counts.get(urg, 0) + 1
+            dmg = d.get("damage_type", "unknown")
+            if dmg:
+                damage_type_counts[dmg] = damage_type_counts.get(dmg, 0) + 1
 
     render_kpi_row([
         {"label": "Total Documents", "value": total, "icon": ""},
         {"label": "Successful", "value": successful, "icon": ""},
         {"label": "Failed", "value": failed, "icon": ""},
         {"label": "Document Types", "value": len(doc_types), "icon": ""},
-        {"label": "Languages", "value": len(languages), "icon": ""},
+        {"label": "Damage Types", "value": len(damage_type_counts), "icon": ""},
     ])
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -81,8 +82,8 @@ def render():
         status_options = ["All", "success", "failed", "skipped"]
         selected_status = st.selectbox("Status", status_options)
     with filter_cols[3]:
-        urgency_options = ["All"] + sorted(urgency_counts.keys())
-        selected_urgency = st.selectbox("Urgency", urgency_options)
+        damage_options = ["All"] + sorted(damage_type_counts.keys())
+        selected_damage = st.selectbox("Damage Type", damage_options)
 
     # Apply filters
     filtered = docs
@@ -97,8 +98,8 @@ def render():
         filtered = [d for d in filtered if d.get("document_type") == selected_type]
     if selected_status != "All":
         filtered = [d for d in filtered if d.get("status") == selected_status]
-    if selected_urgency != "All":
-        filtered = [d for d in filtered if d.get("urgency") == selected_urgency]
+    if selected_damage != "All":
+        filtered = [d for d in filtered if d.get("damage_type") == selected_damage]
 
     st.markdown(f"**Showing {len(filtered)} of {total} documents**")
 
@@ -136,12 +137,12 @@ def render():
             st.plotly_chart(fig, width='stretch')
 
         with viz_cols[2]:
-            st.markdown("**By Urgency**")
-            df_urg = pd.DataFrame([{"Urgency": k.title(), "Count": v} for k, v in urgency_counts.items()])
-            urg_colors = {"Low": "#10B981", "Normal": "#06B6D4", "High": "#EF4444"}
-            fig = px.bar(df_urg, x="Urgency", y="Count",
-                         color="Urgency",
-                         color_discrete_map=urg_colors)
+            st.markdown("**By Damage Type**")
+            df_dmg = pd.DataFrame([{"Damage": k.title(), "Count": v} for k, v in damage_type_counts.items()])
+            dmg_colors = {"Water": "#06B6D4", "Storm": "#F59E0B", "Glass": "#818CF8"}
+            fig = px.bar(df_dmg, x="Damage", y="Count",
+                         color="Damage",
+                         color_discrete_map=dmg_colors)
             fig.update_layout(
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 font_color="#F8FAFC", height=250, showlegend=False,
@@ -162,12 +163,12 @@ def render():
             "File": d.get("file_name", "—"),
             "Status": d.get("status", "—"),
             "Type": d.get("document_type", "—").replace("_", " ").title() if d.get("document_type") else "—",
-            "Language": d.get("language", "—").upper() if d.get("language") else "—",
+            "Damage": d.get("damage_type", "—").title() if d.get("damage_type") else "—",
+            "Damaged Object": d.get("damaged_object", "—") or "—",
             "Claim #": d.get("claim_number", "—") or "—",
-            "Date": d.get("date", "—") or "—",
-            "Urgency": d.get("urgency", "—") or "—",
+            "Claimant": d.get("claimant_name", "—") or "—",
+            "Amount": f"EUR {d.get('total_amount_eur'):,.2f}" if d.get("total_amount_eur") else "—",
             "Confidence": f"{d.get('confidence', 0):.0%}" if d.get("confidence") else "—",
-            "Summary": (d.get("summary_en", "") or "")[:100] + "..." if d.get("summary_en") else "—",
         }
         table_data.append(row)
 
@@ -180,13 +181,13 @@ def render():
             color = colors.get(val, "#94A3B8")
             return f"color: {color}; font-weight: 600"
 
-        def style_urgency(val):
-            colors = {"high": "#EF4444", "normal": "#06B6D4", "low": "#10B981"}
+        def style_damage(val):
+            colors = {"water": "#06B6D4", "storm": "#F59E0B", "glass": "#818CF8"}
             color = colors.get(str(val).lower(), "#94A3B8")
             return f"color: {color}; font-weight: 600"
 
         styled = df.style.map(style_status, subset=["Status"])
-        styled = styled.map(style_urgency, subset=["Urgency"])
+        styled = styled.map(style_damage, subset=["Damage"])
 
         st.dataframe(
             styled,
@@ -214,18 +215,19 @@ def render():
                     ("File Name", selected_doc.get("file_name")),
                     ("Status", selected_doc.get("status")),
                     ("Document Type", selected_doc.get("document_type", "").replace("_", " ").title()),
-                    ("Language", selected_doc.get("language", "").upper()),
+                    ("Damage Type", selected_doc.get("damage_type", "").title() if selected_doc.get("damage_type") else None),
+                    ("Damaged Object", selected_doc.get("damaged_object")),
                     ("Claim Number", selected_doc.get("claim_number")),
+                    ("Claimant", selected_doc.get("claimant_name")),
+                    ("Policy Number", selected_doc.get("policy_number")),
                     ("Date", selected_doc.get("date")),
                     ("Sender", selected_doc.get("sender")),
-                    ("Recipient", selected_doc.get("recipient")),
-                    ("Subject", selected_doc.get("subject")),
-                    ("Urgency", selected_doc.get("urgency")),
+                    ("Language", selected_doc.get("language", "").upper()),
                     ("Confidence", f"{selected_doc.get('confidence', 0):.0%}" if selected_doc.get("confidence") else None),
-                    ("Action Required", selected_doc.get("action_required")),
+                    ("Invoice Amount", f"EUR {selected_doc.get('total_amount_eur'):,.2f}" if selected_doc.get("total_amount_eur") else None),
+                    ("Vendor", selected_doc.get("vendor")),
+                    ("Damage Severity", selected_doc.get("damage_severity")),
                     ("Total Pages", selected_doc.get("total_pages")),
-                    ("Failed Pages", selected_doc.get("failed_pages")),
-                    ("Attachments", ", ".join(selected_doc.get("attachments_mentioned", []))),
                 ]
 
                 for i, (label, value) in enumerate(meta_fields):

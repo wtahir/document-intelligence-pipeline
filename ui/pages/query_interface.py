@@ -29,8 +29,9 @@ def render():
 
     render_hero(
         title="Query Interface",
-        subtitle="Ask questions about insurance claim documents in natural language. "
-                 "The RAG pipeline retrieves relevant chunks and generates grounded answers using GPT-4o.",
+        subtitle="Ask questions about water, storm, and glass damage claims. "
+                 "The RAG pipeline retrieves relevant chunks and generates grounded answers. "
+                 "For policy coverage and payouts, see the deterministic Payout Report.",
         badge="AI Assistant",
     )
 
@@ -41,8 +42,9 @@ def render():
 
     if demo_mode:
         st.info(
-            "Demo mode is active. Live query execution is disabled for stability. "
-            "Select a precomputed query below to explore retrieved chunks and answers."
+            "Demo mode is active — live query execution is disabled. "
+            "Select a precomputed query below to explore retrieved chunks and answers "
+            "for water, storm, and glass damage claims."
         )
         if query_log:
             recent = list(reversed(query_log))
@@ -60,9 +62,9 @@ def render():
         with query_col:
             user_query = st.text_area(
                 "Your question",
-                placeholder="e.g., What documents are missing from water damage claims?\n"
-                            "Which claims require urgent attention?\n"
-                            "What actions are required by the policyholder?",
+                placeholder="e.g., What objects were damaged in water damage claims?\n"
+                            "Show me all storm damage invoices and their total amounts.\n"
+                            "Which glass damage claims have severe damage assessments?",
                 height=120,
                 label_visibility="collapsed",
             )
@@ -261,9 +263,9 @@ def _render_query_result(result: dict, idx: int):
                         <span style="color:#94A3B8; font-size:0.75rem;">
                             📋 Claim: {html.escape(meta.get('claim_number', '—'))}</span>
                         <span style="color:#94A3B8; font-size:0.75rem;">
-                            📅 {html.escape(meta.get('date', '—'))}</span>
+                            � Damage: {html.escape(meta.get('damage_type', '—'))}</span>
                         <span style="color:#94A3B8; font-size:0.75rem;">
-                            🚨 {html.escape(meta.get('urgency', '—'))}</span>
+                            🔧 Object: {html.escape(meta.get('damaged_object', '—'))}</span>
                     </div>
                     <div style="color:#CBD5E1; font-size:0.85rem; line-height:1.6;
                                 background:#1E293B; border-radius:6px; padding:12px; white-space:pre-wrap;">

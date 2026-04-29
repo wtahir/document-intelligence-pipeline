@@ -36,9 +36,10 @@ def render():
 
     # ─── Hero ─────────────────────────────────────────────
     render_hero(
-        title="Insurance Document Intelligence",
-        subtitle="Upload insurance claim PDFs below. The pipeline will automatically "
-                 "ingest, classify, chunk, and embed your documents so you can query them.",
+        title="Insurance Claim Intelligence",
+        subtitle="Upload water, storm, or glass damage claim PDFs. The pipeline automatically "
+                 "ingests, classifies damage type, extracts amounts, checks policy coverage, "
+                 "and calculates payout decisions.",
         badge="AI-Powered Pipeline",
     )
 
@@ -53,8 +54,10 @@ def render():
 
     if demo_mode:
         st.info(
-            "Demo mode is active. Upload and pipeline execution are disabled for stability on shared deployments. "
-            "Use **Document Explorer**, **Query Interface**, and **Evaluation** to explore the preloaded sample dataset."
+            "Demo mode is active — upload and pipeline execution are disabled for stability. "
+            "Explore the preloaded water/storm/glass damage claims via **Document Explorer**, "
+            "**Query Interface**, and **Evaluation**. Policy coverage checks and payout "
+            "decisions are computed deterministically (not via RAG) from policy metadata."
         )
     else:
         uploaded_files = st.file_uploader(
@@ -146,7 +149,7 @@ def render():
         (2, "Extraction", "GPT-4o classification & structured field extraction with Pydantic validation", ""),
         (3, "Chunking", "Sentence-aware splitting with overlap, word-boundary respect", ""),
         (4, "Embedding", "Multilingual sentence-transformers → ChromaDB vector store", ""),
-        (5, "Retrieval", "Semantic search + GPT-4o RAG answer generation", ""),
+        (5, "Retrieval", "Semantic search + GPT-4o RAG answers + deterministic policy check & payout", ""),
         (6, "Evaluation", "GPT-4o-as-judge scoring retrieval & answer quality", ""),
     ]
 
@@ -176,20 +179,21 @@ def render():
                 st.info("No evaluation data yet. Use the Evaluation page to run scoring.")
 
         with right:
-            st.markdown("### Document Types")
+            st.markdown("### Damage Types")
             if extraction:
-                doc_types = extraction.get("document_types_found", {})
-                if doc_types:
+                damage_types = extraction.get("damage_types_found", {})
+                if damage_types:
                     import plotly.express as px
                     import pandas as pd
 
                     df = pd.DataFrame([
-                        {"Type": k.replace("_", " ").title(), "Count": v}
-                        for k, v in doc_types.items()
+                        {"Type": k.title(), "Count": v}
+                        for k, v in damage_types.items()
                     ])
                     fig = px.pie(
                         df, names="Type", values="Count",
-                        color_discrete_sequence=["#6366F1", "#06B6D4", "#10B981", "#F59E0B", "#EF4444"],
+                        color="Type",
+                        color_discrete_map={"Water": "#06B6D4", "Storm": "#F59E0B", "Glass": "#818CF8"},
                         hole=0.4,
                     )
                     fig.update_layout(
@@ -202,7 +206,7 @@ def render():
                     )
                     st.plotly_chart(fig, width='stretch')
                 else:
-                    st.info("No document types detected yet.")
+                    st.info("No damage types detected yet.")
             else:
                 st.info("No extraction data yet.")
 

@@ -34,14 +34,16 @@ def render():
 
     render_hero(
         title="Pipeline Runner",
-        subtitle="Execute individual processing stages or run the full pipeline end-to-end. "
-                 "Monitor progress in real-time with live logs.",
+        subtitle="Execute individual processing stages for water, storm, and glass damage claims. "
+                 "Stages 1-4 process documents; Stage 5 runs queries and generates the payout report; "
+                 "Stage 6 evaluates answer quality.",
         badge="Operations",
     )
 
     if demo_mode:
         st.warning(
-            "Demo mode is active. Pipeline execution is disabled on hosted deployments to avoid memory and index-write failures."
+            "Demo mode is active — pipeline execution is disabled on hosted deployments. "
+            "Explore the preloaded water/storm/glass damage dataset via Document Explorer, Query Interface, and Evaluation."
         )
 
     # ─── Current pipeline status ──────────────────────────

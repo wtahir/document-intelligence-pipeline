@@ -61,7 +61,7 @@ def main() -> None:
         if demo_mode:
             st.markdown(
                 "<div style='color:#F59E0B; font-size:0.8rem; font-weight:600; "
-                "text-align:center; margin-bottom:10px;'>DEMO MODE (Read-only)</div>",
+                "text-align:center; margin-bottom:10px;'>DEMO MODE — Water | Storm | Glass Claims (Read-only)</div>",
                 unsafe_allow_html=True,
             )
 

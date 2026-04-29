@@ -1,0 +1,1163 @@
+{
+  "generated_at": "2026-04-29T16:46:40.642111",
+  "total_claims": 36,
+  "approved": 25,
+  "denied": 11,
+  "total_payout_eur": 64555.52,
+  "decisions": [
+    {
+      "claim_number": "SD-2024-87638",
+      "claimant_name": "Peter Gruber",
+      "damage_type": "storm",
+      "damaged_object": "solar panels",
+      "claimed_amount_eur": 3529.53,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-111110",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers storm_damage, glass_damage",
+        "policy_number": "POL-111110",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 100000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 3529.53,
+        "deductible_eur": 250,
+        "payout_amount_eur": 3279.53,
+        "coverage_limit_eur": 100000,
+        "reason": "Claim approved. EUR 3279.53 after EUR 250 deductible (limit: EUR 100000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.640837"
+    },
+    {
+      "claim_number": "GD-2024-34845",
+      "claimant_name": "Petra Wolf",
+      "damage_type": "glass",
+      "damaged_object": "bathroom mirror wall",
+      "claimed_amount_eur": 1902.33,
+      "document_types": [
+        "photo_documentation",
+        "claim_email",
+        "invoice"
+      ],
+      "policy_number": "POL-118887",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover glass_damage. Covered: storm_damage",
+        "policy_number": "POL-118887",
+        "coverage_types": [
+          "storm_damage"
+        ],
+        "coverage_limit_eur": 50000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover glass_damage. Covered: storm_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.640908"
+    },
+    {
+      "claim_number": "GD-2024-82448",
+      "claimant_name": "Claudia Zimmermann",
+      "damage_type": "glass",
+      "damaged_object": "skylight window",
+      "claimed_amount_eur": 3333.5,
+      "document_types": [
+        "invoice",
+        "photo_documentation",
+        "claim_email"
+      ],
+      "policy_number": "POL-121109",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers glass_damage",
+        "policy_number": "POL-121109",
+        "coverage_types": [
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 3333.5,
+        "deductible_eur": 750,
+        "payout_amount_eur": 2583.5,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 2583.5 after EUR 750 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.640967"
+    },
+    {
+      "claim_number": "SD-2024-99086",
+      "claimant_name": "Claudia Zimmermann",
+      "damage_type": "storm",
+      "damaged_object": "solar panels",
+      "claimed_amount_eur": 4092.47,
+      "document_types": [
+        "photo_documentation",
+        "invoice",
+        "claim_email"
+      ],
+      "policy_number": "POL-121109",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover storm_damage. Covered: glass_damage",
+        "policy_number": "POL-121109",
+        "coverage_types": [
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover storm_damage. Covered: glass_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641002"
+    },
+    {
+      "claim_number": "SD-2025-91639",
+      "claimant_name": "Ursula Berger",
+      "damage_type": "storm",
+      "damaged_object": "garden shed",
+      "claimed_amount_eur": 7874.74,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-114443",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover storm_damage. Covered: water_damage, glass_damage",
+        "policy_number": "POL-114443",
+        "coverage_types": [
+          "water_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 50000,
+        "deductible_eur": 1000
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover storm_damage. Covered: water_damage, glass_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641037"
+    },
+    {
+      "claim_number": "GD-2025-74478",
+      "claimant_name": "Claudia Zimmermann",
+      "damage_type": "glass",
+      "damaged_object": "bathroom mirror wall",
+      "claimed_amount_eur": 717.01,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-121109",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers glass_damage",
+        "policy_number": "POL-121109",
+        "coverage_types": [
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 717.01,
+        "deductible_eur": 750,
+        "payout_amount_eur": 0,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 0 after EUR 750 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641078"
+    },
+    {
+      "claim_number": "WD-2024-49237",
+      "claimant_name": "Maria Schmidt",
+      "damage_type": "water",
+      "damaged_object": "utility room walls",
+      "claimed_amount_eur": 4247.07,
+      "document_types": [
+        "photo_documentation",
+        "invoice",
+        "claim_email"
+      ],
+      "policy_number": "POL-101111",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-101111",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 4247.07,
+        "deductible_eur": 750,
+        "payout_amount_eur": 3497.07,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 3497.07 after EUR 750 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641140"
+    },
+    {
+      "claim_number": "GD-2025-77786",
+      "claimant_name": "Markus Leitner",
+      "damage_type": "glass",
+      "damaged_object": "shop front window",
+      "claimed_amount_eur": 1569.41,
+      "document_types": [
+        "invoice",
+        "claim_email",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-115554",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers storm_damage, glass_damage",
+        "policy_number": "POL-115554",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 1569.41,
+        "deductible_eur": 250,
+        "payout_amount_eur": 1319.41,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 1319.41 after EUR 250 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641176"
+    },
+    {
+      "claim_number": "WD-2024-57218",
+      "claimant_name": "Andrea Wagner",
+      "damage_type": "water",
+      "damaged_object": "laundry room floor",
+      "claimed_amount_eur": 1676.06,
+      "document_types": [
+        "invoice",
+        "photo_documentation",
+        "claim_email"
+      ],
+      "policy_number": "POL-103333",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-103333",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 1676.06,
+        "deductible_eur": 500,
+        "payout_amount_eur": 1176.06,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 1176.06 after EUR 500 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641205"
+    },
+    {
+      "claim_number": "SD-2024-62124",
+      "claimant_name": "Georg Braun",
+      "damage_type": "storm",
+      "damaged_object": "chimney cap",
+      "claimed_amount_eur": 5800.3,
+      "document_types": [
+        "claim_email",
+        "invoice",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-119998",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover storm_damage. Covered: water_damage",
+        "policy_number": "POL-119998",
+        "coverage_types": [
+          "water_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 1000
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover storm_damage. Covered: water_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641232"
+    },
+    {
+      "claim_number": "SD-2025-91216",
+      "claimant_name": "Thomas Mueller",
+      "damage_type": "storm",
+      "damaged_object": "window shutters",
+      "claimed_amount_eur": 4981.49,
+      "document_types": [
+        "invoice",
+        "claim_email",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-100000",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-100000",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 4981.49,
+        "deductible_eur": 750,
+        "payout_amount_eur": 4231.49,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 4231.49 after EUR 750 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641258"
+    },
+    {
+      "claim_number": "GD-2025-62479",
+      "claimant_name": "Ingrid Huber",
+      "damage_type": "glass",
+      "damaged_object": "shower glass door",
+      "claimed_amount_eur": 1140.57,
+      "document_types": [
+        "photo_documentation",
+        "invoice",
+        "claim_email"
+      ],
+      "policy_number": "POL-112221",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover glass_damage. Covered: water_damage",
+        "policy_number": "POL-112221",
+        "coverage_types": [
+          "water_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover glass_damage. Covered: water_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641282"
+    },
+    {
+      "claim_number": "GD-2025-66775",
+      "claimant_name": "Andrea Wagner",
+      "damage_type": "glass",
+      "damaged_object": "bathroom mirror wall",
+      "claimed_amount_eur": 3306.19,
+      "document_types": [
+        "claim_email",
+        "invoice",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-103333",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-103333",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 3306.19,
+        "deductible_eur": 500,
+        "payout_amount_eur": 2806.19,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 2806.19 after EUR 500 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641307"
+    },
+    {
+      "claim_number": "GD-2024-30545",
+      "claimant_name": "Ingrid Huber",
+      "damage_type": "glass",
+      "damaged_object": "conservatory glass roof panel",
+      "claimed_amount_eur": 1949.6,
+      "document_types": [
+        "photo_documentation",
+        "invoice",
+        "claim_email"
+      ],
+      "policy_number": "POL-112221",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover glass_damage. Covered: water_damage",
+        "policy_number": "POL-112221",
+        "coverage_types": [
+          "water_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover glass_damage. Covered: water_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641333"
+    },
+    {
+      "claim_number": "SD-2025-76439",
+      "claimant_name": "Christian Maier",
+      "damage_type": "storm",
+      "damaged_object": "chimney cap",
+      "claimed_amount_eur": 5234.88,
+      "document_types": [
+        "photo_documentation",
+        "claim_email",
+        "invoice"
+      ],
+      "policy_number": "POL-113332",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover storm_damage. Covered: water_damage, glass_damage",
+        "policy_number": "POL-113332",
+        "coverage_types": [
+          "water_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 50000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover storm_damage. Covered: water_damage, glass_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641364"
+    },
+    {
+      "claim_number": "WD-2025-80329",
+      "claimant_name": "Wolfgang Fischer",
+      "damage_type": "water",
+      "damaged_object": "bathroom walls",
+      "claimed_amount_eur": 3575.01,
+      "document_types": [
+        "invoice",
+        "photo_documentation",
+        "claim_email"
+      ],
+      "policy_number": "POL-106666",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-106666",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 150000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 3575.01,
+        "deductible_eur": 250,
+        "payout_amount_eur": 3325.01,
+        "coverage_limit_eur": 150000,
+        "reason": "Claim approved. EUR 3325.01 after EUR 250 deductible (limit: EUR 150000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641396"
+    },
+    {
+      "claim_number": "WD-2024-12909",
+      "claimant_name": "Maria Schmidt",
+      "damage_type": "water",
+      "damaged_object": "hallway ceiling",
+      "claimed_amount_eur": 6250.55,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-101111",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-101111",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 6250.55,
+        "deductible_eur": 750,
+        "payout_amount_eur": 5500.55,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 5500.55 after EUR 750 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641426"
+    },
+    {
+      "claim_number": "WD-2024-75590",
+      "claimant_name": "Hans Richter",
+      "damage_type": "water",
+      "damaged_object": "bedroom carpet",
+      "claimed_amount_eur": 6643.0,
+      "document_types": [
+        "photo_documentation",
+        "claim_email",
+        "invoice"
+      ],
+      "policy_number": "POL-117776",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover water_damage. Covered: glass_damage",
+        "policy_number": "POL-117776",
+        "coverage_types": [
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover water_damage. Covered: glass_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641448"
+    },
+    {
+      "claim_number": "SD-2025-83522",
+      "claimant_name": "Thomas Mueller",
+      "damage_type": "storm",
+      "damaged_object": "chimney cap",
+      "claimed_amount_eur": 2749.11,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-100000",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-100000",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2749.11,
+        "deductible_eur": 750,
+        "payout_amount_eur": 1999.11,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 1999.11 after EUR 750 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641479"
+    },
+    {
+      "claim_number": "SD-2024-86251",
+      "claimant_name": "Sabine Hoffmann",
+      "damage_type": "storm",
+      "damaged_object": "solar panels",
+      "claimed_amount_eur": 1065.63,
+      "document_types": [
+        "invoice",
+        "claim_email",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-105555",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-105555",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 150000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 1065.63,
+        "deductible_eur": 250,
+        "payout_amount_eur": 815.63,
+        "coverage_limit_eur": 150000,
+        "reason": "Claim approved. EUR 815.63 after EUR 250 deductible (limit: EUR 150000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641511"
+    },
+    {
+      "claim_number": "GD-2024-69595",
+      "claimant_name": "Peter Gruber",
+      "damage_type": "glass",
+      "damaged_object": "skylight window",
+      "claimed_amount_eur": 1198.87,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-111110",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers storm_damage, glass_damage",
+        "policy_number": "POL-111110",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 100000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 1198.87,
+        "deductible_eur": 250,
+        "payout_amount_eur": 948.87,
+        "coverage_limit_eur": 100000,
+        "reason": "Claim approved. EUR 948.87 after EUR 250 deductible (limit: EUR 100000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641551"
+    },
+    {
+      "claim_number": "GD-2024-54479",
+      "claimant_name": "Ursula Berger",
+      "damage_type": "glass",
+      "damaged_object": "patio sliding door glass",
+      "claimed_amount_eur": 1085.09,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-114443",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, glass_damage",
+        "policy_number": "POL-114443",
+        "coverage_types": [
+          "water_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 50000,
+        "deductible_eur": 1000
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 1085.09,
+        "deductible_eur": 1000,
+        "payout_amount_eur": 85.09,
+        "coverage_limit_eur": 50000,
+        "reason": "Claim approved. EUR 85.09 after EUR 1000 deductible (limit: EUR 50000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641582"
+    },
+    {
+      "claim_number": "GD-2025-41053",
+      "claimant_name": "Markus Leitner",
+      "damage_type": "glass",
+      "damaged_object": "skylight window",
+      "claimed_amount_eur": 2421.23,
+      "document_types": [
+        "invoice",
+        "claim_email",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-115554",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers storm_damage, glass_damage",
+        "policy_number": "POL-115554",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2421.23,
+        "deductible_eur": 250,
+        "payout_amount_eur": 2171.23,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 2171.23 after EUR 250 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641612"
+    },
+    {
+      "claim_number": "WD-2025-92273",
+      "claimant_name": "Maria Schmidt",
+      "damage_type": "water",
+      "damaged_object": "basement flooring",
+      "claimed_amount_eur": 5693.23,
+      "document_types": [
+        "invoice",
+        "claim_email",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-101111",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-101111",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 5693.23,
+        "deductible_eur": 750,
+        "payout_amount_eur": 4943.23,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 4943.23 after EUR 750 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641642"
+    },
+    {
+      "claim_number": "WD-2024-36016",
+      "claimant_name": "Petra Wolf",
+      "damage_type": "water",
+      "damaged_object": "dining room floor",
+      "claimed_amount_eur": 2214.52,
+      "document_types": [
+        "photo_documentation",
+        "claim_email",
+        "invoice"
+      ],
+      "policy_number": "POL-118887",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover water_damage. Covered: storm_damage",
+        "policy_number": "POL-118887",
+        "coverage_types": [
+          "storm_damage"
+        ],
+        "coverage_limit_eur": 50000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover water_damage. Covered: storm_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641670"
+    },
+    {
+      "claim_number": "WD-2024-68263",
+      "claimant_name": "Markus Leitner",
+      "damage_type": "water",
+      "damaged_object": "dining room floor",
+      "claimed_amount_eur": 5560.97,
+      "document_types": [
+        "photo_documentation",
+        "invoice",
+        "claim_email"
+      ],
+      "policy_number": "POL-115554",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover water_damage. Covered: storm_damage, glass_damage",
+        "policy_number": "POL-115554",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover water_damage. Covered: storm_damage, glass_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641690"
+    },
+    {
+      "claim_number": "SD-2024-29929",
+      "claimant_name": "Markus Leitner",
+      "damage_type": "storm",
+      "damaged_object": "terrace canopy",
+      "claimed_amount_eur": 2173.05,
+      "document_types": [
+        "invoice",
+        "photo_documentation",
+        "claim_email"
+      ],
+      "policy_number": "POL-115554",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers storm_damage, glass_damage",
+        "policy_number": "POL-115554",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2173.05,
+        "deductible_eur": 250,
+        "payout_amount_eur": 1923.05,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 1923.05 after EUR 250 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641722"
+    },
+    {
+      "claim_number": "SD-2025-98762",
+      "claimant_name": "Andrea Wagner",
+      "damage_type": "storm",
+      "damaged_object": "terrace canopy",
+      "claimed_amount_eur": 5763.25,
+      "document_types": [
+        "claim_email",
+        "invoice",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-103333",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-103333",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 5763.25,
+        "deductible_eur": 500,
+        "payout_amount_eur": 5263.25,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 5263.25 after EUR 500 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641765"
+    },
+    {
+      "claim_number": "SD-2025-10904",
+      "claimant_name": "Stefan Bauer",
+      "damage_type": "storm",
+      "damaged_object": "balcony railing",
+      "claimed_amount_eur": 4261.84,
+      "document_types": [
+        "claim_email",
+        "invoice",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-108888",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage",
+        "policy_number": "POL-108888",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 500
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 4261.84,
+        "deductible_eur": 500,
+        "payout_amount_eur": 3761.84,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 3761.84 after EUR 500 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641818"
+    },
+    {
+      "claim_number": "WD-2024-88715",
+      "claimant_name": "Markus Leitner",
+      "damage_type": "water",
+      "damaged_object": "dining room floor",
+      "claimed_amount_eur": 4493.46,
+      "document_types": [
+        "invoice",
+        "photo_documentation",
+        "claim_email"
+      ],
+      "policy_number": "POL-115554",
+      "coverage_check": {
+        "is_covered": false,
+        "reason": "Policy does NOT cover water_damage. Covered: storm_damage, glass_damage",
+        "policy_number": "POL-115554",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": false,
+        "payout_amount_eur": 0,
+        "reason": "Policy does NOT cover water_damage. Covered: storm_damage, glass_damage"
+      },
+      "processed_at": "2026-04-29T16:46:40.641847"
+    },
+    {
+      "claim_number": "SD-2025-76817",
+      "claimant_name": "Peter Gruber",
+      "damage_type": "storm",
+      "damaged_object": "roof tiles",
+      "claimed_amount_eur": 2569.89,
+      "document_types": [
+        "claim_email",
+        "invoice",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-111110",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers storm_damage, glass_damage",
+        "policy_number": "POL-111110",
+        "coverage_types": [
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 100000,
+        "deductible_eur": 250
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2569.89,
+        "deductible_eur": 250,
+        "payout_amount_eur": 2319.89,
+        "coverage_limit_eur": 100000,
+        "reason": "Claim approved. EUR 2319.89 after EUR 250 deductible (limit: EUR 100000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641883"
+    },
+    {
+      "claim_number": "WD-2024-33045",
+      "claimant_name": "Ursula Berger",
+      "damage_type": "water",
+      "damaged_object": "laundry room floor",
+      "claimed_amount_eur": 5522.71,
+      "document_types": [
+        "photo_documentation",
+        "invoice",
+        "claim_email"
+      ],
+      "policy_number": "POL-114443",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, glass_damage",
+        "policy_number": "POL-114443",
+        "coverage_types": [
+          "water_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 50000,
+        "deductible_eur": 1000
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 5522.71,
+        "deductible_eur": 1000,
+        "payout_amount_eur": 4522.71,
+        "coverage_limit_eur": 50000,
+        "reason": "Claim approved. EUR 4522.71 after EUR 1000 deductible (limit: EUR 50000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641919"
+    },
+    {
+      "claim_number": "WD-2025-18506",
+      "claimant_name": "Michael Becker",
+      "damage_type": "water",
+      "damaged_object": "hallway ceiling",
+      "claimed_amount_eur": 2207.5,
+      "document_types": [
+        "claim_email",
+        "invoice",
+        "photo_documentation"
+      ],
+      "policy_number": "POL-104444",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage, storm_damage, glass_damage",
+        "policy_number": "POL-104444",
+        "coverage_types": [
+          "water_damage",
+          "storm_damage",
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 1000
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2207.5,
+        "deductible_eur": 1000,
+        "payout_amount_eur": 1207.5,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 1207.5 after EUR 1000 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641953"
+    },
+    {
+      "claim_number": "GD-2024-25392",
+      "claimant_name": "Hans Richter",
+      "damage_type": "glass",
+      "damaged_object": "living room window pane",
+      "claimed_amount_eur": 2663.59,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-117776",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers glass_damage",
+        "policy_number": "POL-117776",
+        "coverage_types": [
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 25000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2663.59,
+        "deductible_eur": 750,
+        "payout_amount_eur": 1913.59,
+        "coverage_limit_eur": 25000,
+        "reason": "Claim approved. EUR 1913.59 after EUR 750 deductible (limit: EUR 25000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.641995"
+    },
+    {
+      "claim_number": "WD-2024-78805",
+      "claimant_name": "Georg Braun",
+      "damage_type": "water",
+      "damaged_object": "dining room floor",
+      "claimed_amount_eur": 4108.17,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-119998",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers water_damage",
+        "policy_number": "POL-119998",
+        "coverage_types": [
+          "water_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 1000
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 4108.17,
+        "deductible_eur": 1000,
+        "payout_amount_eur": 3108.17,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 3108.17 after EUR 1000 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.642038"
+    },
+    {
+      "claim_number": "GD-2025-79767",
+      "claimant_name": "Claudia Zimmermann",
+      "damage_type": "glass",
+      "damaged_object": "balcony glass door",
+      "claimed_amount_eur": 2603.55,
+      "document_types": [
+        "claim_email",
+        "photo_documentation",
+        "invoice"
+      ],
+      "policy_number": "POL-121109",
+      "coverage_check": {
+        "is_covered": true,
+        "reason": "Policy covers glass_damage",
+        "policy_number": "POL-121109",
+        "coverage_types": [
+          "glass_damage"
+        ],
+        "coverage_limit_eur": 75000,
+        "deductible_eur": 750
+      },
+      "payout_decision": {
+        "approved": true,
+        "claimed_amount_eur": 2603.55,
+        "deductible_eur": 750,
+        "payout_amount_eur": 1853.55,
+        "coverage_limit_eur": 75000,
+        "reason": "Claim approved. EUR 1853.55 after EUR 750 deductible (limit: EUR 75000)"
+      },
+      "processed_at": "2026-04-29T16:46:40.642076"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 **Production-grade RAG system for automated insurance claim processing**
 
-An end-to-end AI pipeline that ingests German insurance claim PDFs, extracts structured data via LLM, stores vector embeddings, and answers natural language queries — with cross-encoder reranking and automated LLM-as-judge evaluation.
+An end-to-end AI pipeline that ingests German insurance claim PDFs (emails, invoices, photo reports), extracts structured data via LLM, validates against Pydantic schemas, stores vector embeddings, and answers natural language queries — with cross-encoder reranking, automated coverage checks, and LLM-as-judge evaluation.
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B.svg)](https://streamlit.io)
@@ -16,7 +16,9 @@ An end-to-end AI pipeline that ingests German insurance claim PDFs, extracts str
 Insurance companies process thousands of claim documents daily across multiple languages. Manual classification, data extraction, and retrieval are slow, error-prone, and expensive. This pipeline demonstrates how to automate that workflow end-to-end with:
 
 - **Multilingual understanding** — German documents, English answers
-- **Structured extraction with validation** — LLM output validated by Pydantic schemas
+- **Structured extraction with validation** — LLM output validated by Pydantic schemas (ClaimEmail, Invoice, PhotoDocumentation)
+- **Multi-document claims** — Each claim case bundles an email, invoice, and photo report linked by claim number
+- **Automated coverage checks** — Cross-references extracted data against policy metadata to flag uninsured claims
 - **Two-stage retrieval** — bi-encoder recall + cross-encoder precision (reranking)
 - **Automated quality measurement** — LLM-as-judge scoring with failure type diagnosis
 - **Production patterns** — idempotent stages, containerised deployment, async processing
@@ -52,7 +54,7 @@ Insurance companies process thousands of claim documents daily across multiple l
 | # | Stage | What happens | Key tech |
 |---|-------|-------------|----------|
 | 1 | **Ingestion** | Reads PDFs, extracts text page-by-page, tracks failures per page | pdfplumber |
-| 2 | **Extraction** | Classifies document type, extracts structured fields, validates with Pydantic | GPT-4o + Pydantic |
+| 2 | **Extraction** | Classifies document type (email / invoice / photo), extracts structured fields, validates with Pydantic schemas | GPT-4o + Pydantic |
 | 3 | **Chunking** | Splits text into overlapping pieces respecting sentence & word boundaries | Custom logic |
 | 4 | **Embedding** | Converts chunks to vectors, stores with metadata for filtered search | Sentence Transformers + ChromaDB |
 | 5 | **Retrieval** | Bi-encoder recall → cross-encoder reranking → grounded LLM answer | ChromaDB + Cross-Encoder + GPT-4o |
@@ -88,7 +90,7 @@ cd insurance-pipeline
 cp .env.example .env
 # Edit .env with your Azure OpenAI credentials
 
-# Generate sample data (90 synthetic German insurance PDFs)
+# Generate sample data (36 claim cases × 3 documents = 108 synthetic German PDFs)
 pip install fpdf2
 python generate_synthetic_data.py
 
@@ -107,7 +109,7 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your Azure OpenAI credentials
 
-# Generate sample data
+# Generate sample data (36 claims × 3 docs each: email, invoice, photo report)
 python generate_synthetic_data.py
 
 # Run stages sequentially
@@ -213,7 +215,7 @@ insurance-pipeline/
 │
 ├── tasks.py                    # Celery task wrappers for parallel processing
 ├── celery_app.py               # Celery + Redis configuration
-├── generate_synthetic_data.py  # Generate 90 realistic German claim PDFs
+├── generate_synthetic_data.py  # Generate 36 claim cases × 3 documents (108 PDFs)
 ├── streamlit_app.py            # Streamlit Cloud entrypoint
 │
 ├── ui/                         # Streamlit dashboard
@@ -231,8 +233,8 @@ insurance-pipeline/
 ├── .env.example                # Template for credentials
 │
 ├── data/
-│   ├── pdfs/                   # ← Input PDFs go here
-│   └── output/                 # Stage outputs (JSON)
+│   ├── pdfs/                   # ← Input PDFs (email, invoice, photo per claim)
+│   └── output/                 # Stage outputs + claim_registry, payout_report, policy_metadata
 ├── logs/                       # Per-stage log files
 └── chroma_db/                  # Vector store (persisted)
 ```
