@@ -1,7 +1,8 @@
 {
-  "run_at": "2026-04-29T15:39:13.932140",
-  "total_files": 108,
-  "successful": 108,
+  "run_at": "2026-04-29T23:58:26.044198",
+  "total_files": 90,
+  "successful": 90,
   "failed": 0,
-  "failed_files": []
+  "failed_files": [],
+  "duration_seconds": 7.45
 }

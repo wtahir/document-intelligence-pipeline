@@ -107,6 +107,7 @@ def build_metadata(chunk: dict) -> dict:
         "total_amount_eur": safe(chunk.get("total_amount_eur")),
         "vendor": safe(chunk.get("vendor")),
         "damage_severity": safe(chunk.get("damage_severity")),
+        "content_hash": safe(chunk.get("content_hash")),
     }
 
 
@@ -170,21 +171,101 @@ def embed_all():
     # Check how many chunks are already in the collection
     collection = _get_collection()
     existing_count = collection.count()
+
+    # --- Hash-based dedup ---
+    # If chunks already exist in the collection, compare content hashes
+    # to skip re-embedding unchanged documents. This makes the stage
+    # idempotent — re-running after adding new PDFs only embeds the new ones.
+    skipped = 0
     if existing_count > 0:
-        print(f"Note: collection already contains {existing_count} vectors — upserting (existing chunks will be updated)\n")
+        chunk_ids = [c["chunk_id"] for c in chunks]
+        # Fetch existing IDs and their hashes in batches
+        existing_hashes = {}
+        for batch_start in range(0, len(chunk_ids), BATCH_SIZE):
+            batch_ids = chunk_ids[batch_start:batch_start + BATCH_SIZE]
+            try:
+                existing = collection.get(ids=batch_ids, include=["metadatas"])
+                for eid, emeta in zip(existing["ids"], existing["metadatas"]):
+                    existing_hashes[eid] = emeta.get("content_hash", "")
+            except Exception:
+                pass  # IDs not found — they're new chunks
+
+        new_chunks = []
+        for chunk in chunks:
+            cid = chunk["chunk_id"]
+            new_hash = chunk.get("content_hash", "")
+            if cid in existing_hashes and existing_hashes[cid] == new_hash and new_hash:
+                skipped += 1
+            else:
+                new_chunks.append(chunk)
+
+        if skipped:
+            print(f"Skipping {skipped} unchanged chunks (hash match)")
+        if not new_chunks:
+            print("All chunks are up-to-date — nothing to embed.")
+            summary = {
+                "run_at": datetime.now().isoformat(),
+                "embedding_model": EMBEDDING_MODEL,
+                "chunks_processed": len(chunks),
+                "chunks_skipped_dedup": skipped,
+                "chunks_stored": 0,
+                "chunks_failed": 0,
+                "total_vectors_in_collection": existing_count,
+                "duration_seconds": 0,
+                "chunks_per_second": 0,
+            }
+            with open(EMBEDDING_SUMMARY, "w") as f:
+                json.dump(summary, f, indent=2)
+            return
+
+        chunks = new_chunks
+        print(f"{len(chunks)} new/changed chunks to embed\n")
 
     start_time = datetime.now()
     stored, failed = embed_and_store(chunks)
     duration = (datetime.now() - start_time).total_seconds()
+
+    # --- Stale vector garbage collection ---
+    # Remove vectors from ChromaDB that no longer exist in chunks.json.
+    # This happens when PDFs are deleted or re-processed with different
+    # chunking parameters, leaving orphan vectors in the DB.
+    stale_removed = 0
+    collection = _get_collection()
+
+    try:
+        # Get all chunk IDs that SHOULD exist (from the full input file)
+        with open(input_path, "r", encoding="utf-8") as f:
+            all_current_chunks = json.load(f)
+        valid_ids = set(c["chunk_id"] for c in all_current_chunks)
+
+        # Get all IDs currently in ChromaDB
+        all_stored = collection.get(include=[])
+        stored_ids = set(all_stored["ids"]) if all_stored["ids"] else set()
+
+        # Find stale IDs — in ChromaDB but not in current chunks
+        stale_ids = stored_ids - valid_ids
+        if stale_ids:
+            # ChromaDB delete requires a list
+            stale_list = list(stale_ids)
+            for batch_start in range(0, len(stale_list), BATCH_SIZE):
+                batch = stale_list[batch_start:batch_start + BATCH_SIZE]
+                collection.delete(ids=batch)
+            stale_removed = len(stale_ids)
+            print(f"Garbage collection: removed {stale_removed} stale vectors")
+            logging.info(f"GC: removed {stale_removed} stale vectors: {list(stale_ids)[:10]}...")
+    except Exception as e:
+        logging.warning(f"Stale vector cleanup failed (non-fatal): {e}")
 
     final_count = _get_collection().count()
 
     summary = {
         "run_at": datetime.now().isoformat(),
         "embedding_model": EMBEDDING_MODEL,
-        "chunks_processed": len(chunks),
+        "chunks_processed": stored + failed + skipped,
+        "chunks_skipped_dedup": skipped,
         "chunks_stored": stored,
         "chunks_failed": failed,
+        "stale_vectors_removed": stale_removed,
         "total_vectors_in_collection": final_count,
         "duration_seconds": round(duration, 2),
         "chunks_per_second": round(len(chunks) / duration, 1) if duration > 0 else 0

@@ -3,103 +3,331 @@
     "policy_number": "POL-100000",
     "policyholder_name": "Thomas Mueller",
     "address": "10115 Berlin",
-    "email": "thomas.mueller@outlook.com",
+    "email": "thomas.mueller@gmail.com",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 25000,
-    "deductible_eur": 750,
-    "policy_start": "2023-07-24",
-    "policy_end": "2025-07-23",
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
+    "coverage_limit_eur": 150000,
+    "deductible_eur": 1000,
+    "policy_start": "2023-01-15",
+    "policy_end": "2025-01-14",
     "status": "active",
-    "premium_monthly_eur": 36.08
+    "premium_monthly_eur": 68.18
   },
   {
     "policy_number": "POL-101111",
     "policyholder_name": "Maria Schmidt",
     "address": "80331 Munich",
-    "email": "maria.schmidt@gmx.de",
+    "email": "maria.schmidt@gmail.com",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 25000,
-    "deductible_eur": 750,
-    "policy_start": "2023-11-16",
-    "policy_end": "2025-11-15",
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
+    "coverage_limit_eur": 150000,
+    "deductible_eur": 250,
+    "policy_start": "2023-09-24",
+    "policy_end": "2025-09-23",
     "status": "active",
-    "premium_monthly_eur": 75.92
+    "premium_monthly_eur": 112.0
   },
   {
     "policy_number": "POL-102222",
     "policyholder_name": "Klaus Weber",
     "address": "20095 Hamburg",
-    "email": "klaus.weber@gmail.com",
+    "email": "klaus.weber@web.de",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 25000,
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
+    "coverage_limit_eur": 150000,
     "deductible_eur": 500,
-    "policy_start": "2023-12-09",
-    "policy_end": "2025-12-08",
+    "policy_start": "2023-06-08",
+    "policy_end": "2025-06-07",
     "status": "active",
-    "premium_monthly_eur": 92.15
+    "premium_monthly_eur": 66.02
   },
   {
     "policy_number": "POL-103333",
     "policyholder_name": "Andrea Wagner",
     "address": "60311 Frankfurt",
-    "email": "andrea.wagner@web.de",
+    "email": "andrea.wagner@gmail.com",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
     "coverage_limit_eur": 75000,
-    "deductible_eur": 500,
-    "policy_start": "2023-04-10",
-    "policy_end": "2025-04-09",
+    "deductible_eur": 750,
+    "policy_start": "2023-09-20",
+    "policy_end": "2025-09-19",
     "status": "active",
-    "premium_monthly_eur": 57.91
+    "premium_monthly_eur": 74.79
   },
   {
     "policy_number": "POL-104444",
     "policyholder_name": "Michael Becker",
     "address": "50667 Cologne",
-    "email": "michael.becker@outlook.com",
+    "email": "michael.becker@web.de",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
     "coverage_limit_eur": 25000,
-    "deductible_eur": 1000,
-    "policy_start": "2023-06-17",
-    "policy_end": "2025-06-16",
+    "deductible_eur": 250,
+    "policy_start": "2023-03-17",
+    "policy_end": "2025-03-16",
     "status": "active",
-    "premium_monthly_eur": 95.06
+    "premium_monthly_eur": 94.77
   },
   {
     "policy_number": "POL-105555",
     "policyholder_name": "Sabine Hoffmann",
     "address": "70173 Stuttgart",
-    "email": "sabine.hoffmann@outlook.com",
+    "email": "sabine.hoffmann@web.de",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
     "coverage_limit_eur": 150000,
-    "deductible_eur": 250,
-    "policy_start": "2023-02-22",
-    "policy_end": "2025-02-21",
+    "deductible_eur": 1000,
+    "policy_start": "2023-06-11",
+    "policy_end": "2025-06-10",
     "status": "active",
-    "premium_monthly_eur": 75.43
+    "premium_monthly_eur": 82.04
   },
   {
     "policy_number": "POL-106666",
@@ -111,45 +339,137 @@
       "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 150000,
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
+    "coverage_limit_eur": 75000,
     "deductible_eur": 250,
-    "policy_start": "2023-06-24",
-    "policy_end": "2025-06-23",
+    "policy_start": "2023-11-26",
+    "policy_end": "2025-11-25",
     "status": "active",
-    "premium_monthly_eur": 102.16
+    "premium_monthly_eur": 52.08
   },
   {
     "policy_number": "POL-107777",
     "policyholder_name": "Elisabeth Schwarz",
     "address": "01067 Dresden",
-    "email": "elisabeth.schwarz@outlook.com",
+    "email": "elisabeth.schwarz@web.de",
     "coverage_types": [
       "water_damage",
       "storm_damage",
       "glass_damage"
     ],
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor",
+        "hallway ceiling",
+        "bedroom carpet",
+        "utility room walls",
+        "dining room floor",
+        "garage concrete floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "car port structure",
+        "fence panels",
+        "window shutters",
+        "chimney cap",
+        "solar panels",
+        "satellite dish",
+        "balcony railing"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door",
+        "skylight window",
+        "conservatory glass roof panel",
+        "bathroom mirror wall",
+        "shop front window",
+        "patio sliding door glass"
+      ]
+    },
     "coverage_limit_eur": 75000,
-    "deductible_eur": 1000,
-    "policy_start": "2023-11-24",
-    "policy_end": "2025-11-23",
+    "deductible_eur": 750,
+    "policy_start": "2023-08-15",
+    "policy_end": "2025-08-14",
     "status": "active",
-    "premium_monthly_eur": 77.59
+    "premium_monthly_eur": 95.19
   },
   {
     "policy_number": "POL-108888",
     "policyholder_name": "Stefan Bauer",
     "address": "90402 Nuremberg",
-    "email": "stefan.bauer@gmx.de",
+    "email": "stefan.bauer@web.de",
     "coverage_types": [
       "water_damage",
       "storm_damage"
     ],
-    "coverage_limit_eur": 25000,
-    "deductible_eur": 500,
-    "policy_start": "2023-05-03",
-    "policy_end": "2025-05-02",
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor"
+      ],
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "fence panels",
+        "window shutters"
+      ]
+    },
+    "coverage_limit_eur": 50000,
+    "deductible_eur": 250,
+    "policy_start": "2023-02-21",
+    "policy_end": "2025-02-20",
     "status": "active",
-    "premium_monthly_eur": 73.79
+    "premium_monthly_eur": 40.24
   },
   {
     "policy_number": "POL-109999",
@@ -160,107 +480,204 @@
       "water_damage",
       "glass_damage"
     ],
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door"
+      ]
+    },
     "coverage_limit_eur": 25000,
-    "deductible_eur": 750,
-    "policy_start": "2023-10-17",
-    "policy_end": "2025-10-16",
+    "deductible_eur": 500,
+    "policy_start": "2023-05-20",
+    "policy_end": "2025-05-19",
     "status": "active",
-    "premium_monthly_eur": 68.0
+    "premium_monthly_eur": 42.47
   },
   {
     "policy_number": "POL-111110",
     "policyholder_name": "Peter Gruber",
     "address": "04109 Leipzig",
-    "email": "peter.gruber@outlook.com",
+    "email": "peter.gruber@web.de",
     "coverage_types": [
       "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 100000,
-    "deductible_eur": 250,
-    "policy_start": "2023-10-08",
-    "policy_end": "2025-10-07",
+    "covered_items": {
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "fence panels",
+        "window shutters"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door"
+      ]
+    },
+    "coverage_limit_eur": 50000,
+    "deductible_eur": 750,
+    "policy_start": "2023-05-21",
+    "policy_end": "2025-05-20",
     "status": "active",
-    "premium_monthly_eur": 67.1
+    "premium_monthly_eur": 113.67
   },
   {
     "policy_number": "POL-112221",
     "policyholder_name": "Ingrid Huber",
     "address": "45127 Essen",
-    "email": "ingrid.huber@web.de",
+    "email": "ingrid.huber@outlook.com",
     "coverage_types": [
       "water_damage"
     ],
-    "coverage_limit_eur": 75000,
-    "deductible_eur": 500,
-    "policy_start": "2023-01-26",
-    "policy_end": "2025-01-25",
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "basement flooring",
+        "bathroom walls",
+        "living room parquet",
+        "laundry room floor"
+      ]
+    },
+    "coverage_limit_eur": 100000,
+    "deductible_eur": 1000,
+    "policy_start": "2023-11-09",
+    "policy_end": "2025-11-08",
     "status": "active",
-    "premium_monthly_eur": 77.31
+    "premium_monthly_eur": 45.51
   },
   {
     "policy_number": "POL-113332",
     "policyholder_name": "Christian Maier",
     "address": "28195 Bremen",
-    "email": "christian.maier@web.de",
+    "email": "christian.maier@outlook.com",
     "coverage_types": [
-      "water_damage",
+      "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 50000,
-    "deductible_eur": 500,
-    "policy_start": "2023-06-14",
-    "policy_end": "2025-06-13",
+    "covered_items": {
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "fence panels",
+        "window shutters"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door"
+      ]
+    },
+    "coverage_limit_eur": 150000,
+    "deductible_eur": 250,
+    "policy_start": "2023-12-11",
+    "policy_end": "2025-12-10",
     "status": "active",
-    "premium_monthly_eur": 99.66
+    "premium_monthly_eur": 70.86
   },
   {
     "policy_number": "POL-114443",
     "policyholder_name": "Ursula Berger",
     "address": "53111 Bonn",
-    "email": "ursula.berger@web.de",
+    "email": "ursula.berger@outlook.com",
     "coverage_types": [
-      "water_damage",
+      "storm_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 50000,
+    "covered_items": {
+      "storm_damage": [
+        "roof tiles",
+        "garden shed",
+        "terrace canopy",
+        "fence panels",
+        "window shutters"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window",
+        "shower glass door",
+        "balcony glass door"
+      ]
+    },
+    "coverage_limit_eur": 150000,
     "deductible_eur": 1000,
-    "policy_start": "2023-12-23",
-    "policy_end": "2025-12-22",
+    "policy_start": "2023-12-14",
+    "policy_end": "2025-12-13",
     "status": "active",
-    "premium_monthly_eur": 73.71
+    "premium_monthly_eur": 90.83
   },
   {
     "policy_number": "POL-115554",
     "policyholder_name": "Markus Leitner",
     "address": "55116 Mainz",
-    "email": "markus.leitner@outlook.com",
+    "email": "markus.leitner@web.de",
     "coverage_types": [
       "storm_damage",
       "glass_damage"
     ],
+    "covered_items": {
+      "storm_damage": [
+        "roof tiles",
+        "chimney cap",
+        "satellite dish"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window"
+      ]
+    },
     "coverage_limit_eur": 75000,
     "deductible_eur": 250,
-    "policy_start": "2023-12-24",
-    "policy_end": "2025-12-23",
+    "policy_start": "2023-01-16",
+    "policy_end": "2025-01-15",
     "status": "active",
-    "premium_monthly_eur": 84.96
+    "premium_monthly_eur": 78.03
   },
   {
     "policy_number": "POL-116665",
     "policyholder_name": "Anna Koch",
     "address": "79098 Freiburg",
-    "email": "anna.koch@gmx.de",
+    "email": "anna.koch@gmail.com",
     "coverage_types": [
-      "storm_damage",
+      "water_damage",
       "glass_damage"
     ],
-    "coverage_limit_eur": 50000,
-    "deductible_eur": 1000,
-    "policy_start": "2023-04-26",
-    "policy_end": "2025-04-25",
+    "covered_items": {
+      "water_damage": [
+        "kitchen ceiling",
+        "bathroom walls",
+        "hallway ceiling"
+      ],
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window"
+      ]
+    },
+    "coverage_limit_eur": 75000,
+    "deductible_eur": 250,
+    "policy_start": "2023-04-09",
+    "policy_end": "2025-04-08",
     "status": "active",
-    "premium_monthly_eur": 71.06
+    "premium_monthly_eur": 56.71
   },
   {
     "policy_number": "POL-117776",
@@ -268,58 +685,86 @@
     "address": "86150 Augsburg",
     "email": "hans.richter@outlook.com",
     "coverage_types": [
-      "glass_damage"
+      "storm_damage"
     ],
-    "coverage_limit_eur": 25000,
-    "deductible_eur": 750,
-    "policy_start": "2023-08-11",
-    "policy_end": "2025-08-10",
+    "covered_items": {
+      "storm_damage": [
+        "roof tiles",
+        "chimney cap",
+        "satellite dish"
+      ]
+    },
+    "coverage_limit_eur": 50000,
+    "deductible_eur": 500,
+    "policy_start": "2023-11-26",
+    "policy_end": "2025-11-25",
     "status": "active",
-    "premium_monthly_eur": 65.89
+    "premium_monthly_eur": 37.02
   },
   {
     "policy_number": "POL-118887",
     "policyholder_name": "Petra Wolf",
     "address": "65183 Wiesbaden",
-    "email": "petra.wolf@gmail.com",
+    "email": "petra.wolf@outlook.com",
     "coverage_types": [
-      "storm_damage"
+      "glass_damage"
     ],
-    "coverage_limit_eur": 50000,
-    "deductible_eur": 250,
-    "policy_start": "2023-07-20",
-    "policy_end": "2025-07-19",
+    "covered_items": {
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window"
+      ]
+    },
+    "coverage_limit_eur": 75000,
+    "deductible_eur": 1000,
+    "policy_start": "2023-09-09",
+    "policy_end": "2025-09-08",
     "status": "active",
-    "premium_monthly_eur": 35.33
+    "premium_monthly_eur": 73.97
   },
   {
     "policy_number": "POL-119998",
     "policyholder_name": "Georg Braun",
     "address": "68159 Mannheim",
-    "email": "georg.braun@web.de",
+    "email": "georg.braun@outlook.com",
     "coverage_types": [
-      "water_damage"
+      "storm_damage"
     ],
-    "coverage_limit_eur": 75000,
-    "deductible_eur": 1000,
-    "policy_start": "2023-02-08",
-    "policy_end": "2025-02-07",
+    "covered_items": {
+      "storm_damage": [
+        "roof tiles",
+        "chimney cap",
+        "satellite dish"
+      ]
+    },
+    "coverage_limit_eur": 50000,
+    "deductible_eur": 750,
+    "policy_start": "2023-01-15",
+    "policy_end": "2025-01-14",
     "status": "active",
-    "premium_monthly_eur": 98.23
+    "premium_monthly_eur": 66.27
   },
   {
     "policy_number": "POL-121109",
     "policyholder_name": "Claudia Zimmermann",
     "address": "76131 Karlsruhe",
-    "email": "claudia.zimmermann@gmx.de",
+    "email": "claudia.zimmermann@outlook.com",
     "coverage_types": [
       "glass_damage"
     ],
-    "coverage_limit_eur": 75000,
+    "covered_items": {
+      "glass_damage": [
+        "front door glass panel",
+        "living room window pane",
+        "kitchen window"
+      ]
+    },
+    "coverage_limit_eur": 100000,
     "deductible_eur": 750,
-    "policy_start": "2023-02-13",
-    "policy_end": "2025-02-12",
+    "policy_start": "2023-09-05",
+    "policy_end": "2025-09-04",
     "status": "active",
-    "premium_monthly_eur": 53.37
+    "premium_monthly_eur": 38.0
   }
 ]

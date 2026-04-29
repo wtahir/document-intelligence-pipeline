@@ -28,10 +28,13 @@ from openai import AzureOpenAI, RateLimitError
 from dotenv import load_dotenv
 from config import (
     INGESTED_DATA, OUTPUT_FOLDER, EXTRACTED_DATA, EXTRACTION_SUMMARY,
-    EXTRACTION_MAX_CHARS, AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
+    EXTRACTION_MAX_CHARS, PII_REDACTION_ENABLED,
+    AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
     AZURE_OPENAI_DEPLOYMENT, AZURE_API_VERSION, LOG_FOLDER, LOG_FORMAT,
+    estimate_llm_cost,
 )
 from models import ClaimEmail, InvoiceDocument, PhotoDocumentation, UnknownDocument
+from pii_redactor import redact
 
 load_dotenv()
 
@@ -196,7 +199,10 @@ def extract_document(document):
         }
 
     truncated = truncate_text(content, max_chars=EXTRACTION_MAX_CHARS)
-    prompt = EXTRACTION_PROMPT + "\n" + truncated
+
+    # PII redaction — replace sensitive data with placeholders before LLM call
+    redacted_text, pii_mapping = redact(truncated, redact_pii=PII_REDACTION_ENABLED)
+    prompt = EXTRACTION_PROMPT + "\n" + redacted_text
 
     try:
         # Retry loop for Azure OpenAI rate limiting (429 errors)
@@ -219,6 +225,18 @@ def extract_document(document):
 
         raw_text = response.choices[0].message.content.strip()
 
+        # Track token usage for cost monitoring
+        usage = response.usage
+        token_usage = {
+            "prompt_tokens": usage.prompt_tokens if usage else 0,
+            "completion_tokens": usage.completion_tokens if usage else 0,
+            "total_tokens": usage.total_tokens if usage else 0,
+            "cost_usd": estimate_llm_cost(
+                usage.prompt_tokens if usage else 0,
+                usage.completion_tokens if usage else 0,
+            ),
+        }
+
         # Parse JSON — strip markdown fences if LLM added them
         if raw_text.startswith("```"):
             raw_text = raw_text.split("```")[1]
@@ -229,16 +247,18 @@ def extract_document(document):
 
         validated, doc_type = validate_extraction(raw_dict)
 
-        logging.info(f"OK: {file_name} -> {doc_type} (confidence: {validated.confidence})")
+        logging.info(f"OK: {file_name} -> {doc_type} (confidence: {validated.confidence}) | tokens: {token_usage['total_tokens']}")
 
         return {
             "file_name": file_name,
             "file_path": document.get("file_path"),
             "original_content": content,
+            "content_hash": document.get("content_hash"),
             "total_pages": document.get("total_pages"),
             "failed_pages": document.get("failed_pages", []),
             "status": "success",
             "extracted_at": datetime.now().isoformat(),
+            "token_usage": token_usage,
             **validated.model_dump()
         }
 
@@ -351,6 +371,7 @@ def extract_all():
     # Build summary with damage type and document type breakdowns
     doc_type_counts = {}
     damage_type_counts = {}
+    total_tokens_used = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     for r in results:
         if r.get("status") == "success":
             t = r.get("document_type", "unknown")
@@ -358,6 +379,12 @@ def extract_all():
             d = r.get("damage_type", "unknown")
             if d:
                 damage_type_counts[d] = damage_type_counts.get(d, 0) + 1
+            # Aggregate token usage
+            tu = r.get("token_usage", {})
+            total_tokens_used["prompt_tokens"] += tu.get("prompt_tokens", 0)
+            total_tokens_used["completion_tokens"] += tu.get("completion_tokens", 0)
+            total_tokens_used["total_tokens"] += tu.get("total_tokens", 0)
+            total_tokens_used["cost_usd"] = total_tokens_used.get("cost_usd", 0) + tu.get("cost_usd", 0)
 
     summary = {
         "run_at": datetime.now().isoformat(),
@@ -367,6 +394,7 @@ def extract_all():
         "skipped": skipped,
         "document_types_found": doc_type_counts,
         "damage_types_found": damage_type_counts,
+        "token_usage": total_tokens_used,
     }
 
     with open(EXTRACTION_SUMMARY, "w") as f:

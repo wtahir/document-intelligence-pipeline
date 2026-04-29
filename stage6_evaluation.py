@@ -16,9 +16,11 @@ from dotenv import load_dotenv
 from config import (
     QUERY_LOG, EVALUATION_REPORT, EVALUATION_SUMMARY,
     DISTANCE_THRESHOLD, EVAL_CHUNK_TRUNCATE,
+    CLAIM_REGISTRY,
     AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
     AZURE_OPENAI_DEPLOYMENT, AZURE_API_VERSION,
     LOG_FOLDER, LOG_FORMAT,
+    estimate_llm_cost,
 )
 
 load_dotenv()
@@ -152,6 +154,18 @@ def evaluate_query(query_record: dict) -> dict:
 
         raw = response.choices[0].message.content.strip()
 
+        # Track token usage for cost monitoring
+        usage = response.usage
+        eval_token_usage = {
+            "prompt_tokens": usage.prompt_tokens if usage else 0,
+            "completion_tokens": usage.completion_tokens if usage else 0,
+            "total_tokens": usage.total_tokens if usage else 0,
+            "cost_usd": estimate_llm_cost(
+                usage.prompt_tokens if usage else 0,
+                usage.completion_tokens if usage else 0,
+            ),
+        }
+
         # Strip markdown fences if present
         if raw.startswith("```"):
             raw = raw.split("```")[1]
@@ -172,7 +186,8 @@ def evaluate_query(query_record: dict) -> dict:
             "improvement_suggestion": evaluation.get("improvement_suggestion"),
             "avg_distance": avg_distance,
             "poor_chunks_count": poor_chunks,
-            "score": evaluation.get("answer_score")  # top-level score for quick sorting
+            "score": evaluation.get("answer_score"),  # top-level score for quick sorting
+            "eval_token_usage": eval_token_usage,
         })
 
         logging.info(
@@ -262,12 +277,22 @@ def evaluate_all():
     avg_retrieval = round(sum(q.get("retrieval_score", 0) for q in scored) / len(scored), 2) if scored else 0
     avg_answer = round(sum(q.get("answer_score", 0) for q in scored) / len(scored), 2) if scored else 0
 
+    # Aggregate token usage across all evaluations
+    total_eval_tokens = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0, "cost_usd": 0.0}
+    for q in scored:
+        tu = q.get("eval_token_usage", {})
+        total_eval_tokens["prompt_tokens"] += tu.get("prompt_tokens", 0)
+        total_eval_tokens["completion_tokens"] += tu.get("completion_tokens", 0)
+        total_eval_tokens["total_tokens"] += tu.get("total_tokens", 0)
+        total_eval_tokens["cost_usd"] = round(total_eval_tokens["cost_usd"] + tu.get("cost_usd", 0.0), 6)
+
     summary = {
         "run_at": datetime.now().isoformat(),
         "total_queries_evaluated": len(scored),
         "avg_retrieval_score": avg_retrieval,
         "avg_answer_score": avg_answer,
         "failure_type_breakdown": failure_types,
+        "eval_token_usage": total_eval_tokens,
         "queries_needing_attention": [
             {
                 "query": q.get("query"),
@@ -290,6 +315,123 @@ def evaluate_all():
     print(f"Avg answer score: {avg_answer}/5")
     print(f"Failure breakdown: {failure_types}")
     print(f"Queries needing attention: {len(summary['queries_needing_attention'])}")
+
+    # Ground truth retrieval metrics
+    gt_metrics = compute_ground_truth_metrics(all_evaluated)
+    if gt_metrics:
+        summary["ground_truth_metrics"] = gt_metrics
+        # Re-save with metrics
+        with open(EVALUATION_SUMMARY, "w", encoding="utf-8") as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+        print(f"\nGround Truth Retrieval Metrics:")
+        print(f"  MRR (Mean Reciprocal Rank): {gt_metrics['mrr']:.3f}")
+        print(f"  Recall@5: {gt_metrics['recall_at_5']:.3f}")
+        print(f"  Precision@5: {gt_metrics['precision_at_5']:.3f}")
+        print(f"  Queries with ground truth: {gt_metrics['queries_with_gt']}")
+
+
+# ═══════════════════════════════════════════════════════════════════
+# GROUND TRUTH RETRIEVAL METRICS
+# ═══════════════════════════════════════════════════════════════════
+#
+# Uses claim_registry.json as ground truth to compute:
+# - MRR (Mean Reciprocal Rank) — how high is the first relevant result?
+# - Recall@K — what fraction of relevant docs were retrieved?
+# - Precision@K — what fraction of retrieved docs are relevant?
+#
+# For each query that has a metadata filter (e.g. damage_type=water),
+# we check if the retrieved chunks come from the correct claims.
+
+def _load_claim_registry():
+    """Load claim_registry.json as ground truth."""
+    if not os.path.exists(CLAIM_REGISTRY):
+        return None
+    with open(CLAIM_REGISTRY, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _get_relevant_files(claim_registry, query_record):
+    """
+    Given a query and its metadata filter, determine which files
+    SHOULD have been retrieved based on ground truth.
+    Returns a set of expected file names.
+    """
+    metadata_filter = query_record.get("metadata_filter", {})
+    if not metadata_filter:
+        return set()
+
+    relevant_files = set()
+    for claim in claim_registry:
+        match = True
+        for key, value in metadata_filter.items():
+            if key == "$and":
+                continue  # Skip compound filters for simplicity
+            claim_value = claim.get(key)
+            if claim_value and claim_value != value:
+                match = False
+                break
+        if match:
+            for f in claim.get("files", []):
+                relevant_files.add(f)
+
+    return relevant_files
+
+
+def compute_ground_truth_metrics(evaluated_queries):
+    """
+    Computes retrieval metrics against ground truth (claim_registry).
+    Returns a dict with MRR, Recall@K, Precision@K, or None if no
+    ground truth is available.
+    """
+    claim_registry = _load_claim_registry()
+    if not claim_registry:
+        logging.info("No claim_registry found — skipping ground truth metrics")
+        return None
+
+    reciprocal_ranks = []
+    recall_scores = []
+    precision_scores = []
+    queries_with_gt = 0
+
+    for qr in evaluated_queries:
+        relevant_files = _get_relevant_files(claim_registry, qr)
+        if not relevant_files:
+            continue  # No ground truth for this query
+
+        queries_with_gt += 1
+        chunks = qr.get("chunks", [])
+        retrieved_files = [
+            c.get("metadata", {}).get("file_name", "")
+            for c in chunks
+        ]
+
+        # MRR: reciprocal rank of first relevant result
+        rr = 0.0
+        for rank, fname in enumerate(retrieved_files, 1):
+            if fname in relevant_files:
+                rr = 1.0 / rank
+                break
+        reciprocal_ranks.append(rr)
+
+        # Recall@K: fraction of relevant docs in the retrieved set
+        retrieved_set = set(retrieved_files)
+        hits = len(relevant_files & retrieved_set)
+        recall = hits / len(relevant_files) if relevant_files else 0.0
+        recall_scores.append(recall)
+
+        # Precision@K: fraction of retrieved docs that are relevant
+        precision = hits / len(retrieved_files) if retrieved_files else 0.0
+        precision_scores.append(precision)
+
+    if not queries_with_gt:
+        return None
+
+    return {
+        "mrr": round(sum(reciprocal_ranks) / len(reciprocal_ranks), 4),
+        "recall_at_5": round(sum(recall_scores) / len(recall_scores), 4),
+        "precision_at_5": round(sum(precision_scores) / len(precision_scores), 4),
+        "queries_with_gt": queries_with_gt,
+    }
 
 
 if __name__ == "__main__":

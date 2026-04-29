@@ -3,6 +3,7 @@
 
 import os
 import json
+import hashlib
 import logging
 from datetime import datetime
 from config import PDF_FOLDER, LOG_FOLDER, OUTPUT_FOLDER, INGESTED_DATA, INGESTION_SUMMARY, LOG_FORMAT
@@ -22,7 +23,9 @@ logging.basicConfig(
 def extract_text_from_pdf(pdf_path: str) -> dict:
     """
     Extracts text from a single PDF file.
-    Returns a dict with text content and metadata.
+    Returns a dict with text content, metadata, and a content hash
+    for deduplication. The hash lets downstream stages detect whether
+    a file has changed since the last run.
     Returns None if the file cannot be processed.
     
     Why a separate function? So the main loop can call this
@@ -47,9 +50,14 @@ def extract_text_from_pdf(pdf_path: str) -> dict:
 
         full_text = "\n".join(pages_text)
 
+        # Content hash for dedup — if the file content hasn't changed,
+        # downstream stages can skip re-processing.
+        content_hash = hashlib.sha256(full_text.encode("utf-8")).hexdigest()
+
         return {
             "file_name": os.path.basename(pdf_path),
             "file_path": pdf_path,
+            "content_hash": content_hash,
             "total_pages": total_pages,
             "failed_pages": failed_pages,
             "pages_extracted": total_pages - len(failed_pages),
@@ -90,6 +98,7 @@ def ingest_data():
 
     successful = []
     failed = []
+    start_time = datetime.now()
 
     for pdf_file in tqdm(pdf_files):
         pdf_path = os.path.join(PDF_FOLDER, pdf_file)
@@ -106,12 +115,14 @@ def ingest_data():
         json.dump(successful, f, indent=2)
 
     # Save a summary report so you can see pipeline health at a glance
+    duration = (datetime.now() - start_time).total_seconds()
     summary = {
         "run_at": datetime.now().isoformat(),
         "total_files": len(pdf_files),
         "successful": len(successful),
         "failed": len(failed),
-        "failed_files": [f["file_name"] for f in failed]
+        "failed_files": [f["file_name"] for f in failed],
+        "duration_seconds": round(duration, 2),
     }
 
     with open(INGESTION_SUMMARY, "w") as f:

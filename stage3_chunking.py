@@ -4,8 +4,15 @@
 #
 # Each chunk is a self-contained unit with text + all metadata needed
 # to reconstruct context when it comes back as a search result in Stage 5.
+#
+# Document-aware chunking:
+#   - Invoices: preserve line-item tables as a single chunk
+#   - Emails: keep headers + body together
+#   - Photos: keep photo descriptions grouped
+# Falls back to character-based splitting for long documents.
 
 import os
+import re
 import json
 import logging
 from datetime import datetime
@@ -81,6 +88,114 @@ def chunk_text(text: str, chunk_size: int, overlap: int) -> list[str]:
     return chunks
 
 
+# ─── Document-aware section splitting ────────────────────────────────
+#
+# Instead of blindly splitting on character count, we first try to
+# identify structural sections in each document type. This preserves
+# semantic boundaries — an invoice's line-item table stays in one chunk,
+# email headers stay with the body, etc.
+#
+# If a section is still too large, it falls back to chunk_text().
+
+# Section boundary patterns for each document type
+_EMAIL_SECTIONS = re.compile(
+    r'^(CLAIMANT DETAILS:|CLAIM DETAILS:|DAMAGE DESCRIPTION:|Dear |Best regards)',
+    re.MULTILINE
+)
+_INVOICE_SECTIONS = re.compile(
+    r'^(BILL TO:|REFERENCE:|SERVICES RENDERED:|PAYMENT DETAILS:)',
+    re.MULTILINE
+)
+_PHOTO_SECTIONS = re.compile(
+    r'^(PHOTO EVIDENCE:|DAMAGE ASSESSMENT NOTES:|Photo \d+:)',
+    re.MULTILINE
+)
+
+
+def _split_by_sections(text: str, pattern: re.Pattern) -> list[str]:
+    """
+    Splits text at structural section boundaries identified by a regex.
+    Returns a list of sections. Each section includes its header line.
+    """
+    positions = [m.start() for m in pattern.finditer(text)]
+
+    if not positions:
+        return [text]  # No sections found — return whole text
+
+    sections = []
+    # Include any preamble before the first section
+    if positions[0] > 0:
+        preamble = text[:positions[0]].strip()
+        if preamble:
+            sections.append(preamble)
+
+    for i, pos in enumerate(positions):
+        end = positions[i + 1] if i + 1 < len(positions) else len(text)
+        section = text[pos:end].strip()
+        if section:
+            sections.append(section)
+
+    return sections
+
+
+def _chunk_sections(sections: list[str], chunk_size: int, overlap: int) -> list[str]:
+    """
+    Takes pre-split sections and produces final chunks.
+    - Small sections that fit together are merged (up to chunk_size).
+    - Large sections are sub-split using chunk_text().
+    This preserves structure while respecting size limits.
+    """
+    chunks = []
+    current = ""
+
+    for section in sections:
+        # If this section alone exceeds chunk_size, sub-split it
+        if len(section) > chunk_size:
+            # Flush anything accumulated
+            if current.strip() and len(current.strip()) >= MIN_CHUNK_SIZE:
+                chunks.append(current.strip())
+            current = ""
+            # Sub-split the oversized section
+            sub_chunks = chunk_text(section, chunk_size, overlap)
+            chunks.extend(sub_chunks)
+        elif len(current) + len(section) + 2 <= chunk_size:
+            # Merge small sections together
+            current = current + "\n\n" + section if current else section
+        else:
+            # Current buffer is full — flush it
+            if current.strip() and len(current.strip()) >= MIN_CHUNK_SIZE:
+                chunks.append(current.strip())
+            current = section
+
+    # Don't forget the last accumulated section
+    if current.strip() and len(current.strip()) >= MIN_CHUNK_SIZE:
+        chunks.append(current.strip())
+
+    return chunks
+
+
+def chunk_text_document_aware(text: str, document_type: str,
+                               chunk_size: int, overlap: int) -> list[str]:
+    """
+    Document-aware chunking entry point.
+    Picks the right section pattern based on document type,
+    splits into semantic sections, then produces final chunks.
+    Falls back to plain chunk_text() if no pattern matches.
+    """
+    pattern_map = {
+        "claim_email": _EMAIL_SECTIONS,
+        "invoice": _INVOICE_SECTIONS,
+        "photo_documentation": _PHOTO_SECTIONS,
+    }
+    pattern = pattern_map.get(document_type)
+
+    if pattern:
+        sections = _split_by_sections(text, pattern)
+        return _chunk_sections(sections, chunk_size, overlap)
+    else:
+        return chunk_text(text, chunk_size, overlap)
+
+
 def build_chunk_record(
     chunk_text: str,
     chunk_index: int,
@@ -131,6 +246,9 @@ def build_chunk_record(
         # Photo-specific fields (null for non-photos)
         "damage_severity": document.get("damage_severity"),
 
+        # Lineage — content hash from Stage 1 for dedup in Stage 4
+        "content_hash": document.get("content_hash"),
+
         # Pipeline metadata
         "chunked_at": datetime.now().isoformat()
     }
@@ -153,8 +271,9 @@ def chunk_document(document: dict) -> list[dict]:
         logging.info(f"{file_name} is short ({len(content)} chars) — storing as single chunk")
         return [build_chunk_record(content, 0, 1, document)]
 
-    # Standard chunking
-    text_chunks = chunk_text(content, CHUNK_SIZE, CHUNK_OVERLAP)
+    # Document-aware chunking — preserves structural sections
+    doc_type = document.get("document_type", "unknown")
+    text_chunks = chunk_text_document_aware(content, doc_type, CHUNK_SIZE, CHUNK_OVERLAP)
 
     if not text_chunks:
         logging.warning(f"Chunking produced no results for {file_name}")
@@ -186,6 +305,7 @@ def chunk_all():
     all_chunks = []
     total_docs_processed = 0
     total_single_chunk_docs = 0
+    start_time = datetime.now()
 
     for doc in successful_docs:
         chunks = chunk_document(doc)
@@ -198,6 +318,8 @@ def chunk_all():
     with open(CHUNKS_DATA, "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, indent=2, ensure_ascii=False)
 
+    duration = (datetime.now() - start_time).total_seconds()
+
     summary = {
         "run_at": datetime.now().isoformat(),
         "documents_processed": total_docs_processed,
@@ -205,6 +327,7 @@ def chunk_all():
         "single_chunk_documents": total_single_chunk_docs,
         "multi_chunk_documents": total_docs_processed - total_single_chunk_docs,
         "avg_chunks_per_document": round(len(all_chunks) / total_docs_processed, 2) if total_docs_processed else 0,
+        "duration_seconds": round(duration, 2),
         "chunk_config": {
             "chunk_size": CHUNK_SIZE,
             "chunk_overlap": CHUNK_OVERLAP,

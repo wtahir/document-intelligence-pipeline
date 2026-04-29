@@ -18,6 +18,7 @@
 
 import os
 import json
+import re
 import logging
 from datetime import datetime
 from openai import AzureOpenAI
@@ -26,12 +27,15 @@ from chromadb.utils import embedding_functions
 from config import (
     QUERY_LOG, OUTPUT_FOLDER, CHROMA_FOLDER, CHROMA_COLLECTION,
     EMBEDDING_MODEL, RERANKER_MODEL, RERANK_ENABLED, RERANK_TOP_K,
-    DEFAULT_N_RESULTS, RETRIEVAL_OVER_FETCH,
+    DEFAULT_N_RESULTS, RETRIEVAL_OVER_FETCH, CONFIDENCE_THRESHOLD,
+    HYBRID_SEARCH_ENABLED, BM25_WEIGHT, PII_REDACTION_ENABLED,
     AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT,
     AZURE_OPENAI_DEPLOYMENT, AZURE_API_VERSION,
     LOG_FOLDER, LOG_FORMAT,
     POLICY_METADATA, EXTRACTED_DATA, PAYOUT_REPORT,
+    estimate_llm_cost,
 )
+from pii_redactor import redact_chunks, unredact
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -94,11 +98,50 @@ You help with:
 - Extracting claimed amounts from invoices
 - Summarising claim status
 
-If the context does not contain enough information to answer, say so clearly.
-Never make up information not present in the context.
-When referencing specific claims, always mention the claim number."""
+CITATION RULES (mandatory):
+- When making any factual claim, cite the source chunk using [Chunk N] notation.
+- Every statement that references specific data (names, amounts, dates, objects) MUST include at least one [Chunk N] citation.
+- If multiple chunks support a statement, cite all of them: [Chunk 1, Chunk 3].
+- If the context does not contain enough information to answer, say "INSUFFICIENT_CONTEXT" followed by what is missing.
+- Never make up information not present in the context.
+- When referencing specific claims, always mention the claim number."""
 
 QUERY_LOG_PATH = QUERY_LOG
+
+
+# ─── Prompt injection protection ─────────────────────────────────
+# Detect attempts to override system instructions or extract data
+# through the query interface. These patterns catch common injection
+# techniques without being overly restrictive on legitimate queries.
+
+_INJECTION_PATTERNS = [
+    re.compile(r'ignore\s+(all\s+)?previous\s+instructions', re.IGNORECASE),
+    re.compile(r'ignore\s+(all\s+)?above', re.IGNORECASE),
+    re.compile(r'(system|assistant)\s*:\s*', re.IGNORECASE),
+    re.compile(r'you\s+are\s+now\s+(a|an)\s+', re.IGNORECASE),
+    re.compile(r'(do\s+not|don\'t)\s+follow\s+(the|your)\s+(previous|original)', re.IGNORECASE),
+    re.compile(r'reveal\s+(your|the)\s+(system|original|hidden)\s+(prompt|instructions)', re.IGNORECASE),
+    re.compile(r'output\s+(your|the)\s+(system|initial)\s+(prompt|message)', re.IGNORECASE),
+    re.compile(r'pretend\s+(you\'re|you\s+are|to\s+be)', re.IGNORECASE),
+    re.compile(r'jailbreak', re.IGNORECASE),
+    re.compile(r'DAN\s+mode', re.IGNORECASE),
+]
+
+
+def _check_prompt_injection(query: str) -> tuple[bool, str]:
+    """
+    Scans query for known prompt injection patterns.
+    Returns (is_safe, reason).
+    """
+    if not query:
+        return True, "OK"
+
+    for pattern in _INJECTION_PATTERNS:
+        match = pattern.search(query)
+        if match:
+            return False, f"Blocked: query matches injection pattern '{match.group()}'"
+
+    return True, "OK"
 
 
 def load_query_log():
@@ -166,6 +209,103 @@ def rerank_chunks(query, chunks, top_k=RERANK_TOP_K):
     return reranked
 
 
+# ─── BM25 Hybrid Search ──────────────────────────────────────────────
+#
+# Dense vector search is great at semantic similarity but misses exact
+# keyword matches (claim numbers, names, specific terms).
+# BM25 (term frequency / inverse document frequency) catches those.
+#
+# We combine both scores:
+#   hybrid_score = (1 - BM25_WEIGHT) * dense_score + BM25_WEIGHT * bm25_score
+#
+# This is a lightweight in-memory BM25 — no extra infrastructure needed.
+# It runs over the already-retrieved chunks, not the full corpus.
+
+
+def _tokenize(text: str) -> list[str]:
+    """Simple whitespace + punctuation tokenizer for BM25."""
+    return re.findall(r'\b\w+\b', text.lower())
+
+
+def _bm25_score(query_tokens: list[str], doc_tokens: list[str],
+                avg_dl: float, k1: float = 1.5, b: float = 0.75) -> float:
+    """
+    Scores a single document against query using BM25.
+    Simplified: IDF is approximated as 1.0 since we're scoring a small
+    retrieved set, not the full corpus. The relative ranking still works.
+    """
+    dl = len(doc_tokens)
+    if dl == 0:
+        return 0.0
+
+    doc_tf = {}
+    for token in doc_tokens:
+        doc_tf[token] = doc_tf.get(token, 0) + 1
+
+    score = 0.0
+    for qt in query_tokens:
+        tf = doc_tf.get(qt, 0)
+        if tf > 0:
+            numerator = tf * (k1 + 1)
+            denominator = tf + k1 * (1 - b + b * dl / avg_dl)
+            score += numerator / denominator
+
+    return score
+
+
+def hybrid_rerank(query: str, chunks: list[dict], n_results: int) -> list[dict]:
+    """
+    Combines dense vector scores with BM25 keyword scores.
+    Dense distance is converted to a similarity (1 - distance) and
+    normalized to [0, 1]. BM25 scores are also normalized.
+    Final score: (1 - BM25_WEIGHT) * dense_sim + BM25_WEIGHT * bm25_norm
+    """
+    if not chunks:
+        return chunks
+
+    query_tokens = _tokenize(query)
+
+    # Tokenize all docs and compute BM25
+    doc_token_lists = [_tokenize(c.get("text", "")) for c in chunks]
+    avg_dl = sum(len(dt) for dt in doc_token_lists) / len(doc_token_lists) if doc_token_lists else 1.0
+
+    bm25_scores = [
+        _bm25_score(query_tokens, dt, avg_dl)
+        for dt in doc_token_lists
+    ]
+
+    # Normalize BM25 scores to [0, 1]
+    max_bm25 = max(bm25_scores) if bm25_scores else 1.0
+    if max_bm25 > 0:
+        bm25_norm = [s / max_bm25 for s in bm25_scores]
+    else:
+        bm25_norm = [0.0] * len(bm25_scores)
+
+    # Convert dense distance to similarity and normalize
+    dense_sims = [1.0 - c.get("distance", 1.0) for c in chunks]
+    max_dense = max(dense_sims) if dense_sims else 1.0
+    min_dense = min(dense_sims) if dense_sims else 0.0
+    dense_range = max_dense - min_dense if max_dense != min_dense else 1.0
+    dense_norm = [(s - min_dense) / dense_range for s in dense_sims]
+
+    # Combine scores
+    w = BM25_WEIGHT
+    for chunk, dn, bn, raw_bm25 in zip(chunks, dense_norm, bm25_norm, bm25_scores):
+        chunk["bm25_score"] = round(raw_bm25, 4)
+        chunk["hybrid_score"] = round((1 - w) * dn + w * bn, 4)
+
+    # Sort by hybrid score (descending) and take top n_results
+    ranked = sorted(chunks, key=lambda c: c["hybrid_score"], reverse=True)[:n_results]
+
+    logging.info(
+        f"Hybrid search: {len(chunks)} -> {len(ranked)} chunks. "
+        f"BM25 weight: {w}. "
+        f"Top hybrid score: {ranked[0]['hybrid_score']:.3f}"
+    )
+
+    return ranked
+
+
 def build_context(chunks):
     """Formats retrieved chunks into a context block for the GPT-4o prompt."""
     context_parts = []
@@ -184,14 +324,14 @@ def build_context(chunks):
 
 
 def generate_answer(query, context):
-    """Sends query + context to GPT-4o and returns the answer."""
+    """Sends query + context to GPT-4o and returns the answer + token usage."""
     user_message = f"""Context from insurance claim documents:
 
 {context}
 
 Question: {query}
 
-Answer based only on the context above:"""
+Answer based only on the context above. Cite sources using [Chunk N] notation:"""
 
     response = azure_client.chat.completions.create(
         model=DEPLOYMENT_NAME,
@@ -202,27 +342,157 @@ Answer based only on the context above:"""
         max_completion_tokens=1000,
     )
 
-    return response.choices[0].message.content.strip()
+    answer = response.choices[0].message.content.strip()
+
+    # Track token usage for cost monitoring
+    usage = response.usage
+    token_usage = {
+        "prompt_tokens": usage.prompt_tokens if usage else 0,
+        "completion_tokens": usage.completion_tokens if usage else 0,
+        "total_tokens": usage.total_tokens if usage else 0,
+        "cost_usd": estimate_llm_cost(
+            usage.prompt_tokens if usage else 0,
+            usage.completion_tokens if usage else 0,
+        ),
+    }
+
+    return answer, token_usage
+
+
+def _check_confidence(chunks):
+    """
+    Checks whether retrieved chunks are confident enough to answer.
+    Returns (is_confident, avg_distance, reason).
+
+    ChromaDB cosine distance: 0.0 = identical, 2.0 = opposite.
+    If all chunks are above the threshold, the retrieval is low-quality
+    and the system should refuse to answer rather than hallucinate.
+    """
+    if not chunks:
+        return False, 0.0, "No chunks retrieved"
+
+    distances = [c.get("distance", 2.0) for c in chunks]
+    avg_distance = sum(distances) / len(distances)
+    best_distance = min(distances)
+
+    # If even the best chunk is above the threshold, we have no relevant content
+    if best_distance > CONFIDENCE_THRESHOLD:
+        return False, avg_distance, (
+            f"Best chunk distance ({best_distance:.3f}) exceeds threshold "
+            f"({CONFIDENCE_THRESHOLD}). No sufficiently relevant documents found."
+        )
+
+    return True, avg_distance, "OK"
+
+
+def _verify_citations(answer, num_chunks):
+    """
+    Verifies that [Chunk N] citations in the answer reference valid chunk indices.
+    Returns a dict with citation stats.
+    """
+    # Find all [Chunk N] references
+    citations = re.findall(r'\[Chunk\s+(\d+)', answer)
+    cited_indices = set()
+    invalid_citations = []
+
+    for c in citations:
+        idx = int(c)
+        if 1 <= idx <= num_chunks:
+            cited_indices.add(idx)
+        else:
+            invalid_citations.append(idx)
+
+    return {
+        "has_citations": len(cited_indices) > 0,
+        "cited_chunks": sorted(cited_indices),
+        "total_citations": len(citations),
+        "invalid_citations": invalid_citations,
+        "citation_coverage": round(len(cited_indices) / num_chunks, 2) if num_chunks else 0,
+    }
 
 
 def query_pipeline(query, metadata_filter=None, n_results=DEFAULT_N_RESULTS):
     """
     Full RAG pipeline for a single query:
-    retrieve -> rerank (optional) -> build context -> generate answer -> log
+    retrieve -> rerank (optional) -> confidence check -> build context -> generate answer -> verify citations -> log
     """
     logging.info(f"Query: {query} | Filter: {metadata_filter} | n_results: {n_results}")
+    import time as _time
+    _query_start = _time.monotonic()
+
+    # Prompt injection check — block suspicious queries before retrieval
+    is_safe, injection_reason = _check_prompt_injection(query)
+    if not is_safe:
+        logging.warning(f"Prompt injection blocked: {query[:100]} | {injection_reason}")
+        _query_duration = round(_time.monotonic() - _query_start, 3)
+        result = {
+            "query_id": f"q_{datetime.now().strftime('%Y%m%d_%H%M%S_%f')}",
+            "query": query,
+            "metadata_filter": metadata_filter,
+            "n_results_requested": n_results,
+            "chunks_retrieved": 0,
+            "blocked": True,
+            "blocked_reason": injection_reason,
+            "answer": "This query was blocked by the safety filter. Please rephrase your question.",
+            "latency_seconds": _query_duration,
+            "queried_at": datetime.now().isoformat(),
+            "evaluated": False,
+            "score": None,
+            "evaluation_notes": None,
+        }
+        log = load_query_log()
+        log.append(result)
+        save_query_log(log)
+        return result
 
     chunks = retrieve_chunks(query, metadata_filter, n_results)
 
     if RERANK_ENABLED and chunks:
         chunks = rerank_chunks(query, chunks, top_k=n_results)
+    elif HYBRID_SEARCH_ENABLED and chunks:
+        # Hybrid search: combine dense + BM25 when reranker is off
+        chunks = hybrid_rerank(query, chunks, n_results)
+    is_confident = True
+    confidence_reason = "OK"
 
     if not chunks:
         answer = "No relevant documents found for this query."
         logging.warning(f"No chunks retrieved for query: {query}")
     else:
-        context = build_context(chunks)
-        answer = generate_answer(query, context)
+        # Confidence check — refuse to answer if retrieval quality is too low
+        is_confident, avg_distance, confidence_reason = _check_confidence(chunks)
+
+        if not is_confident:
+            answer = (
+                f"INSUFFICIENT_CONTEXT: {confidence_reason} "
+                f"The retrieved documents are not relevant enough to provide a reliable answer. "
+                f"Please try rephrasing your query or adding metadata filters."
+            )
+            logging.warning(f"Low confidence for query: {query} | {confidence_reason}")
+        else:
+            # PII redaction — replace sensitive data in chunks before LLM sees them
+            if PII_REDACTION_ENABLED:
+                redacted, pii_mapping = redact_chunks(chunks)
+                context = build_context(redacted)
+            else:
+                pii_mapping = {}
+                context = build_context(chunks)
+
+            answer, token_usage = generate_answer(query, context)
+
+            # Restore PII in the answer for display
+            if pii_mapping:
+                answer = unredact(answer, pii_mapping)
+
+            # Verify citations in the answer
+            citation_info = _verify_citations(answer, len(chunks))
+            if citation_info["invalid_citations"]:
+                logging.warning(
+                    f"Invalid citations in answer: {citation_info['invalid_citations']} "
+                    f"(only {len(chunks)} chunks available)"
+                )
+
+    _query_duration = round(_time.monotonic() - _query_start, 3)
 
     result = {
         "query_id": f"q_{datetime.now().strftime('%Y%m%d_%H%M%S_%f')}",
@@ -231,6 +501,13 @@ def query_pipeline(query, metadata_filter=None, n_results=DEFAULT_N_RESULTS):
         "n_results_requested": n_results,
         "chunks_retrieved": len(chunks),
         "reranking_enabled": RERANK_ENABLED,
+        "hybrid_search_enabled": HYBRID_SEARCH_ENABLED,
+        "pii_redaction_enabled": PII_REDACTION_ENABLED,
+        "confidence_pass": is_confident,
+        "confidence_reason": confidence_reason,
+        "citation_info": citation_info,
+        "token_usage": token_usage,
+        "latency_seconds": _query_duration,
         "chunks": chunks,
         "answer": answer,
         "queried_at": datetime.now().isoformat(),
@@ -243,7 +520,11 @@ def query_pipeline(query, metadata_filter=None, n_results=DEFAULT_N_RESULTS):
     log.append(result)
     save_query_log(log)
 
-    logging.info(f"Query answered. chunks_retrieved={len(chunks)}, query_id={result['query_id']}")
+    logging.info(
+        f"Query answered. chunks_retrieved={len(chunks)}, "
+        f"confident={is_confident}, citations={citation_info['total_citations']}, "
+        f"tokens={token_usage['total_tokens']}, query_id={result['query_id']}"
+    )
 
     return result
 

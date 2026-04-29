@@ -1,542 +1,452 @@
 [
   {
-    "claim_number": "WD-2024-49237",
-    "claimant_name": "Maria Schmidt",
-    "damage_type": "water",
-    "damaged_object": "utility room walls",
-    "damage_date": "2025-08-08",
-    "invoice_amount_eur": 4247.07,
-    "policy_number": "POL-101111",
-    "is_covered": true,
-    "files": [
-      "WD-2024-49237_email.pdf",
-      "WD-2024-49237_invoice.pdf",
-      "WD-2024-49237_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2024-57218",
-    "claimant_name": "Andrea Wagner",
-    "damage_type": "water",
-    "damaged_object": "laundry room floor",
-    "damage_date": "2024-07-05",
-    "invoice_amount_eur": 1676.06,
-    "policy_number": "POL-103333",
-    "is_covered": true,
-    "files": [
-      "WD-2024-57218_email.pdf",
-      "WD-2024-57218_invoice.pdf",
-      "WD-2024-57218_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2025-18506",
-    "claimant_name": "Michael Becker",
-    "damage_type": "water",
-    "damaged_object": "hallway ceiling",
-    "damage_date": "2024-01-04",
-    "invoice_amount_eur": 2207.5,
-    "policy_number": "POL-104444",
-    "is_covered": true,
-    "files": [
-      "WD-2025-18506_email.pdf",
-      "WD-2025-18506_invoice.pdf",
-      "WD-2025-18506_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2024-36016",
-    "claimant_name": "Petra Wolf",
-    "damage_type": "water",
-    "damaged_object": "dining room floor",
-    "damage_date": "2024-05-26",
-    "invoice_amount_eur": 2214.52,
-    "policy_number": "POL-118887",
-    "is_covered": false,
-    "files": [
-      "WD-2024-36016_email.pdf",
-      "WD-2024-36016_invoice.pdf",
-      "WD-2024-36016_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2024-75590",
-    "claimant_name": "Hans Richter",
-    "damage_type": "water",
-    "damaged_object": "bedroom carpet",
-    "damage_date": "2024-03-12",
-    "invoice_amount_eur": 6643.0,
-    "policy_number": "POL-117776",
-    "is_covered": false,
-    "files": [
-      "WD-2024-75590_email.pdf",
-      "WD-2024-75590_invoice.pdf",
-      "WD-2024-75590_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2025-92273",
-    "claimant_name": "Maria Schmidt",
+    "claim_number": "WD-2024-95178",
+    "claimant_name": "Ursula Berger",
     "damage_type": "water",
     "damaged_object": "basement flooring",
-    "damage_date": "2024-03-23",
-    "invoice_amount_eur": 5693.23,
-    "policy_number": "POL-101111",
-    "is_covered": true,
+    "damage_date": "2025-11-16",
+    "invoice_amount_eur": 2767.81,
+    "policy_number": "POL-114443",
+    "is_covered": false,
     "files": [
-      "WD-2025-92273_email.pdf",
-      "WD-2025-92273_invoice.pdf",
-      "WD-2025-92273_photo.pdf"
+      "WD-2024-95178_email.pdf",
+      "WD-2024-95178_invoice.pdf",
+      "WD-2024-95178_photo.pdf"
     ]
   },
   {
-    "claim_number": "WD-2024-68263",
+    "claim_number": "WD-2024-92654",
     "claimant_name": "Markus Leitner",
     "damage_type": "water",
-    "damaged_object": "dining room floor",
-    "damage_date": "2024-10-21",
-    "invoice_amount_eur": 5560.97,
+    "damaged_object": "laundry room floor",
+    "damage_date": "2025-05-06",
+    "invoice_amount_eur": 4194.02,
     "policy_number": "POL-115554",
     "is_covered": false,
     "files": [
-      "WD-2024-68263_email.pdf",
-      "WD-2024-68263_invoice.pdf",
-      "WD-2024-68263_photo.pdf"
+      "WD-2024-92654_email.pdf",
+      "WD-2024-92654_invoice.pdf",
+      "WD-2024-92654_photo.pdf"
     ]
   },
   {
-    "claim_number": "WD-2025-80329",
+    "claim_number": "WD-2025-14301",
+    "claimant_name": "Thomas Mueller",
+    "damage_type": "water",
+    "damaged_object": "dining room floor",
+    "damage_date": "2024-02-27",
+    "invoice_amount_eur": 7777.94,
+    "policy_number": "POL-100000",
+    "is_covered": true,
+    "files": [
+      "WD-2025-14301_email.pdf",
+      "WD-2025-14301_invoice.pdf",
+      "WD-2025-14301_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "WD-2025-45159",
     "claimant_name": "Wolfgang Fischer",
     "damage_type": "water",
-    "damaged_object": "bathroom walls",
-    "damage_date": "2025-05-01",
-    "invoice_amount_eur": 3575.01,
+    "damaged_object": "kitchen ceiling",
+    "damage_date": "2024-02-19",
+    "invoice_amount_eur": 2764.22,
     "policy_number": "POL-106666",
     "is_covered": true,
     "files": [
-      "WD-2025-80329_email.pdf",
-      "WD-2025-80329_invoice.pdf",
-      "WD-2025-80329_photo.pdf"
+      "WD-2025-45159_email.pdf",
+      "WD-2025-45159_invoice.pdf",
+      "WD-2025-45159_photo.pdf"
     ]
   },
   {
-    "claim_number": "WD-2024-12909",
-    "claimant_name": "Maria Schmidt",
-    "damage_type": "water",
-    "damaged_object": "hallway ceiling",
-    "damage_date": "2025-05-12",
-    "invoice_amount_eur": 6250.55,
-    "policy_number": "POL-101111",
-    "is_covered": true,
-    "files": [
-      "WD-2024-12909_email.pdf",
-      "WD-2024-12909_invoice.pdf",
-      "WD-2024-12909_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2024-78805",
-    "claimant_name": "Georg Braun",
-    "damage_type": "water",
-    "damaged_object": "dining room floor",
-    "damage_date": "2024-02-14",
-    "invoice_amount_eur": 4108.17,
-    "policy_number": "POL-119998",
-    "is_covered": true,
-    "files": [
-      "WD-2024-78805_email.pdf",
-      "WD-2024-78805_invoice.pdf",
-      "WD-2024-78805_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "WD-2024-33045",
-    "claimant_name": "Ursula Berger",
+    "claim_number": "WD-2025-61838",
+    "claimant_name": "Wolfgang Fischer",
     "damage_type": "water",
     "damaged_object": "laundry room floor",
-    "damage_date": "2025-05-12",
-    "invoice_amount_eur": 5522.71,
-    "policy_number": "POL-114443",
+    "damage_date": "2024-02-23",
+    "invoice_amount_eur": 1747.8,
+    "policy_number": "POL-106666",
     "is_covered": true,
     "files": [
-      "WD-2024-33045_email.pdf",
-      "WD-2024-33045_invoice.pdf",
-      "WD-2024-33045_photo.pdf"
+      "WD-2025-61838_email.pdf",
+      "WD-2025-61838_invoice.pdf",
+      "WD-2025-61838_photo.pdf"
     ]
   },
   {
-    "claim_number": "WD-2024-88715",
-    "claimant_name": "Markus Leitner",
-    "damage_type": "water",
-    "damaged_object": "dining room floor",
-    "damage_date": "2025-04-03",
-    "invoice_amount_eur": 4493.46,
-    "policy_number": "POL-115554",
-    "is_covered": false,
-    "files": [
-      "WD-2024-88715_email.pdf",
-      "WD-2024-88715_invoice.pdf",
-      "WD-2024-88715_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "SD-2025-91216",
-    "claimant_name": "Thomas Mueller",
-    "damage_type": "storm",
-    "damaged_object": "window shutters",
-    "damage_date": "2024-06-19",
-    "invoice_amount_eur": 4981.49,
-    "policy_number": "POL-100000",
-    "is_covered": true,
-    "files": [
-      "SD-2025-91216_email.pdf",
-      "SD-2025-91216_invoice.pdf",
-      "SD-2025-91216_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "SD-2025-10904",
-    "claimant_name": "Stefan Bauer",
-    "damage_type": "storm",
-    "damaged_object": "balcony railing",
-    "damage_date": "2024-06-01",
-    "invoice_amount_eur": 4261.84,
-    "policy_number": "POL-108888",
-    "is_covered": true,
-    "files": [
-      "SD-2025-10904_email.pdf",
-      "SD-2025-10904_invoice.pdf",
-      "SD-2025-10904_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "SD-2025-98762",
-    "claimant_name": "Andrea Wagner",
-    "damage_type": "storm",
-    "damaged_object": "terrace canopy",
-    "damage_date": "2024-07-19",
-    "invoice_amount_eur": 5763.25,
-    "policy_number": "POL-103333",
-    "is_covered": true,
-    "files": [
-      "SD-2025-98762_email.pdf",
-      "SD-2025-98762_invoice.pdf",
-      "SD-2025-98762_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "SD-2025-76439",
+    "claim_number": "WD-2024-64844",
     "claimant_name": "Christian Maier",
-    "damage_type": "storm",
-    "damaged_object": "chimney cap",
-    "damage_date": "2024-04-24",
-    "invoice_amount_eur": 5234.88,
+    "damage_type": "water",
+    "damaged_object": "laundry room floor",
+    "damage_date": "2025-10-03",
+    "invoice_amount_eur": 2253.05,
     "policy_number": "POL-113332",
     "is_covered": false,
     "files": [
-      "SD-2025-76439_email.pdf",
-      "SD-2025-76439_invoice.pdf",
-      "SD-2025-76439_photo.pdf"
+      "WD-2024-64844_email.pdf",
+      "WD-2024-64844_invoice.pdf",
+      "WD-2024-64844_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2025-83522",
-    "claimant_name": "Thomas Mueller",
-    "damage_type": "storm",
-    "damaged_object": "chimney cap",
-    "damage_date": "2024-11-13",
-    "invoice_amount_eur": 2749.11,
-    "policy_number": "POL-100000",
-    "is_covered": true,
+    "claim_number": "WD-2025-39483",
+    "claimant_name": "Markus Leitner",
+    "damage_type": "water",
+    "damaged_object": "basement flooring",
+    "damage_date": "2025-10-04",
+    "invoice_amount_eur": 4721.94,
+    "policy_number": "POL-115554",
+    "is_covered": false,
     "files": [
-      "SD-2025-83522_email.pdf",
-      "SD-2025-83522_invoice.pdf",
-      "SD-2025-83522_photo.pdf"
+      "WD-2025-39483_email.pdf",
+      "WD-2025-39483_invoice.pdf",
+      "WD-2025-39483_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2024-86251",
+    "claim_number": "WD-2024-37703",
+    "claimant_name": "Markus Leitner",
+    "damage_type": "water",
+    "damaged_object": "hallway ceiling",
+    "damage_date": "2024-03-30",
+    "invoice_amount_eur": 2871.86,
+    "policy_number": "POL-115554",
+    "is_covered": false,
+    "files": [
+      "WD-2024-37703_email.pdf",
+      "WD-2024-37703_invoice.pdf",
+      "WD-2024-37703_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "WD-2025-51002",
     "claimant_name": "Sabine Hoffmann",
-    "damage_type": "storm",
-    "damaged_object": "solar panels",
-    "damage_date": "2024-12-26",
-    "invoice_amount_eur": 1065.63,
+    "damage_type": "water",
+    "damaged_object": "garage concrete floor",
+    "damage_date": "2024-01-14",
+    "invoice_amount_eur": 1722.12,
     "policy_number": "POL-105555",
     "is_covered": true,
     "files": [
-      "SD-2024-86251_email.pdf",
-      "SD-2024-86251_invoice.pdf",
-      "SD-2024-86251_photo.pdf"
+      "WD-2025-51002_email.pdf",
+      "WD-2025-51002_invoice.pdf",
+      "WD-2025-51002_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2025-76817",
-    "claimant_name": "Peter Gruber",
-    "damage_type": "storm",
-    "damaged_object": "roof tiles",
-    "damage_date": "2024-06-15",
-    "invoice_amount_eur": 2569.89,
-    "policy_number": "POL-111110",
+    "claim_number": "WD-2025-82051",
+    "claimant_name": "Stefan Bauer",
+    "damage_type": "water",
+    "damaged_object": "kitchen ceiling",
+    "damage_date": "2024-06-25",
+    "invoice_amount_eur": 8007.57,
+    "policy_number": "POL-108888",
     "is_covered": true,
     "files": [
-      "SD-2025-76817_email.pdf",
-      "SD-2025-76817_invoice.pdf",
-      "SD-2025-76817_photo.pdf"
+      "WD-2025-82051_email.pdf",
+      "WD-2025-82051_invoice.pdf",
+      "WD-2025-82051_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2024-99086",
-    "claimant_name": "Claudia Zimmermann",
+    "claim_number": "SD-2024-97986",
+    "claimant_name": "Thomas Mueller",
     "damage_type": "storm",
     "damaged_object": "solar panels",
-    "damage_date": "2025-04-22",
-    "invoice_amount_eur": 4092.47,
+    "damage_date": "2024-09-22",
+    "invoice_amount_eur": 4852.89,
+    "policy_number": "POL-100000",
+    "is_covered": true,
+    "files": [
+      "SD-2024-97986_email.pdf",
+      "SD-2024-97986_invoice.pdf",
+      "SD-2024-97986_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "SD-2024-21255",
+    "claimant_name": "Claudia Zimmermann",
+    "damage_type": "storm",
+    "damaged_object": "terrace canopy",
+    "damage_date": "2024-08-15",
+    "invoice_amount_eur": 1689.05,
     "policy_number": "POL-121109",
     "is_covered": false,
     "files": [
-      "SD-2024-99086_email.pdf",
-      "SD-2024-99086_invoice.pdf",
-      "SD-2024-99086_photo.pdf"
+      "SD-2024-21255_email.pdf",
+      "SD-2024-21255_invoice.pdf",
+      "SD-2024-21255_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2025-91639",
-    "claimant_name": "Ursula Berger",
-    "damage_type": "storm",
-    "damaged_object": "garden shed",
-    "damage_date": "2025-11-25",
-    "invoice_amount_eur": 7874.74,
-    "policy_number": "POL-114443",
-    "is_covered": false,
-    "files": [
-      "SD-2025-91639_email.pdf",
-      "SD-2025-91639_invoice.pdf",
-      "SD-2025-91639_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "SD-2024-29929",
+    "claim_number": "SD-2024-30765",
     "claimant_name": "Markus Leitner",
     "damage_type": "storm",
-    "damaged_object": "terrace canopy",
-    "damage_date": "2025-10-14",
-    "invoice_amount_eur": 2173.05,
+    "damaged_object": "chimney cap",
+    "damage_date": "2025-10-07",
+    "invoice_amount_eur": 9319.58,
     "policy_number": "POL-115554",
     "is_covered": true,
     "files": [
-      "SD-2024-29929_email.pdf",
-      "SD-2024-29929_invoice.pdf",
-      "SD-2024-29929_photo.pdf"
+      "SD-2024-30765_email.pdf",
+      "SD-2024-30765_invoice.pdf",
+      "SD-2024-30765_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2024-62124",
+    "claim_number": "SD-2025-78390",
+    "claimant_name": "Sabine Hoffmann",
+    "damage_type": "storm",
+    "damaged_object": "chimney cap",
+    "damage_date": "2025-01-27",
+    "invoice_amount_eur": 5042.89,
+    "policy_number": "POL-105555",
+    "is_covered": true,
+    "files": [
+      "SD-2025-78390_email.pdf",
+      "SD-2025-78390_invoice.pdf",
+      "SD-2025-78390_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "SD-2024-53791",
+    "claimant_name": "Monika Steiner",
+    "damage_type": "storm",
+    "damaged_object": "garden shed",
+    "damage_date": "2025-11-01",
+    "invoice_amount_eur": 1938.68,
+    "policy_number": "POL-109999",
+    "is_covered": false,
+    "files": [
+      "SD-2024-53791_email.pdf",
+      "SD-2024-53791_invoice.pdf",
+      "SD-2024-53791_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "SD-2024-30991",
+    "claimant_name": "Elisabeth Schwarz",
+    "damage_type": "storm",
+    "damaged_object": "fence panels",
+    "damage_date": "2024-05-08",
+    "invoice_amount_eur": 7680.0,
+    "policy_number": "POL-107777",
+    "is_covered": true,
+    "files": [
+      "SD-2024-30991_email.pdf",
+      "SD-2024-30991_invoice.pdf",
+      "SD-2024-30991_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "SD-2025-27498",
+    "claimant_name": "Georg Braun",
+    "damage_type": "storm",
+    "damaged_object": "terrace canopy",
+    "damage_date": "2025-07-30",
+    "invoice_amount_eur": 6123.55,
+    "policy_number": "POL-119998",
+    "is_covered": true,
+    "files": [
+      "SD-2025-27498_email.pdf",
+      "SD-2025-27498_invoice.pdf",
+      "SD-2025-27498_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "SD-2024-61738",
+    "claimant_name": "Maria Schmidt",
+    "damage_type": "storm",
+    "damaged_object": "roof tiles",
+    "damage_date": "2024-05-30",
+    "invoice_amount_eur": 7197.75,
+    "policy_number": "POL-101111",
+    "is_covered": true,
+    "files": [
+      "SD-2024-61738_email.pdf",
+      "SD-2024-61738_invoice.pdf",
+      "SD-2024-61738_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "SD-2024-15761",
     "claimant_name": "Georg Braun",
     "damage_type": "storm",
     "damaged_object": "chimney cap",
-    "damage_date": "2024-02-03",
-    "invoice_amount_eur": 5800.3,
+    "damage_date": "2024-08-23",
+    "invoice_amount_eur": 4546.11,
     "policy_number": "POL-119998",
-    "is_covered": false,
+    "is_covered": true,
     "files": [
-      "SD-2024-62124_email.pdf",
-      "SD-2024-62124_invoice.pdf",
-      "SD-2024-62124_photo.pdf"
+      "SD-2024-15761_email.pdf",
+      "SD-2024-15761_invoice.pdf",
+      "SD-2024-15761_photo.pdf"
     ]
   },
   {
-    "claim_number": "SD-2024-87638",
-    "claimant_name": "Peter Gruber",
+    "claim_number": "SD-2024-63436",
+    "claimant_name": "Monika Steiner",
     "damage_type": "storm",
     "damaged_object": "solar panels",
-    "damage_date": "2024-06-07",
-    "invoice_amount_eur": 3529.53,
-    "policy_number": "POL-111110",
-    "is_covered": true,
-    "files": [
-      "SD-2024-87638_email.pdf",
-      "SD-2024-87638_invoice.pdf",
-      "SD-2024-87638_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2025-74478",
-    "claimant_name": "Claudia Zimmermann",
-    "damage_type": "glass",
-    "damaged_object": "bathroom mirror wall",
-    "damage_date": "2025-03-25",
-    "invoice_amount_eur": 717.01,
-    "policy_number": "POL-121109",
-    "is_covered": true,
-    "files": [
-      "GD-2025-74478_email.pdf",
-      "GD-2025-74478_invoice.pdf",
-      "GD-2025-74478_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2025-41053",
-    "claimant_name": "Markus Leitner",
-    "damage_type": "glass",
-    "damaged_object": "skylight window",
-    "damage_date": "2025-05-22",
-    "invoice_amount_eur": 2421.23,
-    "policy_number": "POL-115554",
-    "is_covered": true,
-    "files": [
-      "GD-2025-41053_email.pdf",
-      "GD-2025-41053_invoice.pdf",
-      "GD-2025-41053_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2024-82448",
-    "claimant_name": "Claudia Zimmermann",
-    "damage_type": "glass",
-    "damaged_object": "skylight window",
-    "damage_date": "2024-08-04",
-    "invoice_amount_eur": 3333.5,
-    "policy_number": "POL-121109",
-    "is_covered": true,
-    "files": [
-      "GD-2024-82448_email.pdf",
-      "GD-2024-82448_invoice.pdf",
-      "GD-2024-82448_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2024-25392",
-    "claimant_name": "Hans Richter",
-    "damage_type": "glass",
-    "damaged_object": "living room window pane",
-    "damage_date": "2025-03-17",
-    "invoice_amount_eur": 2663.59,
-    "policy_number": "POL-117776",
-    "is_covered": true,
-    "files": [
-      "GD-2024-25392_email.pdf",
-      "GD-2024-25392_invoice.pdf",
-      "GD-2024-25392_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2025-79767",
-    "claimant_name": "Claudia Zimmermann",
-    "damage_type": "glass",
-    "damaged_object": "balcony glass door",
-    "damage_date": "2024-08-06",
-    "invoice_amount_eur": 2603.55,
-    "policy_number": "POL-121109",
-    "is_covered": true,
-    "files": [
-      "GD-2025-79767_email.pdf",
-      "GD-2025-79767_invoice.pdf",
-      "GD-2025-79767_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2025-62479",
-    "claimant_name": "Ingrid Huber",
-    "damage_type": "glass",
-    "damaged_object": "shower glass door",
-    "damage_date": "2025-01-07",
-    "invoice_amount_eur": 1140.57,
-    "policy_number": "POL-112221",
+    "damage_date": "2025-05-08",
+    "invoice_amount_eur": 3133.41,
+    "policy_number": "POL-109999",
     "is_covered": false,
     "files": [
-      "GD-2025-62479_email.pdf",
-      "GD-2025-62479_invoice.pdf",
-      "GD-2025-62479_photo.pdf"
+      "SD-2024-63436_email.pdf",
+      "SD-2024-63436_invoice.pdf",
+      "SD-2024-63436_photo.pdf"
     ]
   },
   {
-    "claim_number": "GD-2024-30545",
+    "claim_number": "GD-2024-76511",
     "claimant_name": "Ingrid Huber",
     "damage_type": "glass",
     "damaged_object": "conservatory glass roof panel",
-    "damage_date": "2024-03-03",
-    "invoice_amount_eur": 1949.6,
+    "damage_date": "2025-04-06",
+    "invoice_amount_eur": 1489.0,
     "policy_number": "POL-112221",
     "is_covered": false,
     "files": [
-      "GD-2024-30545_email.pdf",
-      "GD-2024-30545_invoice.pdf",
-      "GD-2024-30545_photo.pdf"
+      "GD-2024-76511_email.pdf",
+      "GD-2024-76511_invoice.pdf",
+      "GD-2024-76511_photo.pdf"
     ]
   },
   {
-    "claim_number": "GD-2024-34845",
-    "claimant_name": "Petra Wolf",
+    "claim_number": "GD-2025-88837",
+    "claimant_name": "Monika Steiner",
     "damage_type": "glass",
-    "damaged_object": "bathroom mirror wall",
-    "damage_date": "2025-12-29",
-    "invoice_amount_eur": 1902.33,
-    "policy_number": "POL-118887",
-    "is_covered": false,
-    "files": [
-      "GD-2024-34845_email.pdf",
-      "GD-2024-34845_invoice.pdf",
-      "GD-2024-34845_photo.pdf"
-    ]
-  },
-  {
-    "claim_number": "GD-2025-66775",
-    "claimant_name": "Andrea Wagner",
-    "damage_type": "glass",
-    "damaged_object": "bathroom mirror wall",
-    "damage_date": "2025-11-27",
-    "invoice_amount_eur": 3306.19,
-    "policy_number": "POL-103333",
+    "damaged_object": "conservatory glass roof panel",
+    "damage_date": "2024-03-09",
+    "invoice_amount_eur": 686.86,
+    "policy_number": "POL-109999",
     "is_covered": true,
     "files": [
-      "GD-2025-66775_email.pdf",
-      "GD-2025-66775_invoice.pdf",
-      "GD-2025-66775_photo.pdf"
+      "GD-2025-88837_email.pdf",
+      "GD-2025-88837_invoice.pdf",
+      "GD-2025-88837_photo.pdf"
     ]
   },
   {
-    "claim_number": "GD-2024-54479",
-    "claimant_name": "Ursula Berger",
+    "claim_number": "GD-2025-45027",
+    "claimant_name": "Klaus Weber",
     "damage_type": "glass",
     "damaged_object": "patio sliding door glass",
-    "damage_date": "2025-08-21",
-    "invoice_amount_eur": 1085.09,
-    "policy_number": "POL-114443",
+    "damage_date": "2024-03-15",
+    "invoice_amount_eur": 3401.14,
+    "policy_number": "POL-102222",
     "is_covered": true,
     "files": [
-      "GD-2024-54479_email.pdf",
-      "GD-2024-54479_invoice.pdf",
-      "GD-2024-54479_photo.pdf"
+      "GD-2025-45027_email.pdf",
+      "GD-2025-45027_invoice.pdf",
+      "GD-2025-45027_photo.pdf"
     ]
   },
   {
-    "claim_number": "GD-2024-69595",
-    "claimant_name": "Peter Gruber",
+    "claim_number": "GD-2025-25119",
+    "claimant_name": "Petra Wolf",
+    "damage_type": "glass",
+    "damaged_object": "living room window pane",
+    "damage_date": "2025-02-03",
+    "invoice_amount_eur": 1060.39,
+    "policy_number": "POL-118887",
+    "is_covered": true,
+    "files": [
+      "GD-2025-25119_email.pdf",
+      "GD-2025-25119_invoice.pdf",
+      "GD-2025-25119_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "GD-2024-64105",
+    "claimant_name": "Klaus Weber",
     "damage_type": "glass",
     "damaged_object": "skylight window",
-    "damage_date": "2024-03-23",
-    "invoice_amount_eur": 1198.87,
-    "policy_number": "POL-111110",
+    "damage_date": "2024-04-04",
+    "invoice_amount_eur": 2981.15,
+    "policy_number": "POL-102222",
     "is_covered": true,
     "files": [
-      "GD-2024-69595_email.pdf",
-      "GD-2024-69595_invoice.pdf",
-      "GD-2024-69595_photo.pdf"
+      "GD-2024-64105_email.pdf",
+      "GD-2024-64105_invoice.pdf",
+      "GD-2024-64105_photo.pdf"
     ]
   },
   {
-    "claim_number": "GD-2025-77786",
+    "claim_number": "GD-2025-49224",
+    "claimant_name": "Wolfgang Fischer",
+    "damage_type": "glass",
+    "damaged_object": "balcony glass door",
+    "damage_date": "2024-07-07",
+    "invoice_amount_eur": 4091.96,
+    "policy_number": "POL-106666",
+    "is_covered": true,
+    "files": [
+      "GD-2025-49224_email.pdf",
+      "GD-2025-49224_invoice.pdf",
+      "GD-2025-49224_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "GD-2025-16193",
+    "claimant_name": "Petra Wolf",
+    "damage_type": "glass",
+    "damaged_object": "patio sliding door glass",
+    "damage_date": "2024-11-18",
+    "invoice_amount_eur": 1912.41,
+    "policy_number": "POL-118887",
+    "is_covered": true,
+    "files": [
+      "GD-2025-16193_email.pdf",
+      "GD-2025-16193_invoice.pdf",
+      "GD-2025-16193_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "GD-2024-17223",
     "claimant_name": "Markus Leitner",
     "damage_type": "glass",
-    "damaged_object": "shop front window",
-    "damage_date": "2025-12-19",
-    "invoice_amount_eur": 1569.41,
+    "damaged_object": "balcony glass door",
+    "damage_date": "2025-10-31",
+    "invoice_amount_eur": 2827.26,
     "policy_number": "POL-115554",
     "is_covered": true,
     "files": [
-      "GD-2025-77786_email.pdf",
-      "GD-2025-77786_invoice.pdf",
-      "GD-2025-77786_photo.pdf"
+      "GD-2024-17223_email.pdf",
+      "GD-2024-17223_invoice.pdf",
+      "GD-2024-17223_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "GD-2024-26792",
+    "claimant_name": "Sabine Hoffmann",
+    "damage_type": "glass",
+    "damaged_object": "conservatory glass roof panel",
+    "damage_date": "2024-09-25",
+    "invoice_amount_eur": 1022.22,
+    "policy_number": "POL-105555",
+    "is_covered": true,
+    "files": [
+      "GD-2024-26792_email.pdf",
+      "GD-2024-26792_invoice.pdf",
+      "GD-2024-26792_photo.pdf"
+    ]
+  },
+  {
+    "claim_number": "GD-2024-19248",
+    "claimant_name": "Markus Leitner",
+    "damage_type": "glass",
+    "damaged_object": "conservatory glass roof panel",
+    "damage_date": "2025-04-08",
+    "invoice_amount_eur": 3743.73,
+    "policy_number": "POL-115554",
+    "is_covered": true,
+    "files": [
+      "GD-2024-19248_email.pdf",
+      "GD-2024-19248_invoice.pdf",
+      "GD-2024-19248_photo.pdf"
     ]
   }
 ]
