@@ -505,7 +505,7 @@ def generate_dataset(claims_per_type=10):
 
     # Generate policy metadata first
     policies = generate_policy_metadata()
-    policy_path = "data/output/policy_metadata.json"
+    policy_path = "data/policy_metadata.json"
     with open(policy_path, "w", encoding="utf-8") as f:
         json.dump(policies, f, indent=2, ensure_ascii=False)
     print(f"Generated policy metadata: {policy_path} ({len(policies)} policies)")

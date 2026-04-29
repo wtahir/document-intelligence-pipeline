@@ -31,7 +31,7 @@ INGESTION_SUMMARY = os.path.join(OUTPUT_FOLDER, "ingestion_summary.json")
 EXTRACTION_SUMMARY = os.path.join(OUTPUT_FOLDER, "extraction_summary.json")
 CHUNKING_SUMMARY = os.path.join(OUTPUT_FOLDER, "chunking_summary.json")
 EMBEDDING_SUMMARY = os.path.join(OUTPUT_FOLDER, "embedding_summary.json")
-POLICY_METADATA = os.path.join(OUTPUT_FOLDER, "policy_metadata.json")
+POLICY_METADATA = str(BASE_DIR / "data" / "policy_metadata.json")
 CLAIM_REGISTRY = os.path.join(OUTPUT_FOLDER, "claim_registry.json")
 PAYOUT_REPORT = os.path.join(OUTPUT_FOLDER, "payout_report.json")
 

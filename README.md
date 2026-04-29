@@ -234,7 +234,8 @@ insurance-pipeline/
 │
 ├── data/
 │   ├── pdfs/                   # ← Input PDFs (email, invoice, photo per claim)
-│   └── output/                 # Stage outputs + claim_registry, payout_report, policy_metadata
+│   └── output/                 # Stage outputs + claim_registry, payout_report
+│   └── policy_metadata.json    # Source of truth for coverage checks
 ├── logs/                       # Per-stage log files
 └── chroma_db/                  # Vector store (persisted)
 ```
