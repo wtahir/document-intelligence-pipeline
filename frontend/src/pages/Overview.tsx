@@ -8,7 +8,7 @@ import KpiCard from '../components/KpiCard'
 import StatusBadge from '../components/StatusBadge'
 import Spinner from '../components/Spinner'
 import { api } from '../api/client'
-import type { OverviewData, StageStatus } from '../types'
+import type { OverviewData, StageStatus, CostTracking } from '../types'
 
 const COLORS = ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6']
 const STAGE_ICONS: Record<string, React.ReactNode> = {
@@ -62,7 +62,7 @@ export default function Overview() {
 
   if (!data) return null
 
-  const { kpis, stages, doc_types, damage_types, token_usage } = data
+  const { kpis, stages, doc_types, damage_types, cost_tracking } = data
 
   const docTypeData = Object.entries(doc_types).map(([k, v]) => ({
     name: k.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
@@ -148,28 +148,36 @@ export default function Overview() {
               </div>
             )}
 
-            {token_usage && token_usage.total_tokens > 0 && (
-              <div className="card p-5">
+            {cost_tracking && cost_tracking.total_cost_usd > 0 && (
+              <div className="card p-5 xl:col-span-1">
                 <div className="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-4">
-                  Token Usage (Extraction)
+                  LLM Cost Tracking
                 </div>
                 <div className="space-y-3 mt-2">
                   {[
-                    { label: 'Prompt tokens',     value: token_usage.prompt_tokens },
-                    { label: 'Completion tokens',  value: token_usage.completion_tokens },
-                    { label: 'Total tokens',       value: token_usage.total_tokens },
-                  ].map(({ label, value }) => (
+                    { label: 'Extraction',  value: cost_tracking.extraction_cost_usd,  tokens: cost_tracking.extraction_tokens },
+                    { label: 'Retrieval',   value: cost_tracking.retrieval_cost_usd,   tokens: cost_tracking.retrieval_tokens },
+                    { label: 'Evaluation',  value: cost_tracking.eval_cost_usd,        tokens: cost_tracking.eval_tokens },
+                  ].map(({ label, value, tokens }) => (
                     <div key={label} className="flex justify-between items-center">
-                      <span className="text-sm text-surface-400">{label}</span>
-                      <span className="text-sm font-semibold text-surface-50">{(value || 0).toLocaleString()}</span>
+                      <div>
+                        <span className="text-sm text-surface-400">{label}</span>
+                        {tokens > 0 && (
+                          <span className="text-xs text-surface-600 ml-2">{tokens.toLocaleString()} tok</span>
+                        )}
+                      </div>
+                      <span className="text-sm font-semibold text-surface-50">${value.toFixed(4)}</span>
                     </div>
                   ))}
                   <div className="border-t border-surface-700 pt-3 flex justify-between items-center">
-                    <span className="text-sm text-surface-400 flex items-center gap-1">
-                      <DollarSign size={12} /> Estimated cost
-                    </span>
+                    <div>
+                      <span className="text-sm text-surface-400 flex items-center gap-1">
+                        <DollarSign size={12} /> Total cost
+                      </span>
+                      <span className="text-xs text-surface-600 ml-0">{cost_tracking.total_tokens.toLocaleString()} tokens</span>
+                    </div>
                     <span className="text-sm font-bold text-brand-400">
-                      ${(token_usage.cost_usd || 0).toFixed(4)}
+                      ${cost_tracking.total_cost_usd.toFixed(4)}
                     </span>
                   </div>
                 </div>

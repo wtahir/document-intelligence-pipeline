@@ -19,12 +19,24 @@ export interface OverviewKpis {
   payout_decisions: number
 }
 
+export interface CostTracking {
+  extraction_cost_usd: number
+  retrieval_cost_usd: number
+  eval_cost_usd: number
+  total_cost_usd: number
+  extraction_tokens: number
+  retrieval_tokens: number
+  eval_tokens: number
+  total_tokens: number
+}
+
 export interface OverviewData {
   stages: StageStatus[]
   kpis: OverviewKpis
   doc_types: Record<string, number>
   damage_types: Record<string, number>
   token_usage: Record<string, number>
+  cost_tracking: CostTracking
   summaries: Record<string, unknown>
 }
 
@@ -87,9 +99,14 @@ export interface EvalRow {
   retrieval_score: number | null
   answer_score: number | null
   chunks_used: number
-  top_distance: number | null
-  failure_reason: string | null
+  avg_distance: number | null
+  failure_type: string | null
   improvement: string | null
+  answer: string
+  retrieval_notes: string | null
+  answer_notes: string | null
+  chunks: Array<{ text: string; metadata: Record<string, unknown>; distance: number; rerank_score?: number }>
+  cost_usd: number
 }
 
 export interface EvaluationData {

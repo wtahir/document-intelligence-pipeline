@@ -96,12 +96,43 @@ def get_overview():
     damage_types = extraction.get("damage_types_found",    {}) if extraction else {}
     token_usage  = extraction.get("token_usage", {}) if extraction else {}
 
+    # ─── Combined LLM cost tracking ──────────────────────────
+    extraction_cost   = (extraction or {}).get("token_usage", {}).get("cost_usd", 0) if extraction else 0
+    extraction_tokens = (extraction or {}).get("token_usage", {}).get("total_tokens", 0) if extraction else 0
+
+    eval_cost   = 0.0
+    eval_tokens = 0
+    if evaluation:
+        eu = evaluation.get("eval_token_usage") or evaluation.get("token_usage") or {}
+        eval_cost   = eu.get("cost_usd", 0)
+        eval_tokens = eu.get("total_tokens", 0)
+
+    retrieval_cost   = 0.0
+    retrieval_tokens = 0
+    if isinstance(query_log, list):
+        for q in query_log:
+            tu = q.get("token_usage") or {}
+            retrieval_cost   += tu.get("cost_usd", 0)
+            retrieval_tokens += tu.get("total_tokens", 0)
+
+    cost_tracking = {
+        "extraction_cost_usd":   round(extraction_cost, 6),
+        "retrieval_cost_usd":    round(retrieval_cost, 6),
+        "eval_cost_usd":         round(eval_cost, 6),
+        "total_cost_usd":        round(extraction_cost + retrieval_cost + eval_cost, 6),
+        "extraction_tokens":     extraction_tokens,
+        "retrieval_tokens":      retrieval_tokens,
+        "eval_tokens":           eval_tokens,
+        "total_tokens":          extraction_tokens + retrieval_tokens + eval_tokens,
+    }
+
     return {
         "stages":       stages,
         "kpis":         kpis,
         "doc_types":    doc_types,
         "damage_types": damage_types,
         "token_usage":  token_usage,
+        "cost_tracking": cost_tracking,
         "summaries": {
             "ingestion":  ingestion,
             "extraction": extraction,
