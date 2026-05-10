@@ -42,6 +42,10 @@ env/
 .vscode/
 .idea/
 
+# Frontend build artefacts (Render rebuilds from source)
+frontend/node_modules/
+frontend/dist/
+
 # OS
 .DS_Store
 Thumbs.db

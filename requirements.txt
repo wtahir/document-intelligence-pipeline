@@ -15,9 +15,14 @@ celery>=5.3.0
 redis>=5.0.0
 
 # ─── Dashboard UI ─────────────────────────────────
-streamlit>=1.30.0
+streamlit>=1.30.0        # kept for reference; replaced by React UI
 plotly>=5.18.0
 pandas>=2.0.0
+
+# ─── Web API (React UI backend) ───────────────────────────────
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9  # for file uploads
 
 # ─── Synthetic Data Generation ────────────────────
 fpdf2>=2.7.0
