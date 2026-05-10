@@ -5,9 +5,20 @@
 An end-to-end AI pipeline that ingests German insurance claim PDFs (emails, invoices, photo reports), extracts structured data via LLM, validates against Pydantic schemas, stores vector embeddings, and answers natural language queries — with cross-encoder reranking, automated coverage checks, and LLM-as-judge evaluation.
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B.svg)](https://streamlit.io)
+[![React](https://img.shields.io/badge/React-18-61DAFB.svg)](https://react.dev/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688.svg)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED.svg)](https://www.docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+---
+
+## 🔗 Live Demo
+
+> **[insurance-ai-pipeline.onrender.com](https://insurance-ai-pipeline.onrender.com)** ← replace with your Render URL after deploying
+
+Pre-loaded with synthetic water, storm, and glass damage claims. All charts, document explorer, query interface, and evaluation dashboard are fully interactive.
+
+> ⏱ **Cold-start note:** The free Render tier spins down after 15 min of inactivity. The first request after idle takes ~30 seconds to wake up — just refresh once.
 
 ---
 
