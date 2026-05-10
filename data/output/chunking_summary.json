@@ -1,11 +1,11 @@
 {
-  "run_at": "2026-04-30T00:04:13.466238",
+  "run_at": "2026-04-30T00:25:40.935399",
   "documents_processed": 90,
   "total_chunks_produced": 180,
   "single_chunk_documents": 0,
   "multi_chunk_documents": 90,
   "avg_chunks_per_document": 2.0,
-  "duration_seconds": 0.03,
+  "duration_seconds": 0.02,
   "chunk_config": {
     "chunk_size": 800,
     "chunk_overlap": 150,

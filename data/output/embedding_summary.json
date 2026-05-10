@@ -1,12 +1,11 @@
 {
-  "run_at": "2026-04-30T00:05:09.504906",
+  "run_at": "2026-04-30T00:26:09.259499",
   "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
   "chunks_processed": 180,
-  "chunks_skipped_dedup": 0,
-  "chunks_stored": 180,
+  "chunks_skipped_dedup": 180,
+  "chunks_stored": 0,
   "chunks_failed": 0,
-  "stale_vectors_removed": 217,
   "total_vectors_in_collection": 180,
-  "duration_seconds": 11.87,
-  "chunks_per_second": 15.2
+  "duration_seconds": 0,
+  "chunks_per_second": 0
 }

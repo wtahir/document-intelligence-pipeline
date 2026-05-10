@@ -24,7 +24,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "b7fe0ed15647b8ae856a8ee5cfff99fceead37e771043336c0f96bc33802608b",
-    "chunked_at": "2026-04-30T00:04:13.439140"
+    "chunked_at": "2026-04-30T00:25:40.910507"
   },
   {
     "chunk_id": "SD-2024-15761_photo.pdf_chunk_1",
@@ -51,7 +51,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "b7fe0ed15647b8ae856a8ee5cfff99fceead37e771043336c0f96bc33802608b",
-    "chunked_at": "2026-04-30T00:04:13.439192"
+    "chunked_at": "2026-04-30T00:25:40.910531"
   },
   {
     "chunk_id": "WD-2025-82051_invoice.pdf_chunk_0",
@@ -78,7 +78,7 @@
     "vendor": "AquaService Bauer - Leckortung und Sanierung",
     "damage_severity": null,
     "content_hash": "29f37490e7d4d0c33723fa94b2089e15572b5d88792c34c48ba31fdf6759059a",
-    "chunked_at": "2026-04-30T00:04:13.439457"
+    "chunked_at": "2026-04-30T00:25:40.910905"
   },
   {
     "chunk_id": "WD-2025-82051_invoice.pdf_chunk_1",
@@ -105,7 +105,7 @@
     "vendor": "AquaService Bauer - Leckortung und Sanierung",
     "damage_severity": null,
     "content_hash": "29f37490e7d4d0c33723fa94b2089e15572b5d88792c34c48ba31fdf6759059a",
-    "chunked_at": "2026-04-30T00:04:13.439472"
+    "chunked_at": "2026-04-30T00:25:40.910915"
   },
   {
     "chunk_id": "SD-2025-78390_photo.pdf_chunk_0",
@@ -132,7 +132,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "50fc1e446ea7cf4121b6152e76c2a1d1b90dc4ae432851bafa788400abe66343",
-    "chunked_at": "2026-04-30T00:04:13.439655"
+    "chunked_at": "2026-04-30T00:25:40.911104"
   },
   {
     "chunk_id": "SD-2025-78390_photo.pdf_chunk_1",
@@ -159,7 +159,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "50fc1e446ea7cf4121b6152e76c2a1d1b90dc4ae432851bafa788400abe66343",
-    "chunked_at": "2026-04-30T00:04:13.439668"
+    "chunked_at": "2026-04-30T00:25:40.911113"
   },
   {
     "chunk_id": "GD-2024-64105_photo.pdf_chunk_0",
@@ -186,7 +186,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "297eea6d6a25c9c0c05c24bda427b219f70c1cd4a3e9c95b3eefbd871f597e45",
-    "chunked_at": "2026-04-30T00:04:13.439815"
+    "chunked_at": "2026-04-30T00:25:40.911233"
   },
   {
     "chunk_id": "GD-2024-64105_photo.pdf_chunk_1",
@@ -213,7 +213,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "297eea6d6a25c9c0c05c24bda427b219f70c1cd4a3e9c95b3eefbd871f597e45",
-    "chunked_at": "2026-04-30T00:04:13.439824"
+    "chunked_at": "2026-04-30T00:25:40.911240"
   },
   {
     "chunk_id": "WD-2025-45159_email.pdf_chunk_0",
@@ -240,7 +240,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "5cd5a69d8f11c4cbad5750d8ea8de46ac34b807149e97d4b9a99b7a0b66038e8",
-    "chunked_at": "2026-04-30T00:04:13.439965"
+    "chunked_at": "2026-04-30T00:25:40.911320"
   },
   {
     "chunk_id": "WD-2025-45159_email.pdf_chunk_1",
@@ -267,7 +267,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "5cd5a69d8f11c4cbad5750d8ea8de46ac34b807149e97d4b9a99b7a0b66038e8",
-    "chunked_at": "2026-04-30T00:04:13.439977"
+    "chunked_at": "2026-04-30T00:25:40.911328"
   },
   {
     "chunk_id": "SD-2024-63436_invoice.pdf_chunk_0",
@@ -294,7 +294,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "3ad97524f988f90f46f5ac1db3ebfadcd291df46c35d4d57a3ab2d432c9f774a",
-    "chunked_at": "2026-04-30T00:04:13.440097"
+    "chunked_at": "2026-04-30T00:25:40.911403"
   },
   {
     "chunk_id": "SD-2024-63436_invoice.pdf_chunk_1",
@@ -321,7 +321,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "3ad97524f988f90f46f5ac1db3ebfadcd291df46c35d4d57a3ab2d432c9f774a",
-    "chunked_at": "2026-04-30T00:04:13.440108"
+    "chunked_at": "2026-04-30T00:25:40.911410"
   },
   {
     "chunk_id": "GD-2024-64105_email.pdf_chunk_0",
@@ -348,7 +348,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "b51515a9b12a6f5595c22df89102427ca9d7e093e44d175a7520dba7112bbdb6",
-    "chunked_at": "2026-04-30T00:04:13.440236"
+    "chunked_at": "2026-04-30T00:25:40.911599"
   },
   {
     "chunk_id": "GD-2024-64105_email.pdf_chunk_1",
@@ -375,7 +375,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "b51515a9b12a6f5595c22df89102427ca9d7e093e44d175a7520dba7112bbdb6",
-    "chunked_at": "2026-04-30T00:04:13.440246"
+    "chunked_at": "2026-04-30T00:25:40.911607"
   },
   {
     "chunk_id": "GD-2025-25119_invoice.pdf_chunk_0",
@@ -402,7 +402,7 @@
     "vendor": "Glaserei Kristall GmbH",
     "damage_severity": null,
     "content_hash": "c6a1d52f9ac362c60eda62d73b218ed5c5803d4db06febcfd4e8ff0f1b5ac123",
-    "chunked_at": "2026-04-30T00:04:13.440355"
+    "chunked_at": "2026-04-30T00:25:40.911718"
   },
   {
     "chunk_id": "GD-2025-25119_invoice.pdf_chunk_1",
@@ -429,7 +429,7 @@
     "vendor": "Glaserei Kristall GmbH",
     "damage_severity": null,
     "content_hash": "c6a1d52f9ac362c60eda62d73b218ed5c5803d4db06febcfd4e8ff0f1b5ac123",
-    "chunked_at": "2026-04-30T00:04:13.440369"
+    "chunked_at": "2026-04-30T00:25:40.911725"
   },
   {
     "chunk_id": "SD-2024-15761_email.pdf_chunk_0",
@@ -456,7 +456,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "a02cb68f22c040b06ad6de76517abff99d5045b17cb2da4f9a7dd7dc34cbe015",
-    "chunked_at": "2026-04-30T00:04:13.440477"
+    "chunked_at": "2026-04-30T00:25:40.911794"
   },
   {
     "chunk_id": "SD-2024-15761_email.pdf_chunk_1",
@@ -483,7 +483,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "a02cb68f22c040b06ad6de76517abff99d5045b17cb2da4f9a7dd7dc34cbe015",
-    "chunked_at": "2026-04-30T00:04:13.440486"
+    "chunked_at": "2026-04-30T00:25:40.911801"
   },
   {
     "chunk_id": "WD-2025-51002_invoice.pdf_chunk_0",
@@ -510,7 +510,7 @@
     "vendor": "Rohrfix GmbH - Sanitaer und Heizung",
     "damage_severity": null,
     "content_hash": "358ded78b7266c4c7e63d879dd42d9b4e6bde6ee2ec70061a6c77678228b9933",
-    "chunked_at": "2026-04-30T00:04:13.440587"
+    "chunked_at": "2026-04-30T00:25:40.911870"
   },
   {
     "chunk_id": "WD-2025-51002_invoice.pdf_chunk_1",
@@ -537,7 +537,7 @@
     "vendor": "Rohrfix GmbH - Sanitaer und Heizung",
     "damage_severity": null,
     "content_hash": "358ded78b7266c4c7e63d879dd42d9b4e6bde6ee2ec70061a6c77678228b9933",
-    "chunked_at": "2026-04-30T00:04:13.440596"
+    "chunked_at": "2026-04-30T00:25:40.911877"
   },
   {
     "chunk_id": "WD-2024-64844_email.pdf_chunk_0",
@@ -564,7 +564,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "eb7ea1ddc32f14919d7918a26a350323b2a35066bc0e0e3426583ebd70380dd3",
-    "chunked_at": "2026-04-30T00:04:13.440703"
+    "chunked_at": "2026-04-30T00:25:40.911976"
   },
   {
     "chunk_id": "WD-2024-64844_email.pdf_chunk_1",
@@ -591,7 +591,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "eb7ea1ddc32f14919d7918a26a350323b2a35066bc0e0e3426583ebd70380dd3",
-    "chunked_at": "2026-04-30T00:04:13.440712"
+    "chunked_at": "2026-04-30T00:25:40.911983"
   },
   {
     "chunk_id": "SD-2024-97986_photo.pdf_chunk_0",
@@ -618,7 +618,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "394dc7db536b1235954808d416728379d1ee373c6089892f45f222dfd8c2eb5f",
-    "chunked_at": "2026-04-30T00:04:13.440845"
+    "chunked_at": "2026-04-30T00:25:40.912062"
   },
   {
     "chunk_id": "SD-2024-97986_photo.pdf_chunk_1",
@@ -645,7 +645,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "394dc7db536b1235954808d416728379d1ee373c6089892f45f222dfd8c2eb5f",
-    "chunked_at": "2026-04-30T00:04:13.440855"
+    "chunked_at": "2026-04-30T00:25:40.912069"
   },
   {
     "chunk_id": "GD-2025-49224_invoice.pdf_chunk_0",
@@ -672,7 +672,7 @@
     "vendor": "Glaserei Kristall GmbH",
     "damage_severity": null,
     "content_hash": "36fbc8490017251b1d6c8c5af21bee5506ad0c60c188631d38cbf8d4bb16bb07",
-    "chunked_at": "2026-04-30T00:04:13.440983"
+    "chunked_at": "2026-04-30T00:25:40.912146"
   },
   {
     "chunk_id": "GD-2025-49224_invoice.pdf_chunk_1",
@@ -699,7 +699,7 @@
     "vendor": "Glaserei Kristall GmbH",
     "damage_severity": null,
     "content_hash": "36fbc8490017251b1d6c8c5af21bee5506ad0c60c188631d38cbf8d4bb16bb07",
-    "chunked_at": "2026-04-30T00:04:13.440994"
+    "chunked_at": "2026-04-30T00:25:40.912165"
   },
   {
     "chunk_id": "WD-2024-92654_photo.pdf_chunk_0",
@@ -726,7 +726,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "ad2e3ac8ea07e4075448b4b56fbb713d36d3f51d6db164589e821009cd89f341",
-    "chunked_at": "2026-04-30T00:04:13.441127"
+    "chunked_at": "2026-04-30T00:25:40.912254"
   },
   {
     "chunk_id": "WD-2024-92654_photo.pdf_chunk_1",
@@ -753,7 +753,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "ad2e3ac8ea07e4075448b4b56fbb713d36d3f51d6db164589e821009cd89f341",
-    "chunked_at": "2026-04-30T00:04:13.441137"
+    "chunked_at": "2026-04-30T00:25:40.912261"
   },
   {
     "chunk_id": "WD-2024-92654_email.pdf_chunk_0",
@@ -780,7 +780,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "663355390d1e04d9241d6fa9b41f964f57d1cf8ed11e9bee613373f7eda93901",
-    "chunked_at": "2026-04-30T00:04:13.441273"
+    "chunked_at": "2026-04-30T00:25:40.912338"
   },
   {
     "chunk_id": "WD-2024-92654_email.pdf_chunk_1",
@@ -807,7 +807,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "663355390d1e04d9241d6fa9b41f964f57d1cf8ed11e9bee613373f7eda93901",
-    "chunked_at": "2026-04-30T00:04:13.441284"
+    "chunked_at": "2026-04-30T00:25:40.912345"
   },
   {
     "chunk_id": "GD-2025-45027_invoice.pdf_chunk_0",
@@ -834,7 +834,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "d8a667a8540f334f7524038df53bdb2d1032e9cf4c5b7cfb5389805f8af57ae2",
-    "chunked_at": "2026-04-30T00:04:13.441390"
+    "chunked_at": "2026-04-30T00:25:40.912418"
   },
   {
     "chunk_id": "GD-2025-45027_invoice.pdf_chunk_1",
@@ -861,7 +861,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "d8a667a8540f334f7524038df53bdb2d1032e9cf4c5b7cfb5389805f8af57ae2",
-    "chunked_at": "2026-04-30T00:04:13.441399"
+    "chunked_at": "2026-04-30T00:25:40.912425"
   },
   {
     "chunk_id": "WD-2025-51002_photo.pdf_chunk_0",
@@ -888,7 +888,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "834a42f33ba7c691a2a2682f5bbb20d52c4958404b595c2349ce5d57afc5f200",
-    "chunked_at": "2026-04-30T00:04:13.441541"
+    "chunked_at": "2026-04-30T00:25:40.912506"
   },
   {
     "chunk_id": "WD-2025-51002_photo.pdf_chunk_1",
@@ -915,7 +915,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "834a42f33ba7c691a2a2682f5bbb20d52c4958404b595c2349ce5d57afc5f200",
-    "chunked_at": "2026-04-30T00:04:13.441551"
+    "chunked_at": "2026-04-30T00:25:40.912513"
   },
   {
     "chunk_id": "GD-2024-19248_photo.pdf_chunk_0",
@@ -942,7 +942,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "86a80dd7944d878a0dd9ebb7e62b988578857ba8cdbcdcb33058f86fb38b0881",
-    "chunked_at": "2026-04-30T00:04:13.441677"
+    "chunked_at": "2026-04-30T00:25:40.912592"
   },
   {
     "chunk_id": "GD-2024-19248_photo.pdf_chunk_1",
@@ -969,7 +969,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "86a80dd7944d878a0dd9ebb7e62b988578857ba8cdbcdcb33058f86fb38b0881",
-    "chunked_at": "2026-04-30T00:04:13.441686"
+    "chunked_at": "2026-04-30T00:25:40.912599"
   },
   {
     "chunk_id": "WD-2025-45159_invoice.pdf_chunk_0",
@@ -996,7 +996,7 @@
     "vendor": "Schmidt und Sohn Klempnerbetrieb",
     "damage_severity": null,
     "content_hash": "983f76c33ee91141c1e80b2ff5a4946b28fb14143bdf9c65dca27f78427755dc",
-    "chunked_at": "2026-04-30T00:04:13.441797"
+    "chunked_at": "2026-04-30T00:25:40.912669"
   },
   {
     "chunk_id": "WD-2025-45159_invoice.pdf_chunk_1",
@@ -1023,7 +1023,7 @@
     "vendor": "Schmidt und Sohn Klempnerbetrieb",
     "damage_severity": null,
     "content_hash": "983f76c33ee91141c1e80b2ff5a4946b28fb14143bdf9c65dca27f78427755dc",
-    "chunked_at": "2026-04-30T00:04:13.441806"
+    "chunked_at": "2026-04-30T00:25:40.912675"
   },
   {
     "chunk_id": "WD-2025-39483_invoice.pdf_chunk_0",
@@ -1050,7 +1050,7 @@
     "vendor": "Schmidt und Sohn Klempnerbetrieb",
     "damage_severity": null,
     "content_hash": "9db6b49bba30b44f7231a4e7730f98a999ca2ba5e1d22c9feed3d3d3e415a7cb",
-    "chunked_at": "2026-04-30T00:04:13.441906"
+    "chunked_at": "2026-04-30T00:25:40.912743"
   },
   {
     "chunk_id": "WD-2025-39483_invoice.pdf_chunk_1",
@@ -1077,7 +1077,7 @@
     "vendor": "Schmidt und Sohn Klempnerbetrieb",
     "damage_severity": null,
     "content_hash": "9db6b49bba30b44f7231a4e7730f98a999ca2ba5e1d22c9feed3d3d3e415a7cb",
-    "chunked_at": "2026-04-30T00:04:13.441915"
+    "chunked_at": "2026-04-30T00:25:40.912749"
   },
   {
     "chunk_id": "WD-2024-95178_invoice.pdf_chunk_0",
@@ -1104,7 +1104,7 @@
     "vendor": "AquaService Bauer - Leckortung und Sanierung",
     "damage_severity": null,
     "content_hash": "29a092402368df3edb4b6ec26f62c58b55f09da215341044ff3cc0ae6f379887",
-    "chunked_at": "2026-04-30T00:04:13.442016"
+    "chunked_at": "2026-04-30T00:25:40.912813"
   },
   {
     "chunk_id": "WD-2024-95178_invoice.pdf_chunk_1",
@@ -1131,7 +1131,7 @@
     "vendor": "AquaService Bauer - Leckortung und Sanierung",
     "damage_severity": null,
     "content_hash": "29a092402368df3edb4b6ec26f62c58b55f09da215341044ff3cc0ae6f379887",
-    "chunked_at": "2026-04-30T00:04:13.442030"
+    "chunked_at": "2026-04-30T00:25:40.912820"
   },
   {
     "chunk_id": "GD-2024-17223_invoice.pdf_chunk_0",
@@ -1158,7 +1158,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "0186cb36e7526b15e01a7a03c0986972dea14af3be15e7c682c78dbd02bebd02",
-    "chunked_at": "2026-04-30T00:04:13.442137"
+    "chunked_at": "2026-04-30T00:25:40.912883"
   },
   {
     "chunk_id": "GD-2024-17223_invoice.pdf_chunk_1",
@@ -1185,7 +1185,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "0186cb36e7526b15e01a7a03c0986972dea14af3be15e7c682c78dbd02bebd02",
-    "chunked_at": "2026-04-30T00:04:13.442155"
+    "chunked_at": "2026-04-30T00:25:40.912889"
   },
   {
     "chunk_id": "GD-2025-25119_photo.pdf_chunk_0",
@@ -1212,7 +1212,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "556a10efeb51fee49260e40e4699eb1e2ba7154f580b3300bbecd9cda159ea17",
-    "chunked_at": "2026-04-30T00:04:13.442283"
+    "chunked_at": "2026-04-30T00:25:40.913000"
   },
   {
     "chunk_id": "GD-2025-25119_photo.pdf_chunk_1",
@@ -1239,7 +1239,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "556a10efeb51fee49260e40e4699eb1e2ba7154f580b3300bbecd9cda159ea17",
-    "chunked_at": "2026-04-30T00:04:13.442293"
+    "chunked_at": "2026-04-30T00:25:40.913006"
   },
   {
     "chunk_id": "SD-2024-30991_invoice.pdf_chunk_0",
@@ -1266,7 +1266,7 @@
     "vendor": "Meisterbetrieb Hoffmann - Dach und Fassade",
     "damage_severity": null,
     "content_hash": "f7d47b070e876a092a8fe3209b1f397d3c7390e5f24265ebe336da768ee08ab9",
-    "chunked_at": "2026-04-30T00:04:13.442415"
+    "chunked_at": "2026-04-30T00:25:40.913079"
   },
   {
     "chunk_id": "SD-2024-30991_invoice.pdf_chunk_1",
@@ -1293,7 +1293,7 @@
     "vendor": "Meisterbetrieb Hoffmann - Dach und Fassade",
     "damage_severity": null,
     "content_hash": "f7d47b070e876a092a8fe3209b1f397d3c7390e5f24265ebe336da768ee08ab9",
-    "chunked_at": "2026-04-30T00:04:13.442425"
+    "chunked_at": "2026-04-30T00:25:40.913086"
   },
   {
     "chunk_id": "SD-2024-21255_email.pdf_chunk_0",
@@ -1320,7 +1320,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "cf6118691c2345a307811b43ba45a6f18622af8c7e8f3f480fc11a94c5f9aa4f",
-    "chunked_at": "2026-04-30T00:04:13.442544"
+    "chunked_at": "2026-04-30T00:25:40.913169"
   },
   {
     "chunk_id": "SD-2024-21255_email.pdf_chunk_1",
@@ -1347,7 +1347,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "cf6118691c2345a307811b43ba45a6f18622af8c7e8f3f480fc11a94c5f9aa4f",
-    "chunked_at": "2026-04-30T00:04:13.442555"
+    "chunked_at": "2026-04-30T00:25:40.913176"
   },
   {
     "chunk_id": "SD-2024-53791_invoice.pdf_chunk_0",
@@ -1374,7 +1374,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "52b4e88753d0630eb97a584bb64fc506b86596fb8ff5a388ab1d8e0bdd5f3680",
-    "chunked_at": "2026-04-30T00:04:13.442667"
+    "chunked_at": "2026-04-30T00:25:40.913246"
   },
   {
     "chunk_id": "SD-2024-53791_invoice.pdf_chunk_1",
@@ -1401,7 +1401,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "52b4e88753d0630eb97a584bb64fc506b86596fb8ff5a388ab1d8e0bdd5f3680",
-    "chunked_at": "2026-04-30T00:04:13.442678"
+    "chunked_at": "2026-04-30T00:25:40.913252"
   },
   {
     "chunk_id": "GD-2025-49224_email.pdf_chunk_0",
@@ -1428,7 +1428,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "22b9b5a849140d68fdbbc38b5870ae9bcbe6a4b5091f4a410a1fcbf154795eeb",
-    "chunked_at": "2026-04-30T00:04:13.442819"
+    "chunked_at": "2026-04-30T00:25:40.913340"
   },
   {
     "chunk_id": "GD-2025-49224_email.pdf_chunk_1",
@@ -1455,7 +1455,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "22b9b5a849140d68fdbbc38b5870ae9bcbe6a4b5091f4a410a1fcbf154795eeb",
-    "chunked_at": "2026-04-30T00:04:13.442830"
+    "chunked_at": "2026-04-30T00:25:40.913347"
   },
   {
     "chunk_id": "SD-2024-61738_invoice.pdf_chunk_0",
@@ -1482,7 +1482,7 @@
     "vendor": "Bauservice Wagner - Sturmschadenbeseitigung",
     "damage_severity": null,
     "content_hash": "dc876a9b5e185af7a568bee8c320c6deac8cab81e8d45520cdd5b1d3fa983cac",
-    "chunked_at": "2026-04-30T00:04:13.442946"
+    "chunked_at": "2026-04-30T00:25:40.913419"
   },
   {
     "chunk_id": "SD-2024-61738_invoice.pdf_chunk_1",
@@ -1509,7 +1509,7 @@
     "vendor": "Bauservice Wagner - Sturmschadenbeseitigung",
     "damage_severity": null,
     "content_hash": "dc876a9b5e185af7a568bee8c320c6deac8cab81e8d45520cdd5b1d3fa983cac",
-    "chunked_at": "2026-04-30T00:04:13.442957"
+    "chunked_at": "2026-04-30T00:25:40.913426"
   },
   {
     "chunk_id": "GD-2025-16193_invoice.pdf_chunk_0",
@@ -1536,7 +1536,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "e64d5dbc8f785e3a51862ca48bd82dd259bfb4b205eb9f1bbdc4e8dc39b2df74",
-    "chunked_at": "2026-04-30T00:04:13.443070"
+    "chunked_at": "2026-04-30T00:25:40.913498"
   },
   {
     "chunk_id": "GD-2025-16193_invoice.pdf_chunk_1",
@@ -1563,7 +1563,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "e64d5dbc8f785e3a51862ca48bd82dd259bfb4b205eb9f1bbdc4e8dc39b2df74",
-    "chunked_at": "2026-04-30T00:04:13.443081"
+    "chunked_at": "2026-04-30T00:25:40.913504"
   },
   {
     "chunk_id": "WD-2025-51002_email.pdf_chunk_0",
@@ -1590,7 +1590,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "0bd9257aa76d87ddd7a295e2e58aeb1d04d478b936ea5c1ae28958dcc6ef9697",
-    "chunked_at": "2026-04-30T00:04:13.443272"
+    "chunked_at": "2026-04-30T00:25:40.913578"
   },
   {
     "chunk_id": "WD-2025-51002_email.pdf_chunk_1",
@@ -1617,7 +1617,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "0bd9257aa76d87ddd7a295e2e58aeb1d04d478b936ea5c1ae28958dcc6ef9697",
-    "chunked_at": "2026-04-30T00:04:13.443284"
+    "chunked_at": "2026-04-30T00:25:40.913585"
   },
   {
     "chunk_id": "GD-2024-17223_photo.pdf_chunk_0",
@@ -1644,7 +1644,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "d43b4368172ab79bc86ebf9da3ce39226a9d98670af76d5004daed757d20f9c9",
-    "chunked_at": "2026-04-30T00:04:13.443415"
+    "chunked_at": "2026-04-30T00:25:40.913661"
   },
   {
     "chunk_id": "GD-2024-17223_photo.pdf_chunk_1",
@@ -1671,7 +1671,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "d43b4368172ab79bc86ebf9da3ce39226a9d98670af76d5004daed757d20f9c9",
-    "chunked_at": "2026-04-30T00:04:13.443426"
+    "chunked_at": "2026-04-30T00:25:40.913668"
   },
   {
     "chunk_id": "GD-2025-25119_email.pdf_chunk_0",
@@ -1698,7 +1698,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "95088180905a976428934748c4d7c8e7654b867a746ac02b373b9d6b29b8a105",
-    "chunked_at": "2026-04-30T00:04:13.443554"
+    "chunked_at": "2026-04-30T00:25:40.913741"
   },
   {
     "chunk_id": "GD-2025-25119_email.pdf_chunk_1",
@@ -1725,7 +1725,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "95088180905a976428934748c4d7c8e7654b867a746ac02b373b9d6b29b8a105",
-    "chunked_at": "2026-04-30T00:04:13.443564"
+    "chunked_at": "2026-04-30T00:25:40.913748"
   },
   {
     "chunk_id": "SD-2024-21255_photo.pdf_chunk_0",
@@ -1752,7 +1752,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "b08cdb6e6c847462b14693bbe38cba460cdfcb7be8fc92ab4674881da5f60759",
-    "chunked_at": "2026-04-30T00:04:13.443724"
+    "chunked_at": "2026-04-30T00:25:40.913825"
   },
   {
     "chunk_id": "SD-2024-21255_photo.pdf_chunk_1",
@@ -1779,7 +1779,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "b08cdb6e6c847462b14693bbe38cba460cdfcb7be8fc92ab4674881da5f60759",
-    "chunked_at": "2026-04-30T00:04:13.443734"
+    "chunked_at": "2026-04-30T00:25:40.913832"
   },
   {
     "chunk_id": "SD-2024-30765_email.pdf_chunk_0",
@@ -1806,7 +1806,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "5e455184d45ee9340586e11db620edfbf2cec3eafb78c5f4c5f722d99eaa759a",
-    "chunked_at": "2026-04-30T00:04:13.443861"
+    "chunked_at": "2026-04-30T00:25:40.913900"
   },
   {
     "chunk_id": "SD-2024-30765_email.pdf_chunk_1",
@@ -1833,7 +1833,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "5e455184d45ee9340586e11db620edfbf2cec3eafb78c5f4c5f722d99eaa759a",
-    "chunked_at": "2026-04-30T00:04:13.443872"
+    "chunked_at": "2026-04-30T00:25:40.913907"
   },
   {
     "chunk_id": "SD-2024-97986_invoice.pdf_chunk_0",
@@ -1860,7 +1860,7 @@
     "vendor": "Bauservice Wagner - Sturmschadenbeseitigung",
     "damage_severity": null,
     "content_hash": "d77d1fccda3a4bf4410d3e9b3178032ae7cacd1e0e3a9e7851ccfe9e5d43766f",
-    "chunked_at": "2026-04-30T00:04:13.443984"
+    "chunked_at": "2026-04-30T00:25:40.913975"
   },
   {
     "chunk_id": "SD-2024-97986_invoice.pdf_chunk_1",
@@ -1887,7 +1887,7 @@
     "vendor": "Bauservice Wagner - Sturmschadenbeseitigung",
     "damage_severity": null,
     "content_hash": "d77d1fccda3a4bf4410d3e9b3178032ae7cacd1e0e3a9e7851ccfe9e5d43766f",
-    "chunked_at": "2026-04-30T00:04:13.443995"
+    "chunked_at": "2026-04-30T00:25:40.913982"
   },
   {
     "chunk_id": "SD-2024-30991_photo.pdf_chunk_0",
@@ -1914,7 +1914,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "f2e039fc525233b84676215acc71ddbcc15fdb7596354d04c86ada7f27476c31",
-    "chunked_at": "2026-04-30T00:04:13.444119"
+    "chunked_at": "2026-04-30T00:25:40.914057"
   },
   {
     "chunk_id": "SD-2024-30991_photo.pdf_chunk_1",
@@ -1941,7 +1941,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "f2e039fc525233b84676215acc71ddbcc15fdb7596354d04c86ada7f27476c31",
-    "chunked_at": "2026-04-30T00:04:13.444129"
+    "chunked_at": "2026-04-30T00:25:40.914064"
   },
   {
     "chunk_id": "WD-2025-61838_invoice.pdf_chunk_0",
@@ -1968,7 +1968,7 @@
     "vendor": "Rohrfix GmbH - Sanitaer und Heizung",
     "damage_severity": null,
     "content_hash": "d031da1dc09c97bda294e0eafd141b9ae40335473b50873da88d10c15da9a643",
-    "chunked_at": "2026-04-30T00:04:13.444260"
+    "chunked_at": "2026-04-30T00:25:40.914132"
   },
   {
     "chunk_id": "WD-2025-61838_invoice.pdf_chunk_1",
@@ -1995,7 +1995,7 @@
     "vendor": "Rohrfix GmbH - Sanitaer und Heizung",
     "damage_severity": null,
     "content_hash": "d031da1dc09c97bda294e0eafd141b9ae40335473b50873da88d10c15da9a643",
-    "chunked_at": "2026-04-30T00:04:13.444271"
+    "chunked_at": "2026-04-30T00:25:40.914138"
   },
   {
     "chunk_id": "SD-2024-97986_email.pdf_chunk_0",
@@ -2022,7 +2022,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "072fd39b0767c981c96af2d22d050e40ec3280f311a1820b77eb05b6da7407d4",
-    "chunked_at": "2026-04-30T00:04:13.444388"
+    "chunked_at": "2026-04-30T00:25:40.914220"
   },
   {
     "chunk_id": "SD-2024-97986_email.pdf_chunk_1",
@@ -2049,7 +2049,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "072fd39b0767c981c96af2d22d050e40ec3280f311a1820b77eb05b6da7407d4",
-    "chunked_at": "2026-04-30T00:04:13.444397"
+    "chunked_at": "2026-04-30T00:25:40.914227"
   },
   {
     "chunk_id": "GD-2024-76511_photo.pdf_chunk_0",
@@ -2076,7 +2076,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "e5b4263c7d1d2afe67439939655351e1a5728f67ea6cd03254c11bb99a23a867",
-    "chunked_at": "2026-04-30T00:04:13.444515"
+    "chunked_at": "2026-04-30T00:25:40.914303"
   },
   {
     "chunk_id": "GD-2024-76511_photo.pdf_chunk_1",
@@ -2103,7 +2103,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "e5b4263c7d1d2afe67439939655351e1a5728f67ea6cd03254c11bb99a23a867",
-    "chunked_at": "2026-04-30T00:04:13.444526"
+    "chunked_at": "2026-04-30T00:25:40.914310"
   },
   {
     "chunk_id": "GD-2025-88837_email.pdf_chunk_0",
@@ -2130,7 +2130,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "ea343e56adb23149549089f643a4bf858a187647abcdd79ccbb04313dac96907",
-    "chunked_at": "2026-04-30T00:04:13.444641"
+    "chunked_at": "2026-04-30T00:25:40.914377"
   },
   {
     "chunk_id": "GD-2025-88837_email.pdf_chunk_1",
@@ -2157,7 +2157,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "ea343e56adb23149549089f643a4bf858a187647abcdd79ccbb04313dac96907",
-    "chunked_at": "2026-04-30T00:04:13.444652"
+    "chunked_at": "2026-04-30T00:25:40.914383"
   },
   {
     "chunk_id": "GD-2025-45027_email.pdf_chunk_0",
@@ -2184,7 +2184,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "adbb73d0080d89f9774b84b0ee8d1eab916dc403299f9530ec5759c7936afc35",
-    "chunked_at": "2026-04-30T00:04:13.444764"
+    "chunked_at": "2026-04-30T00:25:40.914450"
   },
   {
     "chunk_id": "GD-2025-45027_email.pdf_chunk_1",
@@ -2211,7 +2211,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "adbb73d0080d89f9774b84b0ee8d1eab916dc403299f9530ec5759c7936afc35",
-    "chunked_at": "2026-04-30T00:04:13.444774"
+    "chunked_at": "2026-04-30T00:25:40.914460"
   },
   {
     "chunk_id": "GD-2024-19248_invoice.pdf_chunk_0",
@@ -2238,7 +2238,7 @@
     "vendor": "Glas Schmidt - Notdienst und Einbau",
     "damage_severity": null,
     "content_hash": "abb927318e217aa81f8366c47c1e622ce13a6cc5a90d233436ebffaea26a4ff9",
-    "chunked_at": "2026-04-30T00:04:13.444887"
+    "chunked_at": "2026-04-30T00:25:40.914531"
   },
   {
     "chunk_id": "GD-2024-19248_invoice.pdf_chunk_1",
@@ -2265,7 +2265,7 @@
     "vendor": "Glas Schmidt - Notdienst und Einbau",
     "damage_severity": null,
     "content_hash": "abb927318e217aa81f8366c47c1e622ce13a6cc5a90d233436ebffaea26a4ff9",
-    "chunked_at": "2026-04-30T00:04:13.444897"
+    "chunked_at": "2026-04-30T00:25:40.914538"
   },
   {
     "chunk_id": "WD-2025-14301_invoice.pdf_chunk_0",
@@ -2292,7 +2292,7 @@
     "vendor": "Rohrfix GmbH - Sanitaer und Heizung",
     "damage_severity": null,
     "content_hash": "1c2de3bc9cf33c48ee70f22a6ad2bdb648a960934e07efb31e868b5b79a7775c",
-    "chunked_at": "2026-04-30T00:04:13.445019"
+    "chunked_at": "2026-04-30T00:25:40.914685"
   },
   {
     "chunk_id": "WD-2025-14301_invoice.pdf_chunk_1",
@@ -2319,7 +2319,7 @@
     "vendor": "Rohrfix GmbH - Sanitaer und Heizung",
     "damage_severity": null,
     "content_hash": "1c2de3bc9cf33c48ee70f22a6ad2bdb648a960934e07efb31e868b5b79a7775c",
-    "chunked_at": "2026-04-30T00:04:13.445029"
+    "chunked_at": "2026-04-30T00:25:40.914693"
   },
   {
     "chunk_id": "SD-2024-63436_photo.pdf_chunk_0",
@@ -2346,7 +2346,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "2e77a670d3059e57f40896c6b77ec16188125f37f00ad1248fa36db9cb23c932",
-    "chunked_at": "2026-04-30T00:04:13.445158"
+    "chunked_at": "2026-04-30T00:25:40.914846"
   },
   {
     "chunk_id": "SD-2024-63436_photo.pdf_chunk_1",
@@ -2373,7 +2373,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "2e77a670d3059e57f40896c6b77ec16188125f37f00ad1248fa36db9cb23c932",
-    "chunked_at": "2026-04-30T00:04:13.445169"
+    "chunked_at": "2026-04-30T00:25:40.914853"
   },
   {
     "chunk_id": "GD-2024-76511_email.pdf_chunk_0",
@@ -2400,7 +2400,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "0df206fabebfb94eeb7a25b2e3cda4eb9d779409440340fa24616a5c0db92938",
-    "chunked_at": "2026-04-30T00:04:13.445307"
+    "chunked_at": "2026-04-30T00:25:40.915181"
   },
   {
     "chunk_id": "GD-2024-76511_email.pdf_chunk_1",
@@ -2427,7 +2427,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "0df206fabebfb94eeb7a25b2e3cda4eb9d779409440340fa24616a5c0db92938",
-    "chunked_at": "2026-04-30T00:04:13.445317"
+    "chunked_at": "2026-04-30T00:25:40.915192"
   },
   {
     "chunk_id": "GD-2025-88837_invoice.pdf_chunk_0",
@@ -2454,7 +2454,7 @@
     "vendor": "Bayer Glasservice",
     "damage_severity": null,
     "content_hash": "fa4197875b18d7d8ba0855a42ec7886a47ec0467e2a7e1916d1dec333557ccd8",
-    "chunked_at": "2026-04-30T00:04:13.445427"
+    "chunked_at": "2026-04-30T00:25:40.915346"
   },
   {
     "chunk_id": "GD-2025-88837_invoice.pdf_chunk_1",
@@ -2481,7 +2481,7 @@
     "vendor": "Bayer Glasservice",
     "damage_severity": null,
     "content_hash": "fa4197875b18d7d8ba0855a42ec7886a47ec0467e2a7e1916d1dec333557ccd8",
-    "chunked_at": "2026-04-30T00:04:13.445439"
+    "chunked_at": "2026-04-30T00:25:40.915353"
   },
   {
     "chunk_id": "WD-2025-14301_photo.pdf_chunk_0",
@@ -2508,7 +2508,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "4cdb3057d2f123d4371248f213d30b961190d163b5a8df04748fbc94cd305860",
-    "chunked_at": "2026-04-30T00:04:13.445573"
+    "chunked_at": "2026-04-30T00:25:40.915443"
   },
   {
     "chunk_id": "WD-2025-14301_photo.pdf_chunk_1",
@@ -2535,7 +2535,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "4cdb3057d2f123d4371248f213d30b961190d163b5a8df04748fbc94cd305860",
-    "chunked_at": "2026-04-30T00:04:13.445584"
+    "chunked_at": "2026-04-30T00:25:40.915450"
   },
   {
     "chunk_id": "GD-2025-45027_photo.pdf_chunk_0",
@@ -2562,7 +2562,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "3d2ea53f9c3e06245b2be8fcaba8c36a3db010828a595654b291ac6c10c2a0a4",
-    "chunked_at": "2026-04-30T00:04:13.445718"
+    "chunked_at": "2026-04-30T00:25:40.915538"
   },
   {
     "chunk_id": "GD-2025-45027_photo.pdf_chunk_1",
@@ -2589,7 +2589,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "3d2ea53f9c3e06245b2be8fcaba8c36a3db010828a595654b291ac6c10c2a0a4",
-    "chunked_at": "2026-04-30T00:04:13.445728"
+    "chunked_at": "2026-04-30T00:25:40.915545"
   },
   {
     "chunk_id": "SD-2024-53791_email.pdf_chunk_0",
@@ -2616,7 +2616,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "5db6f7ccf5b9486f7edfdd14994cf385d246187ef7ff45e4684f0939b6b67932",
-    "chunked_at": "2026-04-30T00:04:13.445849"
+    "chunked_at": "2026-04-30T00:25:40.915623"
   },
   {
     "chunk_id": "SD-2024-53791_email.pdf_chunk_1",
@@ -2643,7 +2643,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "5db6f7ccf5b9486f7edfdd14994cf385d246187ef7ff45e4684f0939b6b67932",
-    "chunked_at": "2026-04-30T00:04:13.445859"
+    "chunked_at": "2026-04-30T00:25:40.915630"
   },
   {
     "chunk_id": "SD-2024-63436_email.pdf_chunk_0",
@@ -2670,7 +2670,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "fd2230e6a380b1b36c6efc1046a8b2323af7beffc4ed73fd7d05dc8f598ad512",
-    "chunked_at": "2026-04-30T00:04:13.445972"
+    "chunked_at": "2026-04-30T00:25:40.915710"
   },
   {
     "chunk_id": "SD-2024-63436_email.pdf_chunk_1",
@@ -2697,7 +2697,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "fd2230e6a380b1b36c6efc1046a8b2323af7beffc4ed73fd7d05dc8f598ad512",
-    "chunked_at": "2026-04-30T00:04:13.445982"
+    "chunked_at": "2026-04-30T00:25:40.915717"
   },
   {
     "chunk_id": "WD-2025-14301_email.pdf_chunk_0",
@@ -2724,7 +2724,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "c64dc93dbe40337828bd9a0451e7e7eebf539a315dc1fe0e757aaba0c05b8860",
-    "chunked_at": "2026-04-30T00:04:13.446087"
+    "chunked_at": "2026-04-30T00:25:40.915788"
   },
   {
     "chunk_id": "WD-2025-14301_email.pdf_chunk_1",
@@ -2751,7 +2751,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "c64dc93dbe40337828bd9a0451e7e7eebf539a315dc1fe0e757aaba0c05b8860",
-    "chunked_at": "2026-04-30T00:04:13.446096"
+    "chunked_at": "2026-04-30T00:25:40.915795"
   },
   {
     "chunk_id": "GD-2025-16193_email.pdf_chunk_0",
@@ -2778,7 +2778,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "c6c41ddf56a6c216f6ca99aa675788eb3536bb7aff661ac85e46bc450368dd07",
-    "chunked_at": "2026-04-30T00:04:13.446213"
+    "chunked_at": "2026-04-30T00:25:40.915870"
   },
   {
     "chunk_id": "GD-2025-16193_email.pdf_chunk_1",
@@ -2805,7 +2805,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "c6c41ddf56a6c216f6ca99aa675788eb3536bb7aff661ac85e46bc450368dd07",
-    "chunked_at": "2026-04-30T00:04:13.446222"
+    "chunked_at": "2026-04-30T00:25:40.915876"
   },
   {
     "chunk_id": "SD-2025-27498_email.pdf_chunk_0",
@@ -2832,7 +2832,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "b33257fd946f03586b5fb55ca481cca381e7d235d17ab8e3e787b2cdc067b756",
-    "chunked_at": "2026-04-30T00:04:13.446325"
+    "chunked_at": "2026-04-30T00:25:40.915988"
   },
   {
     "chunk_id": "SD-2025-27498_email.pdf_chunk_1",
@@ -2859,7 +2859,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "b33257fd946f03586b5fb55ca481cca381e7d235d17ab8e3e787b2cdc067b756",
-    "chunked_at": "2026-04-30T00:04:13.446334"
+    "chunked_at": "2026-04-30T00:25:40.915996"
   },
   {
     "chunk_id": "SD-2025-27498_photo.pdf_chunk_0",
@@ -2886,7 +2886,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "33d3c5467b04975700f2d8945543f314d1cb2b52aa3429384605f0fbc07cf63d",
-    "chunked_at": "2026-04-30T00:04:13.446444"
+    "chunked_at": "2026-04-30T00:25:40.916085"
   },
   {
     "chunk_id": "SD-2025-27498_photo.pdf_chunk_1",
@@ -2913,7 +2913,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "33d3c5467b04975700f2d8945543f314d1cb2b52aa3429384605f0fbc07cf63d",
-    "chunked_at": "2026-04-30T00:04:13.446453"
+    "chunked_at": "2026-04-30T00:25:40.916093"
   },
   {
     "chunk_id": "WD-2024-92654_invoice.pdf_chunk_0",
@@ -2940,7 +2940,7 @@
     "vendor": "WasserProfi Berlin - Rohrsanierung",
     "damage_severity": null,
     "content_hash": "d7adef5ace1cebdb2197eaf7816c52643e9cec7438c9f8995efcd0059b34ca00",
-    "chunked_at": "2026-04-30T00:04:13.446561"
+    "chunked_at": "2026-04-30T00:25:40.916248"
   },
   {
     "chunk_id": "WD-2024-92654_invoice.pdf_chunk_1",
@@ -2967,7 +2967,7 @@
     "vendor": "WasserProfi Berlin - Rohrsanierung",
     "damage_severity": null,
     "content_hash": "d7adef5ace1cebdb2197eaf7816c52643e9cec7438c9f8995efcd0059b34ca00",
-    "chunked_at": "2026-04-30T00:04:13.446570"
+    "chunked_at": "2026-04-30T00:25:40.916256"
   },
   {
     "chunk_id": "WD-2025-82051_photo.pdf_chunk_0",
@@ -2994,7 +2994,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "2c41405d35d066193eccdb4baaf52e486a73406f9fbb34928d114fbb9b97b30a",
-    "chunked_at": "2026-04-30T00:04:13.446692"
+    "chunked_at": "2026-04-30T00:25:40.916376"
   },
   {
     "chunk_id": "WD-2025-82051_photo.pdf_chunk_1",
@@ -3021,7 +3021,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "2c41405d35d066193eccdb4baaf52e486a73406f9fbb34928d114fbb9b97b30a",
-    "chunked_at": "2026-04-30T00:04:13.446701"
+    "chunked_at": "2026-04-30T00:25:40.916384"
   },
   {
     "chunk_id": "SD-2024-61738_photo.pdf_chunk_0",
@@ -3048,7 +3048,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "27856cebedaf7fae4ed294f1f1b6c911023049ad0169c31b48735f0e7d01061b",
-    "chunked_at": "2026-04-30T00:04:13.446810"
+    "chunked_at": "2026-04-30T00:25:40.916466"
   },
   {
     "chunk_id": "SD-2024-61738_photo.pdf_chunk_1",
@@ -3075,7 +3075,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "27856cebedaf7fae4ed294f1f1b6c911023049ad0169c31b48735f0e7d01061b",
-    "chunked_at": "2026-04-30T00:04:13.446819"
+    "chunked_at": "2026-04-30T00:25:40.916473"
   },
   {
     "chunk_id": "GD-2025-16193_photo.pdf_chunk_0",
@@ -3102,7 +3102,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "aaf58c84dace5933593147c3bf2649277d56ed4066eada45677b2ca826885758",
-    "chunked_at": "2026-04-30T00:04:13.446948"
+    "chunked_at": "2026-04-30T00:25:40.916555"
   },
   {
     "chunk_id": "GD-2025-16193_photo.pdf_chunk_1",
@@ -3129,7 +3129,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "aaf58c84dace5933593147c3bf2649277d56ed4066eada45677b2ca826885758",
-    "chunked_at": "2026-04-30T00:04:13.446959"
+    "chunked_at": "2026-04-30T00:25:40.916562"
   },
   {
     "chunk_id": "GD-2024-17223_email.pdf_chunk_0",
@@ -3156,7 +3156,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "c306d40020ba30f35a6b3f27a0bdcaee0a0012a77ff739626a170767dd52e28c",
-    "chunked_at": "2026-04-30T00:04:13.447067"
+    "chunked_at": "2026-04-30T00:25:40.916639"
   },
   {
     "chunk_id": "GD-2024-17223_email.pdf_chunk_1",
@@ -3183,7 +3183,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "c306d40020ba30f35a6b3f27a0bdcaee0a0012a77ff739626a170767dd52e28c",
-    "chunked_at": "2026-04-30T00:04:13.447081"
+    "chunked_at": "2026-04-30T00:25:40.916646"
   },
   {
     "chunk_id": "SD-2025-78390_invoice.pdf_chunk_0",
@@ -3210,7 +3210,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "1c2c1216017ddf05d1e6e8452171f3e3ad81d0b40294391ac5d9e53eb813bd12",
-    "chunked_at": "2026-04-30T00:04:13.447194"
+    "chunked_at": "2026-04-30T00:25:40.916722"
   },
   {
     "chunk_id": "SD-2025-78390_invoice.pdf_chunk_1",
@@ -3237,7 +3237,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "1c2c1216017ddf05d1e6e8452171f3e3ad81d0b40294391ac5d9e53eb813bd12",
-    "chunked_at": "2026-04-30T00:04:13.447204"
+    "chunked_at": "2026-04-30T00:25:40.916730"
   },
   {
     "chunk_id": "WD-2025-45159_photo.pdf_chunk_0",
@@ -3264,7 +3264,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "ecd5433ed3feb400f91198481284752f0fe4bac3872a371f589fc56a097d0111",
-    "chunked_at": "2026-04-30T00:04:13.447329"
+    "chunked_at": "2026-04-30T00:25:40.916813"
   },
   {
     "chunk_id": "WD-2025-45159_photo.pdf_chunk_1",
@@ -3291,7 +3291,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "ecd5433ed3feb400f91198481284752f0fe4bac3872a371f589fc56a097d0111",
-    "chunked_at": "2026-04-30T00:04:13.447338"
+    "chunked_at": "2026-04-30T00:25:40.916821"
   },
   {
     "chunk_id": "SD-2024-15761_invoice.pdf_chunk_0",
@@ -3318,7 +3318,7 @@
     "vendor": "Bauservice Wagner - Sturmschadenbeseitigung",
     "damage_severity": null,
     "content_hash": "e96e6574d5b7e7c2b5ffde408d092a0ca594c7faf003ed65feed64e7b6e290f7",
-    "chunked_at": "2026-04-30T00:04:13.447455"
+    "chunked_at": "2026-04-30T00:25:40.916895"
   },
   {
     "chunk_id": "SD-2024-15761_invoice.pdf_chunk_1",
@@ -3345,7 +3345,7 @@
     "vendor": "Bauservice Wagner - Sturmschadenbeseitigung",
     "damage_severity": null,
     "content_hash": "e96e6574d5b7e7c2b5ffde408d092a0ca594c7faf003ed65feed64e7b6e290f7",
-    "chunked_at": "2026-04-30T00:04:13.447464"
+    "chunked_at": "2026-04-30T00:25:40.916903"
   },
   {
     "chunk_id": "SD-2024-30765_photo.pdf_chunk_0",
@@ -3372,7 +3372,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "93e69717c5ca3c4a1b6735101c60ea34d7e0cb6b149aebb6bfc3dc63fd62cb65",
-    "chunked_at": "2026-04-30T00:04:13.447582"
+    "chunked_at": "2026-04-30T00:25:40.916979"
   },
   {
     "chunk_id": "SD-2024-30765_photo.pdf_chunk_1",
@@ -3399,7 +3399,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "93e69717c5ca3c4a1b6735101c60ea34d7e0cb6b149aebb6bfc3dc63fd62cb65",
-    "chunked_at": "2026-04-30T00:04:13.447591"
+    "chunked_at": "2026-04-30T00:25:40.916985"
   },
   {
     "chunk_id": "GD-2024-19248_email.pdf_chunk_0",
@@ -3426,7 +3426,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "44172b59ca09e551b24073243831616685e5987b24728d2f0c8b624e710aff39",
-    "chunked_at": "2026-04-30T00:04:13.447691"
+    "chunked_at": "2026-04-30T00:25:40.917062"
   },
   {
     "chunk_id": "GD-2024-19248_email.pdf_chunk_1",
@@ -3453,7 +3453,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "44172b59ca09e551b24073243831616685e5987b24728d2f0c8b624e710aff39",
-    "chunked_at": "2026-04-30T00:04:13.447700"
+    "chunked_at": "2026-04-30T00:25:40.917070"
   },
   {
     "chunk_id": "GD-2025-49224_photo.pdf_chunk_0",
@@ -3480,7 +3480,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "9953f9f44b873de464f055f6cfd706a35b1195b982170d0e8f46ec1b23e5bbbe",
-    "chunked_at": "2026-04-30T00:04:13.447807"
+    "chunked_at": "2026-04-30T00:25:40.917163"
   },
   {
     "chunk_id": "GD-2025-49224_photo.pdf_chunk_1",
@@ -3507,7 +3507,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "9953f9f44b873de464f055f6cfd706a35b1195b982170d0e8f46ec1b23e5bbbe",
-    "chunked_at": "2026-04-30T00:04:13.447817"
+    "chunked_at": "2026-04-30T00:25:40.917170"
   },
   {
     "chunk_id": "SD-2024-53791_photo.pdf_chunk_0",
@@ -3534,7 +3534,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "dce0c2d573fc9f417be341f54d13e250c6181f8d975bb36a411f924fe7755ddc",
-    "chunked_at": "2026-04-30T00:04:13.447931"
+    "chunked_at": "2026-04-30T00:25:40.917251"
   },
   {
     "chunk_id": "SD-2024-53791_photo.pdf_chunk_1",
@@ -3561,7 +3561,7 @@
     "vendor": null,
     "damage_severity": "total_loss",
     "content_hash": "dce0c2d573fc9f417be341f54d13e250c6181f8d975bb36a411f924fe7755ddc",
-    "chunked_at": "2026-04-30T00:04:13.447940"
+    "chunked_at": "2026-04-30T00:25:40.917257"
   },
   {
     "chunk_id": "GD-2024-76511_invoice.pdf_chunk_0",
@@ -3588,7 +3588,7 @@
     "vendor": "Glaserei Kristall GmbH",
     "damage_severity": null,
     "content_hash": "2b72327f6c06ea3988abd6fab1548265b40582fd86234d8045515759af119002",
-    "chunked_at": "2026-04-30T00:04:13.448036"
+    "chunked_at": "2026-04-30T00:25:40.917354"
   },
   {
     "chunk_id": "GD-2024-76511_invoice.pdf_chunk_1",
@@ -3615,7 +3615,7 @@
     "vendor": "Glaserei Kristall GmbH",
     "damage_severity": null,
     "content_hash": "2b72327f6c06ea3988abd6fab1548265b40582fd86234d8045515759af119002",
-    "chunked_at": "2026-04-30T00:04:13.448044"
+    "chunked_at": "2026-04-30T00:25:40.917361"
   },
   {
     "chunk_id": "WD-2025-39483_email.pdf_chunk_0",
@@ -3642,7 +3642,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "15e72ecc4d855cedbfe8502a52506b921de6518c2046642d2b1520625cf31367",
-    "chunked_at": "2026-04-30T00:04:13.448156"
+    "chunked_at": "2026-04-30T00:25:40.917437"
   },
   {
     "chunk_id": "WD-2025-39483_email.pdf_chunk_1",
@@ -3669,7 +3669,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "15e72ecc4d855cedbfe8502a52506b921de6518c2046642d2b1520625cf31367",
-    "chunked_at": "2026-04-30T00:04:13.448166"
+    "chunked_at": "2026-04-30T00:25:40.917444"
   },
   {
     "chunk_id": "SD-2024-21255_invoice.pdf_chunk_0",
@@ -3696,7 +3696,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "5843280e08b599bdbf28c2f15ef44567cc32a558b0f5338d75b91063a98202ba",
-    "chunked_at": "2026-04-30T00:04:13.448264"
+    "chunked_at": "2026-04-30T00:25:40.917518"
   },
   {
     "chunk_id": "SD-2024-21255_invoice.pdf_chunk_1",
@@ -3723,7 +3723,7 @@
     "vendor": "HandwerksProfis Nord GmbH",
     "damage_severity": null,
     "content_hash": "5843280e08b599bdbf28c2f15ef44567cc32a558b0f5338d75b91063a98202ba",
-    "chunked_at": "2026-04-30T00:04:13.448273"
+    "chunked_at": "2026-04-30T00:25:40.917525"
   },
   {
     "chunk_id": "GD-2024-26792_invoice.pdf_chunk_0",
@@ -3750,7 +3750,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "fcbf78af922fe501cc7c5a3ebf814ceb2ae0ef8d537fe80e9e46498a376ef76c",
-    "chunked_at": "2026-04-30T00:04:13.448371"
+    "chunked_at": "2026-04-30T00:25:40.917599"
   },
   {
     "chunk_id": "GD-2024-26792_invoice.pdf_chunk_1",
@@ -3777,7 +3777,7 @@
     "vendor": "FensterExperte Weber",
     "damage_severity": null,
     "content_hash": "fcbf78af922fe501cc7c5a3ebf814ceb2ae0ef8d537fe80e9e46498a376ef76c",
-    "chunked_at": "2026-04-30T00:04:13.448380"
+    "chunked_at": "2026-04-30T00:25:40.917606"
   },
   {
     "chunk_id": "WD-2024-95178_photo.pdf_chunk_0",
@@ -3804,7 +3804,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "1f87f4ebcbc18224596334ec54c1cfaf3ca721bc7712429f4cb0475f6b47b30e",
-    "chunked_at": "2026-04-30T00:04:13.448486"
+    "chunked_at": "2026-04-30T00:25:40.917689"
   },
   {
     "chunk_id": "WD-2024-95178_photo.pdf_chunk_1",
@@ -3831,7 +3831,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "1f87f4ebcbc18224596334ec54c1cfaf3ca721bc7712429f4cb0475f6b47b30e",
-    "chunked_at": "2026-04-30T00:04:13.448496"
+    "chunked_at": "2026-04-30T00:25:40.917696"
   },
   {
     "chunk_id": "WD-2024-37703_email.pdf_chunk_0",
@@ -3858,7 +3858,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "8c4975a303bc8e82836e3a391489bbeb75cb74ada10596a7e130b41015f6be99",
-    "chunked_at": "2026-04-30T00:04:13.448613"
+    "chunked_at": "2026-04-30T00:25:40.917772"
   },
   {
     "chunk_id": "WD-2024-37703_email.pdf_chunk_1",
@@ -3885,7 +3885,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "8c4975a303bc8e82836e3a391489bbeb75cb74ada10596a7e130b41015f6be99",
-    "chunked_at": "2026-04-30T00:04:13.448627"
+    "chunked_at": "2026-04-30T00:25:40.917780"
   },
   {
     "chunk_id": "GD-2024-64105_invoice.pdf_chunk_0",
@@ -3912,7 +3912,7 @@
     "vendor": "Bayer Glasservice",
     "damage_severity": null,
     "content_hash": "350d588f4ccb531d4b0c95466c4fbebcecf4fcf772be68659bc36c7424d82889",
-    "chunked_at": "2026-04-30T00:04:13.448745"
+    "chunked_at": "2026-04-30T00:25:40.917856"
   },
   {
     "chunk_id": "GD-2024-64105_invoice.pdf_chunk_1",
@@ -3939,7 +3939,7 @@
     "vendor": "Bayer Glasservice",
     "damage_severity": null,
     "content_hash": "350d588f4ccb531d4b0c95466c4fbebcecf4fcf772be68659bc36c7424d82889",
-    "chunked_at": "2026-04-30T00:04:13.448754"
+    "chunked_at": "2026-04-30T00:25:40.917864"
   },
   {
     "chunk_id": "SD-2024-30991_email.pdf_chunk_0",
@@ -3966,7 +3966,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "e6bd4098d58cc150d8fe4bc9843f17f1ac0fd78f26a6238c54587db8f5ec3573",
-    "chunked_at": "2026-04-30T00:04:13.448858"
+    "chunked_at": "2026-04-30T00:25:40.917941"
   },
   {
     "chunk_id": "SD-2024-30991_email.pdf_chunk_1",
@@ -3993,7 +3993,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "e6bd4098d58cc150d8fe4bc9843f17f1ac0fd78f26a6238c54587db8f5ec3573",
-    "chunked_at": "2026-04-30T00:04:13.448868"
+    "chunked_at": "2026-04-30T00:25:40.917948"
   },
   {
     "chunk_id": "SD-2024-30765_invoice.pdf_chunk_0",
@@ -4020,7 +4020,7 @@
     "vendor": "Meisterbetrieb Hoffmann - Dach und Fassade",
     "damage_severity": null,
     "content_hash": "19f05a4ab5cc8990ddc8bf4bc1f2f7d5e6bbba4358ba0695cec28a09db07ad93",
-    "chunked_at": "2026-04-30T00:04:13.448972"
+    "chunked_at": "2026-04-30T00:25:40.918020"
   },
   {
     "chunk_id": "SD-2024-30765_invoice.pdf_chunk_1",
@@ -4047,7 +4047,7 @@
     "vendor": "Meisterbetrieb Hoffmann - Dach und Fassade",
     "damage_severity": null,
     "content_hash": "19f05a4ab5cc8990ddc8bf4bc1f2f7d5e6bbba4358ba0695cec28a09db07ad93",
-    "chunked_at": "2026-04-30T00:04:13.448981"
+    "chunked_at": "2026-04-30T00:25:40.918027"
   },
   {
     "chunk_id": "WD-2025-61838_photo.pdf_chunk_0",
@@ -4074,7 +4074,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "619d7ffd97a8a0404852d4529e6897084bcd1656e9d4021da04776b9ccb4a54c",
-    "chunked_at": "2026-04-30T00:04:13.449100"
+    "chunked_at": "2026-04-30T00:25:40.918112"
   },
   {
     "chunk_id": "WD-2025-61838_photo.pdf_chunk_1",
@@ -4101,7 +4101,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "619d7ffd97a8a0404852d4529e6897084bcd1656e9d4021da04776b9ccb4a54c",
-    "chunked_at": "2026-04-30T00:04:13.449109"
+    "chunked_at": "2026-04-30T00:25:40.918119"
   },
   {
     "chunk_id": "GD-2024-26792_email.pdf_chunk_0",
@@ -4128,7 +4128,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "d68f7dcf3da85678de2aecea93dcb45e852085f9104320b75ef4ce5b836a85a2",
-    "chunked_at": "2026-04-30T00:04:13.449226"
+    "chunked_at": "2026-04-30T00:25:40.918219"
   },
   {
     "chunk_id": "GD-2024-26792_email.pdf_chunk_1",
@@ -4155,7 +4155,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "d68f7dcf3da85678de2aecea93dcb45e852085f9104320b75ef4ce5b836a85a2",
-    "chunked_at": "2026-04-30T00:04:13.449235"
+    "chunked_at": "2026-04-30T00:25:40.918226"
   },
   {
     "chunk_id": "WD-2025-39483_photo.pdf_chunk_0",
@@ -4182,7 +4182,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "bfb22fafb168ae54ccebada5c0efe40c2d5f2269857434326fa16b0792354517",
-    "chunked_at": "2026-04-30T00:04:13.449350"
+    "chunked_at": "2026-04-30T00:25:40.918304"
   },
   {
     "chunk_id": "WD-2025-39483_photo.pdf_chunk_1",
@@ -4209,7 +4209,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "bfb22fafb168ae54ccebada5c0efe40c2d5f2269857434326fa16b0792354517",
-    "chunked_at": "2026-04-30T00:04:13.449359"
+    "chunked_at": "2026-04-30T00:25:40.918311"
   },
   {
     "chunk_id": "WD-2024-37703_invoice.pdf_chunk_0",
@@ -4236,7 +4236,7 @@
     "vendor": "Mueller Installationstechnik",
     "damage_severity": null,
     "content_hash": "e7594d7c9bee1d0821076df7872609229b6188d58cd1698de7de8be401be3e62",
-    "chunked_at": "2026-04-30T00:04:13.449461"
+    "chunked_at": "2026-04-30T00:25:40.918388"
   },
   {
     "chunk_id": "WD-2024-37703_invoice.pdf_chunk_1",
@@ -4263,7 +4263,7 @@
     "vendor": "Mueller Installationstechnik",
     "damage_severity": null,
     "content_hash": "e7594d7c9bee1d0821076df7872609229b6188d58cd1698de7de8be401be3e62",
-    "chunked_at": "2026-04-30T00:04:13.449471"
+    "chunked_at": "2026-04-30T00:25:40.918395"
   },
   {
     "chunk_id": "WD-2025-82051_email.pdf_chunk_0",
@@ -4290,7 +4290,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "ca4a6eaa1dfa61e0ce6deb757627642f733c96b70a1604d51f65b91d411ac8fc",
-    "chunked_at": "2026-04-30T00:04:13.449573"
+    "chunked_at": "2026-04-30T00:25:40.918476"
   },
   {
     "chunk_id": "WD-2025-82051_email.pdf_chunk_1",
@@ -4317,7 +4317,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "ca4a6eaa1dfa61e0ce6deb757627642f733c96b70a1604d51f65b91d411ac8fc",
-    "chunked_at": "2026-04-30T00:04:13.449582"
+    "chunked_at": "2026-04-30T00:25:40.918483"
   },
   {
     "chunk_id": "SD-2024-61738_email.pdf_chunk_0",
@@ -4344,7 +4344,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "2a189dbca80152ad76c4c24e8588bd575f68610788c29288216227d4988154ed",
-    "chunked_at": "2026-04-30T00:04:13.449686"
+    "chunked_at": "2026-04-30T00:25:40.918554"
   },
   {
     "chunk_id": "SD-2024-61738_email.pdf_chunk_1",
@@ -4371,7 +4371,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "2a189dbca80152ad76c4c24e8588bd575f68610788c29288216227d4988154ed",
-    "chunked_at": "2026-04-30T00:04:13.449695"
+    "chunked_at": "2026-04-30T00:25:40.918561"
   },
   {
     "chunk_id": "WD-2024-37703_photo.pdf_chunk_0",
@@ -4398,7 +4398,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "8e0527d3d5341475a6a7bde0a343672f101849384b52cdcd3478516b8c27c962",
-    "chunked_at": "2026-04-30T00:04:13.449812"
+    "chunked_at": "2026-04-30T00:25:40.918641"
   },
   {
     "chunk_id": "WD-2024-37703_photo.pdf_chunk_1",
@@ -4425,7 +4425,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "8e0527d3d5341475a6a7bde0a343672f101849384b52cdcd3478516b8c27c962",
-    "chunked_at": "2026-04-30T00:04:13.449821"
+    "chunked_at": "2026-04-30T00:25:40.918649"
   },
   {
     "chunk_id": "GD-2024-26792_photo.pdf_chunk_0",
@@ -4452,7 +4452,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "d34182d65f6bd15de82591d0db3dfffbbe4c997c98a301f05fb5440d627cc538",
-    "chunked_at": "2026-04-30T00:04:13.449941"
+    "chunked_at": "2026-04-30T00:25:40.918978"
   },
   {
     "chunk_id": "GD-2024-26792_photo.pdf_chunk_1",
@@ -4479,7 +4479,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "d34182d65f6bd15de82591d0db3dfffbbe4c997c98a301f05fb5440d627cc538",
-    "chunked_at": "2026-04-30T00:04:13.449951"
+    "chunked_at": "2026-04-30T00:25:40.918988"
   },
   {
     "chunk_id": "SD-2025-27498_invoice.pdf_chunk_0",
@@ -4506,7 +4506,7 @@
     "vendor": "Meisterbetrieb Hoffmann - Dach und Fassade",
     "damage_severity": null,
     "content_hash": "12c7e25d0fa53c8ab828d314daf0302c6bab31d928b12ff3711783dee66b6c26",
-    "chunked_at": "2026-04-30T00:04:13.450052"
+    "chunked_at": "2026-04-30T00:25:40.919079"
   },
   {
     "chunk_id": "SD-2025-27498_invoice.pdf_chunk_1",
@@ -4533,7 +4533,7 @@
     "vendor": "Meisterbetrieb Hoffmann - Dach und Fassade",
     "damage_severity": null,
     "content_hash": "12c7e25d0fa53c8ab828d314daf0302c6bab31d928b12ff3711783dee66b6c26",
-    "chunked_at": "2026-04-30T00:04:13.450063"
+    "chunked_at": "2026-04-30T00:25:40.919088"
   },
   {
     "chunk_id": "WD-2024-64844_photo.pdf_chunk_0",
@@ -4560,7 +4560,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "7582a393f2701753a4b8ec407836280de8816f46b62e196acad365adaef84876",
-    "chunked_at": "2026-04-30T00:04:13.450178"
+    "chunked_at": "2026-04-30T00:25:40.919202"
   },
   {
     "chunk_id": "WD-2024-64844_photo.pdf_chunk_1",
@@ -4587,7 +4587,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "7582a393f2701753a4b8ec407836280de8816f46b62e196acad365adaef84876",
-    "chunked_at": "2026-04-30T00:04:13.450187"
+    "chunked_at": "2026-04-30T00:25:40.919209"
   },
   {
     "chunk_id": "WD-2024-95178_email.pdf_chunk_0",
@@ -4614,7 +4614,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "98b7282d0abae270ff20ce5cdb02df15bc22ec2a605cc3d553e530f1e2ce9de0",
-    "chunked_at": "2026-04-30T00:04:13.450284"
+    "chunked_at": "2026-04-30T00:25:40.919292"
   },
   {
     "chunk_id": "WD-2024-95178_email.pdf_chunk_1",
@@ -4641,7 +4641,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "98b7282d0abae270ff20ce5cdb02df15bc22ec2a605cc3d553e530f1e2ce9de0",
-    "chunked_at": "2026-04-30T00:04:13.450293"
+    "chunked_at": "2026-04-30T00:25:40.919299"
   },
   {
     "chunk_id": "GD-2025-88837_photo.pdf_chunk_0",
@@ -4668,7 +4668,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "1468c04e9dbbf7c6fa46d993641d55aac59edabdc93f0928323294e0b9f67567",
-    "chunked_at": "2026-04-30T00:04:13.450393"
+    "chunked_at": "2026-04-30T00:25:40.919381"
   },
   {
     "chunk_id": "GD-2025-88837_photo.pdf_chunk_1",
@@ -4695,7 +4695,7 @@
     "vendor": null,
     "damage_severity": "severe",
     "content_hash": "1468c04e9dbbf7c6fa46d993641d55aac59edabdc93f0928323294e0b9f67567",
-    "chunked_at": "2026-04-30T00:04:13.450401"
+    "chunked_at": "2026-04-30T00:25:40.919388"
   },
   {
     "chunk_id": "WD-2024-64844_invoice.pdf_chunk_0",
@@ -4722,7 +4722,7 @@
     "vendor": "Mueller Installationstechnik",
     "damage_severity": null,
     "content_hash": "ac1d156873089290486b9c150688edf266322d12fd1861b346d0371675c68428",
-    "chunked_at": "2026-04-30T00:04:13.450495"
+    "chunked_at": "2026-04-30T00:25:40.919474"
   },
   {
     "chunk_id": "WD-2024-64844_invoice.pdf_chunk_1",
@@ -4749,7 +4749,7 @@
     "vendor": "Mueller Installationstechnik",
     "damage_severity": null,
     "content_hash": "ac1d156873089290486b9c150688edf266322d12fd1861b346d0371675c68428",
-    "chunked_at": "2026-04-30T00:04:13.450504"
+    "chunked_at": "2026-04-30T00:25:40.919485"
   },
   {
     "chunk_id": "SD-2025-78390_email.pdf_chunk_0",
@@ -4776,7 +4776,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "d21797cb46fad225e954aefcd21d265bd8d4b5e53561876bc167b2281c362154",
-    "chunked_at": "2026-04-30T00:04:13.450595"
+    "chunked_at": "2026-04-30T00:25:40.919595"
   },
   {
     "chunk_id": "SD-2025-78390_email.pdf_chunk_1",
@@ -4803,7 +4803,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "d21797cb46fad225e954aefcd21d265bd8d4b5e53561876bc167b2281c362154",
-    "chunked_at": "2026-04-30T00:04:13.450603"
+    "chunked_at": "2026-04-30T00:25:40.919608"
   },
   {
     "chunk_id": "WD-2025-61838_email.pdf_chunk_0",
@@ -4830,7 +4830,7 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "297429bbdefc18a9e757b13cd9e94ccd16a3c15d945aab5df7ef72a769ce82af",
-    "chunked_at": "2026-04-30T00:04:13.450689"
+    "chunked_at": "2026-04-30T00:25:40.919858"
   },
   {
     "chunk_id": "WD-2025-61838_email.pdf_chunk_1",
@@ -4857,6 +4857,6 @@
     "vendor": null,
     "damage_severity": null,
     "content_hash": "297429bbdefc18a9e757b13cd9e94ccd16a3c15d945aab5df7ef72a769ce82af",
-    "chunked_at": "2026-04-30T00:04:13.450697"
+    "chunked_at": "2026-04-30T00:25:40.919867"
   }
 ]
