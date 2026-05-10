@@ -11,6 +11,12 @@ chroma_db/
 logs/
 *.log
 
+# Keep demo snapshot artifacts in image for demo mode
+!data/output/
+!data/output/*.json
+!data/pdfs/
+!data/pdfs/*.pdf
+
 # ─── Environment & secrets ───────────
 .env
 .env.*
