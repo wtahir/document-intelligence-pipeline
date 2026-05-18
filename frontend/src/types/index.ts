@@ -77,11 +77,49 @@ export interface QueryChunk {
   score: number | null
 }
 
+export interface QueryPlan {
+  complexity: string
+  strategy: string
+  reasoning: string
+  sub_queries?: string[]
+  hyde_document?: string
+  entities_extracted?: string[]
+}
+
+export interface GraphFact {
+  subject: string
+  predicate: string
+  object: string
+}
+
+export interface SelfCritique {
+  quality: string
+  issues: string[]
+  missing_info: string
+  should_retry: boolean
+}
+
+export interface ContextEngineering {
+  chunks_before_dedup: number
+  chunks_after_dedup: number
+  compression_applied: boolean
+  graph_enrichment: boolean
+  hierarchical_organization: boolean
+}
+
 export interface QueryResponse {
   query: string
   answer: string
   chunks: QueryChunk[]
   filters: Record<string, string>
+  pipeline?: string
+  query_plan?: QueryPlan
+  graph_facts?: GraphFact[]
+  self_critique?: SelfCritique
+  retrieval_iterations?: number
+  context_engineering?: ContextEngineering
+  token_usage?: Record<string, number>
+  latency_seconds?: number
   _demo?: boolean
   _matched_query?: string
 }

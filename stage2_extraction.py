@@ -405,6 +405,18 @@ def extract_all():
     print(f"Document types: {doc_type_counts}")
     print(f"Damage types: {damage_type_counts}")
 
+    # --- Build Knowledge Graph ---
+    # The graph captures entity relationships (claimant → claim → policy)
+    # that flat vector search cannot represent. Built automatically after
+    # extraction so it's always up-to-date with the latest data.
+    try:
+        from knowledge_graph import build_and_save_graph
+        print("\nBuilding knowledge graph...")
+        graph = build_and_save_graph()
+    except Exception as e:
+        logging.warning(f"Knowledge graph build failed (non-fatal): {e}")
+        print(f"  Knowledge graph build failed (non-fatal): {e}")
+
 
 if __name__ == "__main__":
     extract_all()

@@ -1,4 +1,12 @@
-"""Query router — live RAG query execution and log retrieval."""
+"""Query router — live RAG query execution and log retrieval.
+
+Supports two modes:
+- AGENTIC_RAG_ENABLED=true (default): Uses the 2026 SOTA agentic pipeline
+  with query intelligence, graph-enhanced retrieval, context engineering,
+  and self-critique.
+- AGENTIC_RAG_ENABLED=false: Falls back to direct retrieval (like the old pipeline).
+- DEMO_MODE=true: Replays from pre-computed query log.
+"""
 
 import sys
 import os
@@ -20,6 +28,7 @@ class QueryRequest(BaseModel):
     n_results: int = 5
     damage_type: Optional[str] = None
     urgency: Optional[str] = None
+    use_agentic: Optional[bool] = None  # Override config per-request
 
 
 @router.get("/log")
@@ -30,13 +39,11 @@ def get_query_log():
 
 @router.post("")
 def run_query(req: QueryRequest):
-    """Execute a live RAG query via stage5_retrieval, or replay from log in demo mode."""
+    """Execute a live RAG query — agentic or direct, or replay from log in demo mode."""
     if DEMO_MODE:
-        # In demo mode find the closest pre-computed query from the log
         log = load_json("query_log.json") or []
         if not log:
             raise HTTPException(status_code=503, detail="Demo mode: no query log available.")
-        # Pick the log entry whose query text best overlaps with the request query (word overlap)
         req_words = set(req.query.lower().split())
         best = max(log, key=lambda e: len(req_words & set(e.get("query", "").lower().split())))
         return {
@@ -44,19 +51,18 @@ def run_query(req: QueryRequest):
             "answer":  best.get("answer", "No precomputed answer available."),
             "chunks":  best.get("chunks", []),
             "filters": {},
+            "pipeline": best.get("pipeline", "agentic_v1"),
+            "query_plan": best.get("query_plan"),
+            "graph_facts": best.get("graph_facts", []),
+            "self_critique": best.get("self_critique"),
+            "retrieval_iterations": best.get("retrieval_iterations"),
+            "context_engineering": best.get("context_engineering"),
+            "token_usage": best.get("token_usage"),
+            "latency_seconds": best.get("latency_seconds"),
             "_demo":   True,
             "_matched_query": best.get("query", ""),
         }
     try:
-        from config import CHROMA_COLLECTION, CHROMA_FOLDER, RERANK_ENABLED, RERANK_TOP_K
-        import chromadb
-        from chromadb.config import Settings
-        from sentence_transformers import SentenceTransformer, CrossEncoder
-        from openai import AzureOpenAI
-        from dotenv import load_dotenv
-
-        load_dotenv()
-
         # Build metadata filter
         where = None
         filters = {}
@@ -69,80 +75,47 @@ def run_query(req: QueryRequest):
         elif len(filters) > 1:
             where = {"$and": [{k: {"$eq": v}} for k, v in filters.items()]}
 
-        # Embed query
-        from config import EMBEDDING_MODEL
-        embedder = SentenceTransformer(EMBEDDING_MODEL)
-        query_vec = embedder.encode([req.query])[0].tolist()
+        # Decide which pipeline to use
+        from config import AGENTIC_RAG_ENABLED
+        use_agentic = req.use_agentic if req.use_agentic is not None else AGENTIC_RAG_ENABLED
 
-        # Retrieve from Chroma
-        client = chromadb.PersistentClient(
-            path=CHROMA_FOLDER,
-            settings=Settings(anonymized_telemetry=False),
-        )
-        col = client.get_collection(CHROMA_COLLECTION)
-        results = col.query(
-            query_embeddings=[query_vec],
-            n_results=min(req.n_results * 3, 30),
-            where=where,
-            include=["documents", "metadatas", "distances"],
-        )
-
-        docs      = results["documents"][0]
-        metadatas = results["metadatas"][0]
-        distances = results["distances"][0]
-
-        # Rerank
-        if RERANK_ENABLED and docs:
-            from config import RERANKER_MODEL
-            reranker = CrossEncoder(RERANKER_MODEL)
-            pairs    = [[req.query, d] for d in docs]
-            scores   = reranker.predict(pairs)
-            ranked   = sorted(zip(scores, docs, metadatas, distances), reverse=True)
-            top      = ranked[:req.n_results]
-            docs      = [r[1] for r in top]
-            metadatas = [r[2] for r in top]
-            distances = [r[3] for r in top]
-            scores_out = [float(r[0]) for r in top]
-        else:
-            docs      = docs[:req.n_results]
-            metadatas = metadatas[:req.n_results]
-            distances = distances[:req.n_results]
-            scores_out = [None] * len(docs)
-
-        chunks = [
-            {
-                "text":      doc,
-                "metadata":  meta,
-                "distance":  dist,
-                "score":     score,
+        if use_agentic:
+            # ─── Agentic RAG Pipeline (2026 SOTA) ─────────────
+            from agentic_rag import agentic_query_pipeline
+            result = agentic_query_pipeline(
+                query=req.query,
+                metadata_filter=where,
+                n_results=req.n_results,
+            )
+            return {
+                "query":     req.query,
+                "answer":    result.get("answer", ""),
+                "chunks":    result.get("chunks", []),
+                "filters":   filters,
+                "pipeline":  "agentic_v1",
+                "query_plan": result.get("query_plan"),
+                "graph_facts": result.get("graph_facts", []),
+                "self_critique": result.get("self_critique"),
+                "retrieval_iterations": result.get("retrieval_iterations"),
+                "token_usage": result.get("token_usage"),
+                "latency_seconds": result.get("latency_seconds"),
             }
-            for doc, meta, dist, score in zip(docs, metadatas, distances, scores_out)
-        ]
-
-        # Generate answer
-        from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT, AZURE_API_VERSION
-        context = "\n\n---\n\n".join(docs)
-        llm = AzureOpenAI(
-            api_key=AZURE_OPENAI_API_KEY,
-            azure_endpoint=AZURE_OPENAI_ENDPOINT,
-            api_version=AZURE_API_VERSION,
-        )
-        resp = llm.chat.completions.create(
-            model=AZURE_OPENAI_DEPLOYMENT,
-            messages=[
-                {"role": "system", "content": "You are an insurance claims assistant. Answer based only on the provided context. Be concise and factual."},
-                {"role": "user",   "content": f"Context:\n{context}\n\nQuestion: {req.query}"},
-            ],
-            max_completion_tokens=800,
-        )
-        answer = resp.choices[0].message.content.strip()
-
-        return {
-            "query":   req.query,
-            "answer":  answer,
-            "chunks":  chunks,
-            "filters": filters,
-        }
+        else:
+            # ─── Legacy Direct Pipeline ────────────────────────
+            from stage5_retrieval import query_pipeline
+            result = query_pipeline(
+                query=req.query,
+                metadata_filter=where,
+                n_results=req.n_results,
+            )
+            return {
+                "query":   req.query,
+                "answer":  result.get("answer", ""),
+                "chunks":  result.get("chunks", []),
+                "filters": filters,
+                "pipeline": "legacy_v0",
+            }
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

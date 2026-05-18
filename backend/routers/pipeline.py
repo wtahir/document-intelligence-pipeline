@@ -20,8 +20,9 @@ STAGE_MAP = {
     "extraction": "stage2_extraction.py",
     "chunking":   "stage3_chunking.py",
     "embedding":  "stage4_embedding.py",
-    "retrieval":  "stage5_retrieval.py",
+    "retrieval":  "agentic_rag.py",
     "evaluation": "stage6_evaluation.py",
+    "evaluation_enhanced": "evaluation_enhanced.py",
 }
 
 
@@ -37,6 +38,7 @@ def pipeline_status():
             "embedding":  "embedding_summary.json",
             "retrieval":  "query_log.json",
             "evaluation": "evaluation_summary.json",
+            "evaluation_enhanced": "enhanced_evaluation_summary.json",
         }[key]
         data = load_json(summary_file)
         count_key = {
@@ -46,6 +48,7 @@ def pipeline_status():
             "embedding":  "chunks_stored",
             "retrieval":  None,
             "evaluation": "total_queries_evaluated",
+            "evaluation_enhanced": "queries_evaluated",
         }[key]
 
         if data is None:

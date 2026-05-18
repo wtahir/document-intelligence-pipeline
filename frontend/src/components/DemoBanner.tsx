@@ -1,4 +1,4 @@
-import { Info } from 'lucide-react'
+import { Zap } from 'lucide-react'
 import { useConfig } from '../context/ConfigContext'
 
 export default function DemoBanner() {
@@ -6,11 +6,12 @@ export default function DemoBanner() {
   if (!demo_mode) return null
 
   return (
-    <div className="bg-amber-500/10 border-b border-amber-500/20 px-6 py-2 flex items-center gap-2 text-sm text-amber-400">
-      <Info size={14} className="shrink-0" />
-      <span>
-        <strong>Demo mode</strong> — pre-baked water/storm/glass claim data.
-        Pipeline execution and live RAG queries are disabled.
+    <div className="bg-brand-500/8 border-b border-brand-500/20 px-6 py-2.5 flex items-center gap-3 text-sm">
+      <Zap size={14} className="text-brand-400 shrink-0" />
+      <span className="text-surface-300">
+        <strong className="text-brand-400">Agentic RAG Demo</strong>
+        <span className="hidden sm:inline"> — Production pipeline with Query Intelligence, Knowledge Graph, Context Engineering &amp; Self-Critique. Pre-computed results from 90 insurance claim documents.</span>
+        <span className="sm:hidden"> — Agentic pipeline with KG + self-correction.</span>
       </span>
     </div>
   )

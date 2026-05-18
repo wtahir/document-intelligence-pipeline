@@ -4,5 +4,6 @@
   "successful": 90,
   "failed": 0,
   "failed_files": [],
-  "duration_seconds": 5.71
+  "duration_seconds": 5.71,
+  "total_documents": 90
 }

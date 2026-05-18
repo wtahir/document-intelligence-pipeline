@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Send, ChevronDown, ChevronRight, Loader } from 'lucide-react'
+import { Send, ChevronDown, ChevronRight, Loader, Brain, GitBranch, RefreshCw, Shield, Zap, Clock } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import Spinner from '../components/Spinner'
 import EmptyState from '../components/EmptyState'
@@ -88,8 +88,8 @@ export default function QueryInterface() {
     <div>
       <PageHeader
         title="Query Interface"
-        subtitle="Ask natural-language questions about water, storm, and glass damage claims via RAG retrieval."
-        badge="AI Assistant"
+        subtitle="Agentic RAG with query intelligence, knowledge graph retrieval, context engineering, and self-critique loop. Full pipeline transparency below."
+        badge="Agentic RAG"
       />
 
       <div className="px-8 py-6 grid grid-cols-1 xl:grid-cols-3 gap-6">
@@ -147,10 +147,114 @@ export default function QueryInterface() {
           {result && (
             <div className="space-y-4">
               {result._demo && (
-                <div className="card px-4 py-2.5 border-amber-500/30 bg-amber-500/5 text-amber-400 text-xs">
-                  Demo mode — showing closest pre-computed result for: <em>"{result._matched_query}"</em>
+                <div className="card px-4 py-2.5 border-brand-500/30 bg-brand-500/5 text-brand-400 text-xs flex items-center gap-2">
+                  <Zap size={12} />
+                  <span>Agentic pipeline result — matched: <em>"{result._matched_query}"</em></span>
                 </div>
               )}
+
+              {/* Pipeline Transparency Panel */}
+              {result.query_plan && (
+                <div className="card p-5 border-surface-600 space-y-4">
+                  <div className="flex items-center gap-2 text-xs font-bold text-surface-400 uppercase tracking-wider">
+                    <Brain size={14} className="text-violet-400" />
+                    Pipeline Internals (Transparent)
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {/* Query Plan */}
+                    <div className="rounded-lg bg-violet-500/5 border border-violet-500/20 p-3">
+                      <div className="text-xs font-semibold text-violet-400 mb-2 flex items-center gap-1.5">
+                        <Brain size={12} /> Query Intelligence
+                      </div>
+                      <div className="space-y-1.5 text-xs text-surface-400">
+                        <div><span className="text-surface-500">Complexity:</span> <span className="font-semibold text-surface-200">{result.query_plan.complexity}</span></div>
+                        <div><span className="text-surface-500">Strategy:</span> <span className="font-semibold text-surface-200">{result.query_plan.strategy.replace(/_/g, ' ')}</span></div>
+                        <div className="text-surface-500 leading-relaxed mt-2">{result.query_plan.reasoning}</div>
+                      </div>
+                    </div>
+
+                    {/* Graph Facts */}
+                    {result.graph_facts && result.graph_facts.length > 0 && (
+                      <div className="rounded-lg bg-emerald-500/5 border border-emerald-500/20 p-3">
+                        <div className="text-xs font-semibold text-emerald-400 mb-2 flex items-center gap-1.5">
+                          <GitBranch size={12} /> Knowledge Graph ({result.graph_facts.length} facts)
+                        </div>
+                        <div className="space-y-1 max-h-32 overflow-y-auto">
+                          {result.graph_facts.slice(0, 6).map((fact, i) => (
+                            <div key={i} className="text-xs text-surface-400 font-mono">
+                              <span className="text-cyan-400">{fact.subject}</span>
+                              <span className="text-surface-600"> → </span>
+                              <span className="text-surface-500">{fact.predicate.replace(/_/g, ' ')}</span>
+                              <span className="text-surface-600"> → </span>
+                              <span className="text-amber-400">{fact.object}</span>
+                            </div>
+                          ))}
+                          {result.graph_facts.length > 6 && (
+                            <div className="text-xs text-surface-600">+{result.graph_facts.length - 6} more...</div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Self-Critique + Metadata */}
+                    <div className="rounded-lg bg-brand-500/5 border border-brand-500/20 p-3">
+                      <div className="text-xs font-semibold text-brand-400 mb-2 flex items-center gap-1.5">
+                        <Shield size={12} /> Quality Verification
+                      </div>
+                      <div className="space-y-1.5 text-xs text-surface-400">
+                        {result.self_critique && (
+                          <div><span className="text-surface-500">Self-critique:</span> <span className={`font-semibold ${result.self_critique.quality === 'good' ? 'text-emerald-400' : 'text-amber-400'}`}>{result.self_critique.quality}</span></div>
+                        )}
+                        {result.retrieval_iterations && (
+                          <div className="flex items-center gap-1">
+                            <RefreshCw size={10} className="text-surface-500" />
+                            <span className="text-surface-500">Retrieval iterations:</span>
+                            <span className="font-semibold text-surface-200">{result.retrieval_iterations}</span>
+                          </div>
+                        )}
+                        {result.latency_seconds && (
+                          <div className="flex items-center gap-1">
+                            <Clock size={10} className="text-surface-500" />
+                            <span className="text-surface-500">Latency:</span>
+                            <span className="font-semibold text-surface-200">{result.latency_seconds.toFixed(1)}s</span>
+                          </div>
+                        )}
+                        {result.context_engineering && (
+                          <>
+                            <div className="border-t border-surface-700 pt-1.5 mt-1.5">
+                              <span className="text-surface-500">Context dedup:</span> <span className="text-surface-300">{result.context_engineering.chunks_before_dedup} → {result.context_engineering.chunks_after_dedup} chunks</span>
+                            </div>
+                            <div><span className="text-surface-500">Compression:</span> <span className="text-surface-300">{result.context_engineering.compression_applied ? 'Yes' : 'No'}</span></div>
+                            <div><span className="text-surface-500">Graph enrichment:</span> <span className="text-surface-300">{result.context_engineering.graph_enrichment ? 'Yes' : 'No'}</span></div>
+                          </>
+                        )}
+                        {result.token_usage && result.token_usage.cost_usd && (
+                          <div className="border-t border-surface-700 pt-1.5 mt-1.5">
+                            <span className="text-surface-500">Cost:</span> <span className="font-semibold text-surface-200">${result.token_usage.cost_usd.toFixed(4)}</span>
+                            <span className="text-surface-600 ml-1">({result.token_usage.total_tokens?.toLocaleString()} tok)</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sub-queries */}
+                  {result.query_plan.sub_queries && result.query_plan.sub_queries.length > 0 && (
+                    <div className="pt-2 border-t border-surface-700">
+                      <div className="text-xs text-surface-500 mb-1.5">Expanded sub-queries:</div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {result.query_plan.sub_queries.map((sq, i) => (
+                          <span key={i} className="px-2 py-0.5 rounded text-xs bg-surface-700/60 text-surface-400 border border-surface-600">
+                            {sq}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="card p-5">
                 <div className="text-xs font-semibold text-brand-400 uppercase tracking-wider mb-3">Answer</div>
                 <div className="text-sm text-surface-100 leading-relaxed whitespace-pre-wrap">

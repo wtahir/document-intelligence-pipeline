@@ -196,7 +196,7 @@ export default function Evaluation() {
     <div>
       <PageHeader
         title="Evaluation Dashboard"
-        subtitle="RAG pipeline quality analytics — retrieval scores, answer scores, failure breakdown, distance analysis, and improvement suggestions."
+        subtitle="GPT-as-judge evaluation with ground-truth MRR/Recall/Precision metrics. Verifies retrieval AND answer quality independently."
         badge="Quality Analytics"
       />
 

@@ -15,12 +15,12 @@ interface StageInfo {
 }
 
 const STAGE_DESCRIPTIONS: Record<string, string> = {
-  ingestion:  'Extract text from PDFs using pdfplumber',
-  extraction: 'Classify and extract structured fields with GPT-4o',
-  chunking:   'Split documents into overlapping chunks',
-  embedding:  'Embed chunks with sentence-transformers into ChromaDB',
-  retrieval:  'Execute predefined RAG queries and generate answers',
-  evaluation: 'Score retrieval and answer quality with GPT-4o-as-judge',
+  ingestion:  'PDF → structured text extraction (pdfplumber, multilingual)',
+  extraction: 'LLM classification + entity extraction (GPT-5-mini)',
+  chunking:   'Semantic chunking with overlap + metadata propagation',
+  embedding:  'Sentence-Transformers → ChromaDB + BM25 hybrid index',
+  retrieval:  'Agentic RAG: query intelligence → KG → self-critique loop',
+  evaluation: 'GPT-as-judge scoring + ground truth MRR/Recall@5/Precision@5',
 }
 
 interface LogLine {
@@ -121,7 +121,7 @@ export default function PipelineRunner() {
     <div>
       <PageHeader
         title="Pipeline Runner"
-        subtitle="Execute individual stages or the full pipeline. Logs stream in real-time."
+        subtitle="6-stage production pipeline: Ingest → Extract → Chunk → Embed → Retrieve (Agentic) → Evaluate. Logs stream via SSE."
         badge="Operations"
         actions={
           <button

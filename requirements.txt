@@ -26,3 +26,6 @@ python-multipart>=0.0.9  # for file uploads
 
 # ─── Synthetic Data Generation ────────────────────
 fpdf2>=2.7.0
+
+# ─── Knowledge Graph (NetworkX for in-memory graph) ──
+networkx>=3.2.0

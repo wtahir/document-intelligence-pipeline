@@ -53,8 +53,11 @@ export default function Sidebar() {
 
       {/* Footer */}
       <div className="px-5 py-4 border-t border-surface-700">
-        <div className="text-xs text-surface-600">
-          Water · Storm · Glass Claims
+        <div className="text-xs text-surface-500 font-semibold">
+          Agentic RAG Pipeline
+        </div>
+        <div className="text-xs text-surface-600 mt-0.5">
+          KG · HyDE · Self-Critique · PII
         </div>
       </div>
     </aside>

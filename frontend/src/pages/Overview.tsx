@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts'
-import { TrendingUp, FileText, Layers, Search, DollarSign, Award } from 'lucide-react'
+import { TrendingUp, FileText, Layers, Search, DollarSign, Award, Brain, GitBranch, Shield, Workflow, Sparkles, RefreshCw } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import KpiCard from '../components/KpiCard'
 import StatusBadge from '../components/StatusBadge'
@@ -77,8 +77,8 @@ export default function Overview() {
     <div>
       <PageHeader
         title="Insurance Claim Intelligence"
-        subtitle="End-to-end pipeline for water, storm, and glass damage claims — ingestion, classification, extraction, retrieval, and evaluation."
-        badge="Overview"
+        subtitle="Production-grade Agentic RAG pipeline — not your basic embed→retrieve→generate. Self-correcting retrieval with query intelligence, knowledge graph, context engineering, and LLM self-critique."
+        badge="Agentic RAG v1"
       />
 
       <div className="px-8 py-6 space-y-8">
@@ -185,6 +185,89 @@ export default function Overview() {
             )}
           </div>
         )}
+
+        {/* Architecture: Why this isn't basic RAG */}
+        <section>
+          <h2 className="text-sm font-semibold text-surface-400 uppercase tracking-wider mb-4">
+            Pipeline Architecture — What Makes This Different
+          </h2>
+          <div className="card p-6 space-y-6">
+            {/* Architecture flow */}
+            <div className="grid grid-cols-1 lg:grid-cols-6 gap-3">
+              {[
+                { icon: <Brain size={18} />, title: 'Query Intelligence', desc: 'Classifies complexity, routes strategy, extracts entities', color: 'text-violet-400', bg: 'bg-violet-500/10' },
+                { icon: <Sparkles size={18} />, title: 'HyDE + Multi-Query', desc: 'Hypothetical document embeddings + query expansion', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                { icon: <GitBranch size={18} />, title: 'Knowledge Graph', desc: 'Structured facts for verified entity relationships', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+                { icon: <Layers size={18} />, title: 'Context Engine', desc: 'Dedup → organize → compress → enrich context', color: 'text-amber-400', bg: 'bg-amber-500/10' },
+                { icon: <RefreshCw size={18} />, title: 'Self-Correcting Loop', desc: 'Sufficiency check + retry with reformulated query', color: 'text-rose-400', bg: 'bg-rose-500/10' },
+                { icon: <Shield size={18} />, title: 'Self-Critique', desc: 'LLM verifies answer quality before returning', color: 'text-brand-400', bg: 'bg-brand-500/10' },
+              ].map((step, i) => (
+                <div key={i} className="relative">
+                  <div className={`rounded-xl ${step.bg} border border-surface-700 p-4 h-full flex flex-col gap-2`}>
+                    <div className={`${step.color} flex items-center gap-2`}>
+                      {step.icon}
+                      <span className="text-xs font-bold">{step.title}</span>
+                    </div>
+                    <p className="text-xs text-surface-400 leading-relaxed">{step.desc}</p>
+                  </div>
+                  {i < 5 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-2 text-surface-600 text-xs">→</div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Comparison table */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-4">
+                <div className="text-xs font-bold text-red-400 uppercase tracking-wider mb-3">
+                  ❌ Basic Vector RAG (what everyone builds)
+                </div>
+                <ul className="space-y-1.5 text-xs text-surface-400">
+                  <li>• Embed raw query → retrieve top-k → generate</li>
+                  <li>• Single-shot retrieval, no error correction</li>
+                  <li>• No query understanding or routing</li>
+                  <li>• Breaks on complex multi-hop questions</li>
+                  <li>• No structured knowledge, only vectors</li>
+                  <li>• Hallucination-prone with no verification</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+                <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">
+                  ✅ This Pipeline (production-grade agentic)
+                </div>
+                <ul className="space-y-1.5 text-xs text-surface-400">
+                  <li>• Query intelligence routes to optimal strategy</li>
+                  <li>• Self-correcting retrieval loop (max 3 iterations)</li>
+                  <li>• HyDE + multi-query for semantic gap bridging</li>
+                  <li>• Knowledge graph for verified entity lookups</li>
+                  <li>• Context engineering: dedup, compress, organize</li>
+                  <li>• LLM self-critique with citation verification</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Tech stack badges */}
+            <div className="flex flex-wrap gap-2">
+              {[
+                'GPT-5-mini (Azure)',
+                'ChromaDB',
+                'Sentence-Transformers',
+                'Cross-Encoder Reranking',
+                'BM25 Hybrid Search',
+                'PII Redaction',
+                'Knowledge Graph (NetworkX)',
+                'FastAPI + React',
+                'Streaming SSE',
+                'Docker + Render',
+              ].map(tech => (
+                <span key={tech} className="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-700/60 text-surface-300 border border-surface-600">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )

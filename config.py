@@ -135,6 +135,24 @@ def estimate_llm_cost(prompt_tokens: int, completion_tokens: int) -> float:
     output_cost = (completion_tokens / 1_000_000) * LLM_COST_PER_1M_OUTPUT
     return round(input_cost + output_cost, 6)
 
+# ─── Agentic RAG ─────────────────────────────────────────────
+# Controls for the 2026 SOTA retrieval pipeline
+AGENTIC_RAG_ENABLED = os.getenv("AGENTIC_RAG_ENABLED", "true").lower() == "true"
+AGENTIC_MAX_ITERATIONS = int(os.getenv("AGENTIC_MAX_ITERATIONS", "3"))
+AGENTIC_SELF_CRITIQUE = os.getenv("AGENTIC_SELF_CRITIQUE", "true").lower() == "true"
+AGENTIC_GRAPH_ENABLED = os.getenv("AGENTIC_GRAPH_ENABLED", "true").lower() == "true"
+AGENTIC_CONTEXT_ENGINEERING = os.getenv("AGENTIC_CONTEXT_ENGINEERING", "true").lower() == "true"
+
+# ─── Query Intelligence ──────────────────────────────────────
+HYDE_ENABLED = os.getenv("HYDE_ENABLED", "true").lower() == "true"
+MULTI_QUERY_ENABLED = os.getenv("MULTI_QUERY_ENABLED", "true").lower() == "true"
+MULTI_QUERY_COUNT = int(os.getenv("MULTI_QUERY_COUNT", "4"))
+
+# ─── Context Engineering ─────────────────────────────────────
+CONTEXT_DEDUP_THRESHOLD = float(os.getenv("CONTEXT_DEDUP_THRESHOLD", "0.80"))
+CONTEXT_COMPRESSION_ENABLED = os.getenv("CONTEXT_COMPRESSION_ENABLED", "true").lower() == "true"
+CONTEXT_MAX_COMPRESSED = int(os.getenv("CONTEXT_MAX_COMPRESSED", "3"))
+
 # ─── Logging ──────────────────────────────────────────────────
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

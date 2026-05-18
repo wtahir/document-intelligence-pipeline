@@ -89,7 +89,7 @@ def get_overview():
         "total_queries":   len(query_log) if isinstance(query_log, list) else 0,
         "avg_retrieval_score": evaluation.get("avg_retrieval_score") if evaluation else None,
         "avg_answer_score":    evaluation.get("avg_answer_score")    if evaluation else None,
-        "payout_decisions": len(payout) if isinstance(payout, list) else 0,
+        "payout_decisions": len(payout) if isinstance(payout, list) else (payout.get("total_claims", 0) if isinstance(payout, dict) else 0),
     }
 
     doc_types    = extraction.get("document_types_found",  {}) if extraction else {}

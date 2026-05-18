@@ -3,7 +3,7 @@
   "embedding_model": "paraphrase-multilingual-MiniLM-L12-v2",
   "chunks_processed": 180,
   "chunks_skipped_dedup": 180,
-  "chunks_stored": 0,
+  "chunks_stored": 180,
   "chunks_failed": 0,
   "total_vectors_in_collection": 180,
   "duration_seconds": 0,
