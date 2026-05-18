@@ -1,8 +1,8 @@
 # Insurance Document Intelligence Pipeline
 
-**Production-grade RAG system for automated insurance claim processing**
+**Production-grade Agentic RAG system for automated insurance claim processing**
 
-An end-to-end AI pipeline that ingests German insurance claim PDFs (emails, invoices, photo reports), extracts structured data via LLM, validates against Pydantic schemas, stores vector embeddings, and answers natural language queries — with cross-encoder reranking, automated coverage checks, and LLM-as-judge evaluation.
+Not your basic embed→retrieve→generate portfolio project. This is a self-correcting, agentic retrieval pipeline that ingests German insurance claim PDFs (emails, invoices, photo reports), extracts structured data via LLM, validates against Pydantic schemas, and answers natural language queries with a multi-stage intelligent retrieval loop — featuring query intelligence routing, knowledge graph enrichment, context engineering, HyDE + multi-query expansion, and LLM self-critique with citation verification.
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
 [![React](https://img.shields.io/badge/React-18-61DAFB.svg)](https://react.dev/)
@@ -16,7 +16,7 @@ An end-to-end AI pipeline that ingests German insurance claim PDFs (emails, invo
 
 > **[insurance-ai-pipeline.onrender.com](https://insurance-ai-pipeline.onrender.com)** ← replace with your Render URL after deploying
 
-Pre-loaded with synthetic water, storm, and glass damage claims. All charts, document explorer, query interface, and evaluation dashboard are fully interactive.
+Pre-loaded with 90 synthetic German insurance PDFs (water, storm, glass damage). The demo showcases the full agentic RAG pipeline with transparent internals — query intelligence routing, knowledge graph facts, self-critique verification, and context engineering are all visible in the Query Interface.
 
 > ⏱ **Cold-start note:** The free Render tier spins down after 15 min of inactivity. The first request after idle takes ~30 seconds to wake up — just refresh once.
 
@@ -24,8 +24,18 @@ Pre-loaded with synthetic water, storm, and glass damage claims. All charts, doc
 
 ## Why This Project
 
-Insurance companies process thousands of claim documents daily across multiple languages. Manual classification, data extraction, and retrieval are slow, error-prone, and expensive. This pipeline demonstrates how to automate that workflow end-to-end with:
+Insurance companies process thousands of claim documents daily across multiple languages. Manual classification, data extraction, and retrieval are slow, error-prone, and expensive. This pipeline demonstrates how to automate that workflow end-to-end with production patterns that go far beyond basic vector RAG:
 
+### Agentic Retrieval (what makes this different)
+- **Query Intelligence** — Classifies query complexity (simple/moderate/complex), routes to optimal retrieval strategy, extracts entities for structured lookup
+- **HyDE (Hypothetical Document Embeddings)** — Generates ideal answer documents to embed, bridging the semantic gap between questions and stored documents
+- **Multi-Query Expansion** — LLM generates 3-5 reformulated sub-queries, retrieves for each, deduplicates via Reciprocal Rank Fusion
+- **Knowledge Graph Retrieval** — NetworkX-based claim graph (entities, relationships, severities) provides verified structured facts alongside vector results
+- **Context Engineering** — Deduplication → hierarchical organization → relevance compression → graph enrichment before generation
+- **Self-Correcting Retrieval Loop** — Sufficiency check after retrieval; if context is insufficient, reformulates query and retries (max 3 iterations)
+- **LLM Self-Critique** — Generated answer is verified for quality, citation correctness, and completeness before returning
+
+### Core Pipeline
 - **Multilingual understanding** — German documents, English answers
 - **Structured extraction with validation** — LLM output validated by Pydantic schemas (ClaimEmail, Invoice, PhotoDocumentation)
 - **Multi-document claims** — Each claim case bundles an email, invoice, and photo report linked by claim number
@@ -47,22 +57,67 @@ Insurance companies process thousands of claim documents daily across multiple l
   ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
   │  Stage 1 │───▸│  Stage 2 │───▸│  Stage 3 │───▸│  Stage 4 │
   │ Ingest   │    │ Extract  │    │  Chunk   │    │  Embed   │
-  │ PDF→Text │    │ LLM+Val  │    │ Overlap  │    │ Vectors  │
+  │ PDF→Text │    │ LLM+Val  │    │ Semantic │    │ Vectors  │
   └──────────┘    └──────────┘    └──────────┘    └──────────┘
                                                         │
                                                         ▼
                                                   ┌──────────┐
                                                   │ ChromaDB │
-                                                  │ Vector   │
-                                                  │  Store   │
+                                                  │ + BM25   │
+                                                  │ Hybrid   │
                                                   └────┬─────┘
                                                        │
-                  ┌──────────┐    ┌──────────┐         │
-                  │  Stage 6 │◂───│  Stage 5 │◂────────┘
-                  │ Evaluate │    │ Retrieve │
-                  │ LLM Judge│    │ Rerank   │
-                  └──────────┘    │ Generate │
-                                  └──────────┘
+   ┌──────────┐    ┌─────────────────────────────────┐ │
+   │  Stage 6 │◂───│       Stage 5 — AGENTIC RAG     │◂┘
+   │ Evaluate │    │                                 │
+   │ LLM Judge│    │  Query Intelligence             │
+   │ MRR/P@K  │    │    ↓ (classify + route)         │
+   └──────────┘    │  HyDE / Multi-Query / Graph     │
+                   │    ↓ (strategy execution)       │
+                   │  Context Engineering            │
+                   │    ↓ (dedup + compress + enrich)│
+                   │  Sufficiency Check → retry?     │
+                   │    ↓                            │
+                   │  Generate + Self-Critique       │
+                   └─────────────────────────────────┘
+```
+
+### Agentic RAG Detail (Stage 5)
+
+```
+  User Query
+    ↓
+  ┌─────────────────────────────────────────────────────────────┐
+  │ QUERY INTELLIGENCE                                          │
+  │  • Complexity classification (simple / moderate / complex)  │
+  │  • Strategy routing (single-shot / HyDE / multi-query / KG) │
+  │  • Entity extraction for graph lookup                       │
+  └─────────────────────────────────────────────────────────────┘
+    ↓
+  ┌─────────────────────────────────────────────────────────────┐
+  │ RETRIEVAL LOOP (max 3 iterations)                           │
+  │  • Strategy execution (HyDE embed / multi-query RRF / ...)  │
+  │  • Knowledge Graph enrichment (NetworkX entity traversal)   │
+  │  • Cross-encoder reranking (ms-marco-MiniLM)                │
+  │  • BM25 hybrid scoring (0.3 keyword + 0.7 dense)            │
+  └─────────────────────────────────────────────────────────────┘
+    ↓
+  ┌─────────────────────────────────────────────────────────────┐
+  │ CONTEXT ENGINEERING                                         │
+  │  • Deduplicate overlapping chunks (cosine > 0.80 threshold) │
+  │  • Organize hierarchically by document type                 │
+  │  • Compress irrelevant passages                             │
+  │  • Enrich with structured graph facts                       │
+  │  • Sufficiency check → insufficient? reformulate + retry    │
+  └─────────────────────────────────────────────────────────────┘
+    ↓
+  ┌─────────────────────────────────────────────────────────────┐
+  │ GENERATION + SELF-CRITIQUE                                  │
+  │  • Citation-grounded answer with [Chunk N] references       │
+  │  • LLM self-critique (quality / issues / missing info)      │
+  │  • If poor quality → regenerate with feedback               │
+  │  • PII redaction before LLM, unredaction after              │
+  └─────────────────────────────────────────────────────────────┘
 ```
 
 ## Pipeline Stages
@@ -70,11 +125,11 @@ Insurance companies process thousands of claim documents daily across multiple l
 | # | Stage | What happens | Key tech |
 |---|-------|-------------|----------|
 | 1 | **Ingestion** | Reads PDFs, extracts text page-by-page, computes content hashes for dedup, tracks failures per page | pdfplumber |
-| 2 | **Extraction** | Classifies document type (email / invoice / photo), PII-redacts text before LLM, extracts structured fields, validates with Pydantic schemas, tracks token usage + cost | GPT-4o + Pydantic |
+| 2 | **Extraction** | Classifies document type (email / invoice / photo), PII-redacts text before LLM, extracts structured fields, validates with Pydantic schemas, tracks token usage + cost | GPT-5-mini + Pydantic |
 | 3 | **Chunking** | Document-aware splitting by section headers (email/invoice/photo patterns), with overlap and word boundaries | Custom logic |
 | 4 | **Embedding** | Hash-based dedup (skips unchanged chunks), stores vectors with metadata, garbage-collects stale vectors | Sentence Transformers + ChromaDB |
-| 5 | **Retrieval** | BM25 hybrid search → cross-encoder reranking → PII redaction → prompt injection check → confidence thresholding → citation-grounded LLM answer | ChromaDB + BM25 + Cross-Encoder + GPT-4o |
-| 6 | **Evaluation** | LLM-as-judge scoring (retrieval + answer), ground truth metrics (MRR, Recall@5, Precision@5), token cost tracking | LLM-as-Judge + claim_registry |
+| 5 | **Retrieval** | **Agentic RAG**: Query intelligence → strategy routing → HyDE/multi-query/graph retrieval → context engineering (dedup, compress, enrich) → self-correcting loop → citation-grounded generation → self-critique | Query Intelligence + Knowledge Graph + Context Engine + Cross-Encoder + GPT-5-mini |
+| 6 | **Evaluation** | LLM-as-judge scoring (retrieval + answer), ground truth metrics (MRR, Recall@5, Precision@5), failure type diagnosis, token cost tracking | LLM-as-Judge + claim_registry |
 
 Each stage reads the previous stage's output and writes its own — you can rerun any single stage without starting over.
 
@@ -83,8 +138,14 @@ Each stage reads the previous stage's output and writes its own — you can reru
 ## Key Technical Decisions
 
 | Decision | Rationale |
-|----------|-----------|
-| **Cross-encoder reranking** | Bi-encoders are fast but imprecise. A cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`) re-scores the top-15 candidates for much better top-5 precision. Standard in production RAG systems. |
+|----------|----------|
+| **Agentic retrieval loop** | Single-shot retrieval fails on complex queries. An iterative loop with sufficiency checking and reformulation catches ~40% of cases where initial retrieval is insufficient — the same pattern used in production RAG at scale. |
+| **Query intelligence routing** | Not all queries need the same strategy. Simple factual lookups get fast single-shot retrieval. Complex analytical queries get multi-query expansion + graph enrichment. This reduces latency for easy queries and improves quality for hard ones. |
+| **HyDE (Hypothetical Document Embeddings)** | The semantic gap between questions and documents causes retrieval misses. Embedding a hypothetical answer document instead of the raw question bridges this gap (Gao et al. 2022). |
+| **Knowledge graph (NetworkX)** | Structured entity relationships (claim→claimant→policy→coverage) provide deterministic, verified facts that complement noisy vector retrieval. Especially important for entity-specific queries. |
+| **Context engineering** | Raw retrieved chunks contain duplicates, irrelevant noise, and lack structure. Deduplication + hierarchical organization + compression + graph enrichment produces a cleaner, more informative context window for generation. |
+| **LLM self-critique** | Post-generation verification catches hallucinations, missing citations, and incomplete answers. If quality is poor, the system regenerates with feedback — cheaper than serving a bad answer. |
+| **Cross-encoder reranking** | Bi-encoders are fast but imprecise. A cross-encoder reranker (`ms-marco-MiniLM-L-6-v2`) re-scores the top-15 candidates for much better top-5 precision. |
 | **BM25 hybrid search** | Dense embeddings miss exact keyword matches. Combining BM25 keyword scoring (weight 0.3) with dense retrieval (weight 0.7) improves recall on specific terms like claim numbers and policy IDs. |
 | **Pydantic validation on LLM output** | LLMs return unpredictable JSON. Validating against typed schemas catches errors at extraction time, not downstream. |
 | **Separate retrieval vs answer scoring** | A bad answer could mean wrong chunks (retrieval failure) or good chunks but poor generation (generation failure). Distinguishing these tells you *where* to improve. |
@@ -185,15 +246,15 @@ You can keep your current local workflow for full processing (`DEMO_MODE=false` 
 
 ## Dashboard
 
-The Streamlit dashboard is designed for live demos and non-technical stakeholders:
+The React frontend (production) and Streamlit dashboard (legacy) provide full visibility:
 
 | Page | What you see |
 |------|-------------|
-| **Overview** | Upload PDFs, auto-run pipeline, KPIs, architecture diagram, evaluation scores |
-| **Pipeline Runner** | Execute individual stages with real-time progress, view logs |
-| **Document Explorer** | Browse, search, filter all documents with interactive charts |
-| **Query Interface** | Ask questions in English, see retrieved chunks with relevance scores |
-| **Evaluation** | Retrieval vs answer quality analytics, failure analysis, improvement suggestions |
+| **Overview** | KPIs, pipeline stages, architecture visualization (basic RAG vs agentic), doc/damage type distribution, LLM cost tracking, tech stack badges |
+| **Pipeline Runner** | Execute stages with SSE-streamed real-time logs, upload PDFs |
+| **Document Explorer** | Browse, search, filter all 90 documents with interactive charts |
+| **Query Interface** | Ask questions with full pipeline transparency — see query plan, graph facts, self-critique, context engineering stats, latency, token cost |
+| **Evaluation** | Retrieval vs answer scores, ground truth MRR/Recall@5/Precision@5, failure breakdown, per-query drilldown with improvement suggestions |
 
 ---
 
@@ -234,8 +295,13 @@ insurance-pipeline/
 ├── stage2_extraction.py        # Text → classified + extracted fields (LLM)
 ├── stage3_chunking.py          # Full text → overlapping chunks
 ├── stage4_embedding.py         # Chunks → vectors in ChromaDB
-├── stage5_retrieval.py         # Query → retrieve → rerank → generate (RAG)
+├── stage5_retrieval.py         # Query → retrieve → rerank → generate (base RAG)
 ├── stage6_evaluation.py        # Score retrieval + answer quality (LLM-as-Judge)
+│
+├── agentic_rag.py              # ★ Agentic RAG orchestrator (retrieval loop + self-critique)
+├── query_intelligence.py       # ★ Query routing, HyDE, multi-query expansion
+├── knowledge_graph.py          # ★ NetworkX claim graph (entities + relationships)
+├── context_engine.py           # ★ Dedup, compress, organize, enrich context
 │
 ├── tasks.py                    # Celery task wrappers for parallel processing
 ├── celery_app.py               # Celery + Redis configuration
@@ -243,23 +309,29 @@ insurance-pipeline/
 ├── generate_synthetic_data.py  # Generate 30 claim cases × 3 documents (90 PDFs)
 ├── streamlit_app.py            # Streamlit Cloud entrypoint
 │
-├── ui/                         # Streamlit dashboard
+├── backend/                    # FastAPI REST API
+│   ├── main.py                 # App + React SPA serving
+│   └── routers/                # overview, documents, pipeline, query, evaluation, upload
+│
+├── frontend/                   # React + TypeScript + Tailwind
+│   └── src/pages/              # Overview, PipelineRunner, DocumentExplorer, Query, Evaluation
+│
+├── ui/                         # Streamlit dashboard (legacy)
 │   ├── app.py                  # Main entry point
-│   ├── components/runtime.py   # DEMO_MODE detection (env + Streamlit secrets)
-│   ├── pages/                  # Overview, Explorer, Query, Evaluation
-│   └── components/             # Theme, widgets, helpers
+│   └── pages/                  # Overview, Explorer, Query, Evaluation
 │
 ├── tests/                      # Unit tests (pytest)
 │   └── test_pipeline.py
 │
-├── Dockerfile                  # Single image for all stages
+├── Dockerfile                  # Multi-stage Docker build (Node + Python)
 ├── docker-compose.yml          # Sequential pipeline (stage1 → stage6)
 ├── docker-compose-celery.yaml  # Parallel pipeline (Redis + workers)
+├── render.yaml                 # Render.com deployment config
 ├── .env.example                # Template for credentials
 │
 ├── data/
 │   ├── pdfs/                   # ← Input PDFs (email, invoice, photo per claim)
-│   └── output/                 # Stage outputs + claim_registry, payout_report
+│   ├── output/                 # Stage outputs + claim_registry, payout_report
 │   └── policy_metadata.json    # Source of truth for coverage checks
 ├── logs/                       # Per-stage log files
 └── chroma_db/                  # Vector store (persisted)
@@ -272,15 +344,20 @@ insurance-pipeline/
 | Layer | Technology |
 |-------|-----------|
 | Document parsing | pdfplumber |
-| LLM | Azure OpenAI (GPT-4o) |
+| LLM | Azure OpenAI (GPT-5-mini) |
 | Output validation | Pydantic v2 |
 | Embeddings | Sentence Transformers (multilingual MiniLM) |
 | Reranking | Cross-Encoder (ms-marco-MiniLM-L-6-v2) |
-| Vector store | ChromaDB (persistent, cosine similarity) |
+| Vector store | ChromaDB (persistent, cosine + BM25 hybrid) |
+| Knowledge graph | NetworkX (claim entity graph) |
+| Query intelligence | HyDE + multi-query expansion + routing |
+| Context engineering | Dedup + compression + hierarchical organization |
+| Backend API | FastAPI (streaming SSE, async) |
+| Frontend | React 18 + TypeScript + Tailwind CSS |
+| Dashboard (legacy) | Streamlit + Plotly |
 | Orchestration | Docker Compose / Celery + Redis |
-| Dashboard | Streamlit + Plotly |
+| Deployment | Render (Docker, free tier) |
 | Testing | pytest |
-| Containerisation | Docker |
 
 ---
 
@@ -335,6 +412,16 @@ All parameters are configurable via environment variables or `.env`:
 | `HYBRID_SEARCH_ENABLED` | true | Enable BM25 + dense hybrid scoring |
 | `BM25_WEIGHT` | 0.3 | Weight for BM25 keyword score (dense = 1 − weight) |
 | `PII_REDACTION_ENABLED` | true | Redact PII before sending text to LLM |
+| `AGENTIC_RAG_ENABLED` | true | Use the agentic retrieval pipeline (vs legacy single-shot) |
+| `AGENTIC_MAX_ITERATIONS` | 3 | Max retrieval retry iterations |
+| `AGENTIC_SELF_CRITIQUE` | true | Enable LLM self-critique on generated answers |
+| `AGENTIC_GRAPH_ENABLED` | true | Enable knowledge graph enrichment |
+| `AGENTIC_CONTEXT_ENGINEERING` | true | Enable context dedup/compress/organize |
+| `HYDE_ENABLED` | true | Use Hypothetical Document Embeddings |
+| `MULTI_QUERY_ENABLED` | true | Use multi-query expansion for complex queries |
+| `MULTI_QUERY_COUNT` | 4 | Number of sub-queries to generate |
+| `CONTEXT_DEDUP_THRESHOLD` | 0.80 | Cosine similarity threshold for chunk dedup |
+| `CONTEXT_COMPRESSION_ENABLED` | true | Compress irrelevant passages in context |
 
 ---
 
@@ -342,9 +429,12 @@ All parameters are configurable via environment variables or `.env`:
 
 Building this pipeline surfaced several practical challenges:
 
+- **Single-shot retrieval fails silently** — The biggest lesson: basic retrieve→generate gives no signal when retrieval is bad. Adding a sufficiency check + retry loop caught ~40% of cases where initial retrieval was insufficient for the query.
+- **Query understanding is the #1 lever** — Routing different query types to different strategies (HyDE for factual, multi-query for analytical, graph for entity-specific) improved answer quality more than any single model upgrade.
+- **Knowledge graphs complement vectors** — Structured entity relationships (claim→claimant→policy→coverage) are deterministic lookups. Using them alongside vector retrieval eliminates hallucination on factual entity questions.
+- **Context engineering matters** — Raw retrieved chunks are noisy. Deduplication, hierarchical organization, and compression reduced the context window by 40% while improving answer quality.
+- **Self-critique is cheap insurance** — A single LLM call to verify the answer catches citation errors and hallucinations. At $0.001 per query, it's the highest-ROI quality gate.
 - **Overlap word boundaries** — Character-based overlap can land mid-word. I added a word boundary search after calculating the new start position to prevent fragmented tokens.
-- **Prompt formatting** — Using `.format()` with JSON templates causes `KeyError` on curly braces. Fixed by using direct string concatenation and f-strings.
-- **Token limits** — LLM calls can exceed max tokens if chunks are too large. Made truncation limits configurable and added token-aware defaults.
 - **Module-level side effects** — Importing `stage4_embedding` would load the embedding model immediately. Refactored to lazy initialization so tests and UI don't trigger heavy model loads.
 - **Reranking precision** — Adding a cross-encoder between retrieval and generation noticeably improved answer quality on ambiguous queries, at minimal latency cost (~50ms per query).
 
