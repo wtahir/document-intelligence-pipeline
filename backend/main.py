@@ -37,6 +37,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ─── Health check (fast, no heavy imports) ─────────────────────
+@app.get("/api/health", tags=["Health"])
+async def health():
+    """Lightweight endpoint the landing page pings to wake the backend."""
+    return {"status": "ok"}
+
 # ─── API routers ───────────────────────────────────────────────
 app.include_router(overview.router,   prefix="/api/overview",   tags=["Overview"])
 app.include_router(documents.router,  prefix="/api/documents",  tags=["Documents"])

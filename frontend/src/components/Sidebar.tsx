@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import {
   LayoutDashboard,
   Play,
@@ -6,14 +6,15 @@ import {
   MessageSquare,
   BarChart3,
   Shield,
+  Home,
 } from 'lucide-react'
 
 const NAV = [
-  { to: '/',          label: 'Overview',          icon: LayoutDashboard },
-  { to: '/pipeline',  label: 'Pipeline Runner',   icon: Play },
-  { to: '/documents', label: 'Document Explorer', icon: FileSearch },
-  { to: '/query',     label: 'Query Interface',   icon: MessageSquare },
-  { to: '/evaluation',label: 'Evaluation',        icon: BarChart3 },
+  { to: '/dashboard',          label: 'Overview',          icon: LayoutDashboard },
+  { to: '/dashboard/pipeline',  label: 'Pipeline Runner',   icon: Play },
+  { to: '/dashboard/documents', label: 'Document Explorer', icon: FileSearch },
+  { to: '/dashboard/query',     label: 'Query Interface',   icon: MessageSquare },
+  { to: '/dashboard/evaluation',label: 'Evaluation',        icon: BarChart3 },
 ]
 
 export default function Sidebar() {
@@ -30,13 +31,24 @@ export default function Sidebar() {
         </div>
       </div>
 
+      {/* Back to landing */}
+      <div className="px-3 pt-3">
+        <NavLink
+          to="/"
+          className="flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium text-surface-500 hover:text-surface-300 hover:bg-surface-700/40 transition-colors"
+        >
+          <Home size={14} />
+          Back to Home
+        </NavLink>
+      </div>
+
       {/* Nav */}
       <nav className="flex-1 px-3 py-4 space-y-0.5">
         {NAV.map(({ to, label, icon: Icon }) => (
           <NavLink
             key={to}
             to={to}
-            end={to === '/'}
+            end={to === '/dashboard'}
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
