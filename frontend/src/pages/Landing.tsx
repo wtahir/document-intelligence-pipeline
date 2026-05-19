@@ -205,8 +205,10 @@ export default function Landing() {
         </div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-surface-600 animate-bounce">
-          <ChevronDown size={24} />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 shadow-lg shadow-amber-500/40 flex items-center justify-center">
+            <ChevronDown size={32} strokeWidth={3.5} className="text-white drop-shadow-md" />
+          </div>
         </div>
       </section>
 
@@ -326,7 +328,7 @@ export default function Landing() {
               Production-Grade <span className="text-amber-400">Capabilities</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
-              Not a tutorial project — built with the patterns and practices required for real enterprise AI deployments.
+              Built with the patterns and practices required for real enterprise AI deployments.
             </p>
           </div>
 
