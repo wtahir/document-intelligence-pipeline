@@ -2,7 +2,7 @@
 
 **Production-grade Agentic RAG system for automated insurance claim processing**
 
-Not your basic embed→retrieve→generate portfolio project. This is a self-correcting, agentic retrieval pipeline that ingests German insurance claim PDFs (emails, invoices, photo reports), extracts structured data via LLM, validates against Pydantic schemas, and answers natural language queries with a multi-stage intelligent retrieval loop — featuring query intelligence routing, knowledge graph enrichment, context engineering, HyDE + multi-query expansion, and LLM self-critique with citation verification.
+Not the basic embed→retrieve→generate portfolio project. This is a self-correcting, agentic retrieval pipeline that ingests German insurance claim PDFs (emails, invoices, photo reports), extracts structured data via LLM, validates against Pydantic schemas, and answers natural language queries with a multi-stage intelligent retrieval loop — featuring query intelligence routing, knowledge graph enrichment, context engineering, HyDE + multi-query expansion, and LLM self-critique with citation verification.
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/)
 [![React](https://img.shields.io/badge/React-18-61DAFB.svg)](https://react.dev/)

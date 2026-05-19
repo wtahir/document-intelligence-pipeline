@@ -68,10 +68,10 @@ function BackendPill({ status }: { status: BackendStatus }) {
 
 /* ─── Pipeline step for the flow visual ──────────────────────── */
 const PIPELINE_STEPS = [
-  { icon: <FileText size={20} />, title: 'Document Ingestion', desc: 'OCR + multi-format parsing of insurance claims, policies & medical reports', color: 'from-amber-400 to-orange-600', business: 'Digitize paper processes' },
-  { icon: <Search size={20} />, title: 'Intelligent Extraction', desc: 'LLM-powered extraction of entities, amounts, dates, and damage types with confidence scores', color: 'from-rose-400 to-pink-700', business: 'Eliminate manual data entry' },
+  { icon: <FileText size={20} />, title: 'Document Ingestion', desc: 'OCR + multi-format parsing of PDFs, scanned documents, and structured data across any domain', color: 'from-amber-400 to-orange-600', business: 'Digitize paper processes' },
+  { icon: <Search size={20} />, title: 'Intelligent Extraction', desc: 'LLM-powered extraction of entities, relationships, dates, and domain-specific fields with confidence scores', color: 'from-rose-400 to-pink-700', business: 'Eliminate manual data entry' },
   { icon: <Layers size={20} />, title: 'Smart Chunking', desc: 'Semantic-aware document splitting with overlap for optimal retrieval context', color: 'from-purple-500 to-violet-800', business: 'Maximize AI accuracy' },
-  { icon: <GitBranch size={20} />, title: 'Knowledge Graph', desc: 'Structured entity relationships between claimants, policies, and claim events', color: 'from-yellow-500 to-amber-700', business: 'Connect the dots automatically' },
+  { icon: <GitBranch size={20} />, title: 'Knowledge Graph', desc: 'Structured entity relationships linking people, documents, events, and concepts across the corpus', color: 'from-yellow-500 to-amber-700', business: 'Connect the dots automatically' },
   { icon: <Brain size={20} />, title: 'Agentic Retrieval', desc: 'Self-correcting retrieval loop with query intelligence, HyDE, and multi-strategy routing', color: 'from-red-500 to-rose-800', business: 'Answer complex questions' },
   { icon: <RefreshCw size={20} />, title: 'Self-Critique & Verification', desc: 'LLM verifies its own answers, checks citations, retries if insufficient', color: 'from-orange-400 to-amber-700', business: 'Build trust in AI outputs' },
 ]
@@ -133,22 +133,23 @@ export default function Landing() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            Insurance Document
+            Document
             <span className="block bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
               Intelligence Pipeline
             </span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-surface-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
-            An <strong className="text-surface-200">enterprise-grade AI system</strong> that ingests insurance claims,
-            extracts structured data, builds knowledge graphs, and answers complex
+            An <strong className="text-surface-200">enterprise-grade document AI system</strong> that ingests semi-structured
+            documents, extracts entities &amp; relationships, builds knowledge graphs, and answers complex
             queries — with <strong className="text-surface-200">self-correcting retrieval</strong> and <strong className="text-surface-200">LLM self-critique</strong>.
+            Demo uses insurance claims as a sample domain; pipeline is <strong className="text-surface-200">domain-agnostic</strong>.
           </p>
 
           {/* Business value callout */}
           <div className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-800/80 border border-amber-800/30 text-sm text-surface-300 animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
             <Zap size={14} className="text-amber-400" />
-            Built for digital transformation — from paper claims to AI-powered decisions
+            Built for digital transformation — from raw documents to AI-powered decisions
           </div>
 
           {/* CTA */}
@@ -215,12 +216,12 @@ export default function Landing() {
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">The Problem & Solution</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
-              From Paper Claims to <span className="text-amber-400">AI-Powered Decisions</span>
+              From Raw Documents to <span className="text-amber-400">AI-Powered Decisions</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
-              Insurance companies process thousands of claims daily. This pipeline demonstrates how AI
+              Organisations across every industry process thousands of documents daily. This pipeline demonstrates how AI
               can automate document understanding, extract structured data, and provide verified answers
-              — reducing processing time from hours to seconds.
+              — reducing processing time from hours to seconds. Insurance claims are used as the demo domain.
             </p>
           </div>
 
@@ -231,9 +232,9 @@ export default function Landing() {
                 title: 'Manual Processing',
                 problem: true,
                 items: [
-                  'Claims adjusters read each document manually',
+                  'Knowledge workers read each document manually',
                   'Hours spent on data entry and cross-referencing',
-                  'Human errors in amount extraction',
+                  'Human errors in value and entity extraction',
                   'Inconsistent decision-making across teams',
                 ],
               },
@@ -244,7 +245,7 @@ export default function Landing() {
                 items: [
                   'Documents ingested and parsed automatically',
                   'LLM extracts entities with confidence scores',
-                  'Knowledge graph connects related claims',
+                  'Knowledge graph connects related documents and entities',
                   'Self-correcting retrieval ensures accuracy',
                 ],
               },
@@ -288,7 +289,7 @@ export default function Landing() {
               End-to-End <span className="text-amber-400">Processing Pipeline</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
-              Six interconnected stages transform raw insurance documents into queryable intelligence.
+              Six interconnected stages transform raw documents — from any domain — into queryable intelligence.
               Each stage is independently runnable, observable, and produces structured output.
             </p>
           </div>
