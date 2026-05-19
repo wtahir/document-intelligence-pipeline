@@ -142,14 +142,14 @@ export default function Landing() {
           <p className="mt-6 text-lg sm:text-xl text-surface-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
             An <strong className="text-surface-200">enterprise-grade document AI system</strong> that ingests semi-structured
             documents, extracts entities &amp; relationships, builds knowledge graphs, and answers complex
-            queries — with <strong className="text-surface-200">self-correcting retrieval</strong> and <strong className="text-surface-200">LLM self-critique</strong>.
+            queries with <strong className="text-surface-200">self-correcting retrieval</strong> and <strong className="text-surface-200">LLM self-critique</strong>.
             Demo uses insurance claims as a sample domain; pipeline is <strong className="text-surface-200">domain-agnostic</strong>.
           </p>
 
           {/* Business value callout */}
           <div className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-800/80 border border-amber-800/30 text-sm text-surface-300 animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
             <Zap size={14} className="text-amber-400" />
-            Built for digital transformation — from raw documents to AI-powered decisions
+            Built for digital transformation. From raw documents to AI-powered decisions
           </div>
 
           {/* CTA */}
