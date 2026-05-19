@@ -36,7 +36,7 @@ def render():
 
     # ─── Hero ─────────────────────────────────────────────
     render_hero(
-        title="Insurance Claim Intelligence",
+        title="Document Intelligence",
         subtitle="Upload water, storm, or glass damage claim PDFs. The pipeline automatically "
                  "ingests, classifies damage type, extracts amounts, checks policy coverage, "
                  "and calculates payout decisions.",

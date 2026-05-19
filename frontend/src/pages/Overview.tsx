@@ -76,7 +76,7 @@ export default function Overview() {
   return (
     <div>
       <PageHeader
-        title="Insurance Claim Intelligence"
+        title="Document Intelligence"
         subtitle="Production-grade Agentic RAG pipeline, not just a basic embed→retrieve→generate. Self-correcting retrieval with query intelligence, knowledge graph, context engineering, and LLM self-critique."
         badge="Agentic RAG v1"
       />
