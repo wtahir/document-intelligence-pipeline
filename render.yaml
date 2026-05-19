@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: insurance-ai-pipeline
+    name: document-intelligence-pipeline
     runtime: docker
     dockerfilePath: ./Dockerfile
     envVars:
