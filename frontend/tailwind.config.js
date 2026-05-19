@@ -4,22 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Star-gold accent — like distant suns
         brand: {
-          50:  '#eef2ff',
-          100: '#e0e7ff',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
+          50:  '#fffbeb',
+          100: '#fef3c7',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
         },
+        // True-black space surfaces — no blue tint
         surface: {
-          900: '#0f172a',
-          800: '#1e293b',
-          700: '#334155',
-          600: '#475569',
-          400: '#94a3b8',
-          200: '#e2e8f0',
-          50:  '#f8fafc',
+          900: '#030305',
+          800: '#0a0a0f',
+          700: '#141420',
+          600: '#252535',
+          400: '#7878a0',
+          200: '#c8c8e0',
+          50:  '#eeeef8',
         },
       },
       fontFamily: {

@@ -68,12 +68,12 @@ function BackendPill({ status }: { status: BackendStatus }) {
 
 /* ─── Pipeline step for the flow visual ──────────────────────── */
 const PIPELINE_STEPS = [
-  { icon: <FileText size={20} />, title: 'Document Ingestion', desc: 'OCR + multi-format parsing of insurance claims, policies & medical reports', color: 'from-indigo-500 to-indigo-600', business: 'Digitize paper processes' },
-  { icon: <Search size={20} />, title: 'Intelligent Extraction', desc: 'LLM-powered extraction of entities, amounts, dates, and damage types with confidence scores', color: 'from-cyan-500 to-cyan-600', business: 'Eliminate manual data entry' },
-  { icon: <Layers size={20} />, title: 'Smart Chunking', desc: 'Semantic-aware document splitting with overlap for optimal retrieval context', color: 'from-teal-500 to-teal-600', business: 'Maximize AI accuracy' },
-  { icon: <GitBranch size={20} />, title: 'Knowledge Graph', desc: 'Structured entity relationships between claimants, policies, and claim events', color: 'from-emerald-500 to-emerald-600', business: 'Connect the dots automatically' },
-  { icon: <Brain size={20} />, title: 'Agentic Retrieval', desc: 'Self-correcting retrieval loop with query intelligence, HyDE, and multi-strategy routing', color: 'from-violet-500 to-violet-600', business: 'Answer complex questions' },
-  { icon: <RefreshCw size={20} />, title: 'Self-Critique & Verification', desc: 'LLM verifies its own answers, checks citations, retries if insufficient', color: 'from-rose-500 to-rose-600', business: 'Build trust in AI outputs' },
+  { icon: <FileText size={20} />, title: 'Document Ingestion', desc: 'OCR + multi-format parsing of insurance claims, policies & medical reports', color: 'from-amber-400 to-orange-600', business: 'Digitize paper processes' },
+  { icon: <Search size={20} />, title: 'Intelligent Extraction', desc: 'LLM-powered extraction of entities, amounts, dates, and damage types with confidence scores', color: 'from-rose-400 to-pink-700', business: 'Eliminate manual data entry' },
+  { icon: <Layers size={20} />, title: 'Smart Chunking', desc: 'Semantic-aware document splitting with overlap for optimal retrieval context', color: 'from-purple-500 to-violet-800', business: 'Maximize AI accuracy' },
+  { icon: <GitBranch size={20} />, title: 'Knowledge Graph', desc: 'Structured entity relationships between claimants, policies, and claim events', color: 'from-yellow-500 to-amber-700', business: 'Connect the dots automatically' },
+  { icon: <Brain size={20} />, title: 'Agentic Retrieval', desc: 'Self-correcting retrieval loop with query intelligence, HyDE, and multi-strategy routing', color: 'from-red-500 to-rose-800', business: 'Answer complex questions' },
+  { icon: <RefreshCw size={20} />, title: 'Self-Critique & Verification', desc: 'LLM verifies its own answers, checks citations, retries if insufficient', color: 'from-orange-400 to-amber-700', business: 'Build trust in AI outputs' },
 ]
 
 const CAPABILITIES = [
@@ -102,11 +102,19 @@ export default function Landing() {
 
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section className="relative flex flex-col items-center justify-center min-h-[92vh] px-6 text-center overflow-hidden">
-        {/* Background gradient orbs */}
+        {/* Star field */}
+        <div className="star-field" />
+
+        {/* Nebula orbs — warm, cosmic, NOT blue */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-500/[0.07] blur-[120px] animate-glow-pulse" />
-          <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-cyan-500/[0.05] blur-[140px] animate-glow-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-violet-500/[0.04] blur-[100px] animate-glow-pulse" style={{ animationDelay: '1s' }} />
+          {/* Amber nebula — upper left */}
+          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-amber-500/[0.09] blur-[130px] animate-glow-pulse animate-drift" />
+          {/* Crimson nebula — lower right */}
+          <div className="absolute -bottom-60 -right-40 w-[700px] h-[700px] rounded-full bg-rose-700/[0.08] blur-[150px] animate-glow-pulse" style={{ animationDelay: '3s' }} />
+          {/* Deep orange haze — centre */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full bg-orange-700/[0.05] blur-[110px] animate-glow-pulse" style={{ animationDelay: '1.5s' }} />
+          {/* Faint magenta wisp — upper right */}
+          <div className="absolute -top-20 right-0 w-[350px] h-[350px] rounded-full bg-pink-800/[0.07] blur-[100px] animate-glow-pulse" style={{ animationDelay: '5s' }} />
         </div>
 
         {/* Content */}
@@ -119,14 +127,14 @@ export default function Landing() {
 
           {/* Logo */}
           <div className="flex items-center justify-center gap-3 mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-lg shadow-brand-500/20">
+            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-700 shadow-lg shadow-amber-500/25">
               <Shield size={28} className="text-white" />
             </div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             Insurance Document
-            <span className="block bg-gradient-to-r from-brand-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
               Intelligence Pipeline
             </span>
           </h1>
@@ -138,8 +146,8 @@ export default function Landing() {
           </p>
 
           {/* Business value callout */}
-          <div className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-800 border border-surface-700 text-sm text-surface-300 animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
-            <Zap size={14} className="text-brand-400" />
+          <div className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-800/80 border border-amber-800/30 text-sm text-surface-300 animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
+            <Zap size={14} className="text-amber-400" />
             Built for digital transformation — from paper claims to AI-powered decisions
           </div>
 
@@ -149,8 +157,8 @@ export default function Landing() {
               onClick={() => navigate('/dashboard')}
               disabled={backendStatus !== 'ready'}
               className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white
-                         bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700
-                         shadow-lg shadow-brand-500/25 transition-all duration-200
+                         bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500
+                         shadow-lg shadow-amber-600/30 transition-all duration-200
                          disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
             >
               {backendStatus === 'ready' ? (
@@ -170,7 +178,7 @@ export default function Landing() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold
-                         text-surface-300 bg-surface-800 border border-surface-700 hover:bg-surface-700 transition-colors"
+                         text-surface-200 bg-surface-800/60 border border-surface-600/60 hover:bg-surface-700/60 hover:border-amber-800/40 transition-colors"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
               View Source Code
@@ -202,12 +210,12 @@ export default function Landing() {
       </section>
 
       {/* ── BUSINESS VALUE ────────────────────────────────────── */}
-      <section className="px-6 py-20 bg-surface-800/50 border-y border-surface-700/50">
+      <section className="px-6 py-20 bg-surface-800/30 border-y border-amber-900/20" style={{ backgroundImage: 'radial-gradient(ellipse 80% 40% at 50% 50%, rgba(251,146,60,0.03) 0%, transparent 70%)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">The Problem & Solution</span>
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">The Problem & Solution</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
-              From Paper Claims to <span className="text-brand-400">AI-Powered Decisions</span>
+              From Paper Claims to <span className="text-amber-400">AI-Powered Decisions</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
               Insurance companies process thousands of claims daily. This pipeline demonstrates how AI
@@ -272,12 +280,12 @@ export default function Landing() {
       </section>
 
       {/* ── PIPELINE FLOW ─────────────────────────────────────── */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-20" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(251,191,36,0.03) 0%, transparent 70%)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">How It Works</span>
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">How It Works</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
-              End-to-End <span className="text-brand-400">Processing Pipeline</span>
+              End-to-End <span className="text-amber-400">Processing Pipeline</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
               Six interconnected stages transform raw insurance documents into queryable intelligence.
@@ -298,7 +306,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-base font-bold text-surface-50 mb-2">{step.title}</h3>
                 <p className="text-sm text-surface-400 leading-relaxed mb-3">{step.desc}</p>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-medium">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-medium">
                   <Zap size={10} />
                   {step.business}
                 </div>
@@ -309,12 +317,12 @@ export default function Landing() {
       </section>
 
       {/* ── ENTERPRISE CAPABILITIES ───────────────────────────── */}
-      <section className="px-6 py-20 bg-surface-800/50 border-y border-surface-700/50">
+      <section className="px-6 py-20 bg-surface-800/25 border-y border-rose-900/20" style={{ backgroundImage: 'radial-gradient(ellipse 70% 50% at 70% 50%, rgba(225,29,72,0.04) 0%, transparent 70%)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">Enterprise AI Signals</span>
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">Enterprise AI Signals</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
-              Production-Grade <span className="text-brand-400">Capabilities</span>
+              Production-Grade <span className="text-amber-400">Capabilities</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
               Not a tutorial project — built with the patterns and practices required for real enterprise AI deployments.
@@ -324,7 +332,7 @@ export default function Landing() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {CAPABILITIES.map(({ icon, label, desc }) => (
               <div key={label} className="flex items-start gap-4 rounded-xl bg-surface-800 border border-surface-700 p-5">
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center">
+                <div className="shrink-0 w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
                   {icon}
                 </div>
                 <div>
@@ -338,12 +346,12 @@ export default function Landing() {
       </section>
 
       {/* ── WHAT MAKES IT DIFFERENT ───────────────────────────── */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-20" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 30% 80%, rgba(251,146,60,0.04) 0%, transparent 70%)' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">Technical Depth</span>
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">Technical Depth</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold">
-              Beyond Basic <span className="text-brand-400">Vector RAG</span>
+              Beyond Basic <span className="text-amber-400">Vector RAG</span>
             </h2>
           </div>
 
@@ -393,12 +401,12 @@ export default function Landing() {
       </section>
 
       {/* ── TECH STACK ────────────────────────────────────────── */}
-      <section className="px-6 py-16 bg-surface-800/50 border-y border-surface-700/50">
+      <section className="px-6 py-16 bg-surface-800/25 border-y border-amber-900/20">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-xs font-bold text-brand-400 uppercase tracking-widest">Technology Stack</span>
+          <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">Technology Stack</span>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
             {TECH.map(t => (
-              <span key={t} className="px-3 py-1.5 rounded-full text-xs font-medium bg-surface-700/60 text-surface-300 border border-surface-600">
+              <span key={t} className="px-3 py-1.5 rounded-full text-xs font-medium bg-surface-700/40 text-surface-300 border border-surface-600/50 hover:border-amber-800/50 transition-colors">
                 {t}
               </span>
             ))}
@@ -407,7 +415,7 @@ export default function Landing() {
       </section>
 
       {/* ── FINAL CTA ─────────────────────────────────────────── */}
-      <section className="px-6 py-24 text-center">
+      <section className="px-6 py-24 text-center" style={{ backgroundImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(251,191,36,0.04) 0%, transparent 70%)' }}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to Explore?</h2>
           <p className="text-surface-400 mb-8">
@@ -418,8 +426,8 @@ export default function Landing() {
               onClick={() => navigate('/dashboard')}
               disabled={backendStatus !== 'ready'}
               className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white
-                         bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700
-                         shadow-lg shadow-brand-500/25 transition-all duration-200
+                         bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500
+                         shadow-lg shadow-amber-600/30 transition-all duration-200
                          disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
             >
               {backendStatus === 'ready' ? (
@@ -445,9 +453,9 @@ export default function Landing() {
       </section>
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer className="border-t border-surface-700/50 px-6 py-8 text-center">
+      <footer className="border-t border-amber-900/20 px-6 py-8 text-center">
         <div className="text-xs text-surface-600">
-          Built by <a href="https://github.com/wtahir" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:underline">Waqas Tahir</a>
+          Built by <a href="https://github.com/wtahir" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:underline">Waqas Tahir</a>
           {' · '}
           <a href="https://github.com/wtahir/insurance-pipeline" target="_blank" rel="noopener noreferrer" className="text-surface-400 hover:text-surface-200 transition-colors">GitHub</a>
         </div>
