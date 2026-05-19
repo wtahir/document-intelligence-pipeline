@@ -220,8 +220,8 @@ export default function Landing() {
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
               Organisations across every industry process thousands of documents daily. This pipeline demonstrates how AI
-              can automate document understanding, extract structured data, and provide verified answers
-              — reducing processing time from hours to seconds. Insurance claims are used as the demo domain.
+              can automate document understanding, extract structured data, and provide verified answers,
+              reducing processing time from hours to seconds. Insurance claims are used as the demo domain.
             </p>
           </div>
 
@@ -289,7 +289,7 @@ export default function Landing() {
               End-to-End <span className="text-amber-400">Processing Pipeline</span>
             </h2>
             <p className="mt-4 text-surface-400 max-w-2xl mx-auto">
-              Six interconnected stages transform raw documents — from any domain — into queryable intelligence.
+              Six interconnected stages transform raw documents, from any domain, into queryable intelligence.
               Each stage is independently runnable, observable, and produces structured output.
             </p>
           </div>

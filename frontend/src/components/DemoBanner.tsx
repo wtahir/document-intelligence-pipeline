@@ -10,7 +10,7 @@ export default function DemoBanner() {
       <Zap size={14} className="text-brand-400 shrink-0" />
       <span className="text-surface-300">
         <strong className="text-brand-400">Agentic RAG Demo</strong>
-        <span className="hidden sm:inline"> — Production pipeline with Query Intelligence, Knowledge Graph, Context Engineering &amp; Self-Critique. Pre-computed results from 90 insurance claim documents.</span>
+        <span className="hidden sm:inline"> Production pipeline with Query Intelligence, Knowledge Graph, Context Engineering &amp; Self-Critique. Pre-computed results from 90 insurance claim documents.</span>
         <span className="sm:hidden"> — Agentic pipeline with KG + self-correction.</span>
       </span>
     </div>
