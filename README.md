@@ -1,4 +1,4 @@
-# Insurance Document Intelligence Pipeline
+# Document Intelligence Pipeline
 
 **Production-grade Agentic RAG system for automated insurance claim processing**
 
