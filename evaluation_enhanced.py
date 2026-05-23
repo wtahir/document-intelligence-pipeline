@@ -4,7 +4,7 @@
 # ═══════════════════════════════════════════════════════════════════
 #
 # Why the old evaluation is insufficient:
-#   Your stage6_evaluation.py uses a single LLM-as-judge with two scores
+#   The original stage6_evaluation.py uses a single LLM-as-judge with two scores
 #   (retrieval_score, answer_score). This has three problems:
 #
 #   1. SELF-SERVING BIAS — GPT-4o rates its own outputs higher than a
@@ -41,7 +41,7 @@
 #     - Checks which facts are present in the context
 #     - Score = found_facts / total_required_facts
 #
-# These four metrics together pinpoint exactly where your pipeline fails.
+# These four metrics together pinpoint exactly where the pipeline fails.
 
 import json
 import logging

@@ -1,7 +1,7 @@
 # celery_app.py
 # This is the Celery application configuration.
 # Every worker and every task imports from here.
-# Think of this as the "config.py" for your async infrastructure.
+# Think of this as the "config.py" for the async infrastructure.
 
 from celery import Celery
 import os
@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Redis is our broker — holds tasks waiting to be processed
-# Redis is also our backend — stores task results so you can check them later
+# Redis is also our backend — stores task results for status checking later
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
 app = Celery(

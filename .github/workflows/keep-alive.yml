@@ -1,0 +1,17 @@
+name: Keep Render Alive
+
+on:
+  schedule:
+    # Ping every 14 minutes to prevent Render free-tier spin-down
+    - cron: "*/14 * * * *"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping main application
+        run: |
+          curl -fsS --max-time 120 \
+            "https://document-intelligence-pipeline.onrender.com/health" \
+            || echo "Service warming up — will be ready on next ping"

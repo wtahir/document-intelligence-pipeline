@@ -4,9 +4,9 @@
 # ═══════════════════════════════════════════════════════════════════
 #
 # Why this matters:
-#   Your old pipeline shoved all retrieved chunks into a flat string
+#   The original pipeline shoved all retrieved chunks into a flat string
 #   and hoped the LLM would figure it out. This works for 3-5 chunks,
-#   but falls apart when you have:
+#   but falls apart with:
 #   - Multi-source results (some from vector search, some from graph)
 #   - Hierarchical documents (parent-child chunks)
 #   - Redundant chunks (overlap from multi-query expansion)

@@ -4,7 +4,7 @@
 #         data/output/embedding_summary.json
 #
 # This stage converts text chunks into vector embeddings and stores them
-# in ChromaDB with metadata. After this stage your documents are
+# in ChromaDB with metadata. After this stage the documents are
 # semantically searchable — similar meaning finds similar chunks
 # even without exact keyword matches.
 
@@ -38,7 +38,7 @@ logging.basicConfig(
 # multilingual text — it understands German and English in the same
 # vector space. This means a German chunk and an English query can
 # still match if they mean the same thing.
-# It runs on your CPU, no API cost, no internet needed after first download.
+# It runs on CPU, no API cost, no internet needed after first download.
 
 
 # --- Lazy initialisation ---

@@ -4,7 +4,7 @@
 # ═══════════════════════════════════════════════════════════════════
 #
 # Why this is the biggest upgrade:
-#   Your old query_pipeline() does: retrieve → rerank → generate.
+#   The original query_pipeline() does: retrieve → rerank → generate.
 #   One shot, one chance. If retrieval fails, the answer is bad.
 #
 #   Agentic RAG adds INTELLIGENCE to the retrieval process:

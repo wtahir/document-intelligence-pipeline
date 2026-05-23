@@ -4,7 +4,7 @@
 # ═══════════════════════════════════════════════════════════════════
 #
 # Why this matters:
-#   Your pipeline stores everything as flat vectors in ChromaDB.
+#   The pipeline stores everything as flat vectors in ChromaDB.
 #   When someone asks "which claims from policyholder Mueller were denied?",
 #   the vector search finds documents about "Mueller" and "denied" — but it
 #   can't TRAVERSE the relationship: Mueller → Policy → Claims → Decisions.
@@ -18,7 +18,7 @@
 #
 # Implementation:
 #   We use NetworkX (in-memory graph) rather than Neo4j for two reasons:
-#   1. No additional infrastructure (your pipeline is already complex)
+#   1. No additional infrastructure (the pipeline is already complex enough)
 #   2. The graph is small enough (hundreds of nodes, not millions) that
 #      in-memory is faster than a database round-trip
 #

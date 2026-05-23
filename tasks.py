@@ -9,9 +9,9 @@ import os
 from celery import chain
 from celery_app import app
 
-# Import your existing stage functions directly
-# This is the key insight — you don't rewrite your pipeline.
-# You wrap it. Your stage functions stay exactly as they are.
+# Import the existing stage functions directly.
+# The key insight — no need to rewrite the pipeline.
+# Just wrap it. The stage functions stay exactly as they are.
 from stage1_ingestion import extract_text_from_pdf
 from stage2_extraction import extract_document, client as azure_client
 from stage3_chunking import chunk_document

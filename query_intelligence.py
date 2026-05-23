@@ -4,7 +4,7 @@
 # ═══════════════════════════════════════════════════════════════════
 #
 # Why this matters:
-#   In your old pipeline, the raw user query goes straight to ChromaDB.
+#   In the original pipeline, the raw user query goes straight to ChromaDB.
 #   "What happened with the Mueller claim?" embeds as a generic question.
 #   The dense retriever finds chunks about "claims" and "happening" — not
 #   necessarily about Mueller.
