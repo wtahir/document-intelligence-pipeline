@@ -14,7 +14,7 @@ Not the basic embed→retrieve→generate portfolio project. This is a self-corr
 
 ## 🔗 Live Demo
 
-> **[insurance-pipeline.onrender.com](https://insurance-pipeline.onrender.com)**
+> **[document-intelligence-pipeline.onrender.com](https://document-intelligence-pipeline.onrender.com)**
 
 Pre-loaded with 90 synthetic German insurance PDFs (water, storm, glass damage). The demo showcases the full agentic RAG pipeline with transparent internals — query intelligence routing, knowledge graph facts, self-critique verification, and context engineering are all visible in the Query Interface.
 
