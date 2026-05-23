@@ -167,8 +167,8 @@ Each stage reads the previous stage's output and writes its own — you can reru
 ### Option A: Docker (recommended)
 
 ```bash
-git clone https://github.com/wtahir/insurance-pipeline.git
-cd insurance-pipeline
+git clone https://github.com/wtahir/document-intelligence-pipeline.git
+cd document-intelligence-pipeline
 
 # Configure credentials
 cp .env.example .env
