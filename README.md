@@ -174,7 +174,7 @@ cd insurance-pipeline
 cp .env.example .env
 # Edit .env with your Azure OpenAI credentials
 
-# Generate sample data (36 claim cases × 3 documents = 108 synthetic German PDFs)
+# Generate sample data (30 claim cases × 3 documents = 90 synthetic German PDFs)
 pip install fpdf2
 python generate_synthetic_data.py
 
@@ -193,7 +193,7 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your Azure OpenAI credentials
 
-# Generate sample data (36 claims × 3 docs each: email, invoice, photo report)
+# Generate sample data (30 claims × 3 docs each: email, invoice, photo report)
 python generate_synthetic_data.py
 
 # Run stages sequentially
@@ -420,7 +420,7 @@ All parameters are configurable via environment variables or `.env`:
 | `HYDE_ENABLED` | true | Use Hypothetical Document Embeddings |
 | `MULTI_QUERY_ENABLED` | true | Use multi-query expansion for complex queries |
 | `MULTI_QUERY_COUNT` | 4 | Number of sub-queries to generate |
-| `CONTEXT_DEDUP_THRESHOLD` | 0.80 | Cosine similarity threshold for chunk dedup |
+| `CONTEXT_DEDUP_THRESHOLD` | 0.80 | Jaccard similarity threshold for chunk dedup |
 | `CONTEXT_COMPRESSION_ENABLED` | true | Compress irrelevant passages in context |
 
 ---
