@@ -9,3 +9,11 @@ services:
       - key: PORT
         value: "8000"
     plan: free
+
+  # Redirect service: keeps the old insurance-pipeline.onrender.com URL alive
+  # and permanently forwards all traffic to the new URL above.
+  - type: web
+    name: insurance-pipeline
+    runtime: static
+    staticPublishPath: ./redirect-site
+    plan: free
